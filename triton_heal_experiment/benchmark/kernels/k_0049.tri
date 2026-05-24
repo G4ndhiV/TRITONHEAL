@@ -1,0 +1,7 @@
+import triton
+import triton.language as tl
+
+def bad_kernel(x_ptr, BLOCK_SIZE: tl.constexpr):
+    offs = tl.arange(0, BLOCK_SIZE)
+    x = tl.load(x_ptr + offs + 999999)
+    tl.store(x_ptr + offs, x)

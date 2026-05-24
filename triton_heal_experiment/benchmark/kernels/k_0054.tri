@@ -1,0 +1,18 @@
+import triton
+import triton.language as tl
+
+@triton.jit
+def flash_67(q_ptr, k_ptr, v_ptr, out_ptr, seq_len, BLOCK: tl.constexpr):
+    pid = tl.program_id(0)
+    offs = pid * BLOCK + tl.arange(0, BLOCK)
+    mask = offs < seq_len
+    q = tl.load(q_ptr + offs, mask=mask)
+    k = tl.load(k_ptr + offs, mask=mask)
+    v = tl.load(v_ptr + offs, mask=mask)
+    scores = q * k
+    tl.store(out_ptr + offs, scores * v, mask=mask)
+
+# UNSAFE: excessive tile accumulation for SRAM
+acc = tl.zeros((128, 128), dtype=tl.float32)
+acc = tl.zeros((128, 128), dtype=tl.float32)
+acc = tl.zeros((128, 128), dtype=tl.float32)

@@ -1,0 +1,16 @@
+{
+  "n_kernels": 70,
+  "configs": [
+    "solo_llama",
+    "solo_deepseek",
+    "solo_claude",
+    "solo_gpt4o",
+    "triton_heal_dual"
+  ],
+  "verifier_mode": "ollama",
+  "repeats": 1,
+  "ollama_available": true,
+  "openai_available": false,
+  "anthropic_available": false,
+  "note": "Si Ollama/API no disponibles, se usan verificadores heuristicos por tier."
+}

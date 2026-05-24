@@ -1,0 +1,244 @@
+{
+  "n_kernels": 70,
+  "n_evaluations_total": 350,
+  "n_safe": 39,
+  "n_unsafe": 31,
+  "verifier_mode": "ollama",
+  "ollama_available": true,
+  "configs_backend": {
+    "solo_llama": "Ollama llama3.1:8b (Metal / M4)",
+    "solo_deepseek": "Ollama deepseek-coder-v2 (Metal / M4)",
+    "solo_claude": "Heur\u00edstico (sin API)",
+    "solo_gpt4o": "Heur\u00edstico (sin API)",
+    "triton_heal_dual": "Ollama llama3.1:8b (Metal / M4) + prompt estricto (veto local)"
+  },
+  "descriptive_extended": [
+    {
+      "config": "solo_llama",
+      "label": "Llama-3.1-8B (local)",
+      "n_kernels": 70,
+      "n_evaluations": 70,
+      "n_valid_json": 70,
+      "valid_json_pct": 100.0,
+      "timeout_pct": 0.0,
+      "msr_pct": 64.51612903225806,
+      "msr_ci_lo": 46.94795406436887,
+      "msr_ci_hi": 78.8833409061346,
+      "fnr_pct": 35.483870967741936,
+      "f1": 0.7843137254901961,
+      "latency_mean": 4776.715621414315,
+      "latency_std": 3020.6848671482244,
+      "latency_median": 4940.669854500356,
+      "latency_min": 1623.7028750001627,
+      "latency_max": 21869.84349999966,
+      "tp": 20,
+      "fn": 11
+    },
+    {
+      "config": "solo_deepseek",
+      "label": "DeepSeek-Coder-V2 (local)",
+      "n_kernels": 70,
+      "n_evaluations": 70,
+      "n_valid_json": 70,
+      "valid_json_pct": 100.0,
+      "timeout_pct": 0.0,
+      "msr_pct": 87.09677419354838,
+      "msr_ci_lo": 71.14759374369358,
+      "msr_ci_hi": 94.86571562537085,
+      "fnr_pct": 12.903225806451612,
+      "f1": 0.7941176470588235,
+      "latency_mean": 2278.58944884291,
+      "latency_std": 2018.5805260551208,
+      "latency_median": 2003.1181460003609,
+      "latency_min": 1473.109999999906,
+      "latency_max": 18549.613332999797,
+      "tp": 27,
+      "fn": 4
+    },
+    {
+      "config": "solo_claude",
+      "label": "Claude 3.5 Sonnet (frontera)",
+      "n_kernels": 70,
+      "n_evaluations": 70,
+      "n_valid_json": 70,
+      "valid_json_pct": 100.0,
+      "timeout_pct": 0.0,
+      "msr_pct": 83.87096774193549,
+      "msr_ci_lo": 67.36564604120674,
+      "msr_ci_hi": 92.9073755566347,
+      "fnr_pct": 16.129032258064516,
+      "f1": 0.9122807017543859,
+      "latency_mean": 80.02428751430281,
+      "latency_std": 0.039671589403304106,
+      "latency_median": 80.0173334997271,
+      "latency_min": 80.00925000040297,
+      "latency_max": 80.3416660001676,
+      "tp": 26,
+      "fn": 5
+    },
+    {
+      "config": "solo_gpt4o",
+      "label": "GPT-4o (frontera)",
+      "n_kernels": 70,
+      "n_evaluations": 70,
+      "n_valid_json": 70,
+      "valid_json_pct": 100.0,
+      "timeout_pct": 0.0,
+      "msr_pct": 83.87096774193549,
+      "msr_ci_lo": 67.36564604120674,
+      "msr_ci_hi": 92.9073755566347,
+      "fnr_pct": 16.129032258064516,
+      "f1": 0.9122807017543859,
+      "latency_mean": 80.01332742857423,
+      "latency_std": 0.006720588065321878,
+      "latency_median": 80.01033299986375,
+      "latency_min": 80.00383399947168,
+      "latency_max": 80.02770900027826,
+      "tp": 26,
+      "fn": 5
+    },
+    {
+      "config": "triton_heal_dual",
+      "label": "Triton Heal (dual + veto)",
+      "n_kernels": 70,
+      "n_evaluations": 70,
+      "n_valid_json": 70,
+      "valid_json_pct": 100.0,
+      "timeout_pct": 0.0,
+      "msr_pct": 100.0,
+      "msr_ci_lo": 88.97446045395641,
+      "msr_ci_hi": 100.0,
+      "fnr_pct": 0.0,
+      "f1": 0.6138613861386139,
+      "latency_mean": 8037.2401124428525,
+      "latency_std": 2190.8990210764005,
+      "latency_median": 8063.552062500094,
+      "latency_min": 5126.4242510005715,
+      "latency_max": 15551.023499998337,
+      "tp": 31,
+      "fn": 0
+    }
+  ],
+  "inference": [
+    {
+      "test": "C1_claude_vs_llama",
+      "chi2": 3.125,
+      "p": 0.07709987174354178,
+      "phi": -2.1213203435596424,
+      "table": [
+        [
+          4,
+          1
+        ],
+        [
+          7,
+          19
+        ]
+      ],
+      "n_discordant": 8,
+      "p_holm": 0.23129961523062537
+    },
+    {
+      "test": "C2_gpt_vs_deepseek",
+      "chi2": 0.0,
+      "p": 1.0,
+      "phi": 0.3333333333333333,
+      "table": [
+        [
+          0,
+          5
+        ],
+        [
+          4,
+          22
+        ]
+      ],
+      "n_discordant": 9,
+      "p_holm": 1.0
+    },
+    {
+      "test": "C3_dual_vs_llama_fnr",
+      "chi2": 9.090909090909092,
+      "p": 0.0025688315270227173,
+      "phi": -3.3166247903554,
+      "table": [
+        [
+          0,
+          0
+        ],
+        [
+          11,
+          20
+        ]
+      ],
+      "n_discordant": 11,
+      "p_holm": 0.012844157635113587
+    },
+    {
+      "test": "C5_latency",
+      "stat": 0.0,
+      "p": 0.999999999999822,
+      "p_two_sided": 3.559469460061398e-13,
+      "r": 1.0,
+      "median_diff": -4860.645042000142,
+      "mean_diff": -4696.691333900011,
+      "p_holm": 1.0
+    },
+    {
+      "test": "C6_friedman",
+      "chi2": 10.267605633802926,
+      "p": 0.01642314094724969,
+      "w": 0.048893360160966313,
+      "p_holm": 0.06569256378899876
+    }
+  ],
+  "inference_display": [
+    {
+      "nombre": "Claude vs Llama (MSR)",
+      "prueba": "McNemar",
+      "stat": "$\\chi^2=3.12$",
+      "p_holm": "0.2313",
+      "efecto": "$\\phi=-2.12$ (grande)",
+      "interp": "No rechaza $H_0$; $\\Delta$MSR=19.4 pp (Claude heur.\\ vs.\\ Llama Ollama/M4)."
+    },
+    {
+      "nombre": "GPT-4o vs DeepSeek",
+      "prueba": "McNemar",
+      "stat": "$\\chi^2=0.00$",
+      "p_holm": "1.0000",
+      "efecto": "$\\phi=0.33$ (mediano)",
+      "interp": "No rechaza $H_0$; GPT heur.\\ (83.9\\%) vs.\\ DeepSeek Ollama (87.1\\%)."
+    },
+    {
+      "nombre": "Dual vs Llama",
+      "prueba": "McNemar",
+      "stat": "$\\chi^2=9.09$",
+      "p_holm": "0.0128",
+      "efecto": "$\\phi=-3.32$ (grande)",
+      "interp": "Rechaza $H_0$; dual reduce FNR (m\u00e1s detecciones en unsafe)."
+    },
+    {
+      "nombre": "Lat. Claude vs Llama",
+      "prueba": "Wilcoxon",
+      "stat": "$W=0$",
+      "p_holm": "1.0000",
+      "efecto": "$r=1.00$",
+      "interp": "No rechaza $H_4$; med. $\\Delta$=-4861 ms (Claude heur.\\ m\u00e1s r\u00e1pido)."
+    },
+    {
+      "nombre": "F1 global (4 cfg.)",
+      "prueba": "Friedman",
+      "stat": "$\\chi^2=10.3$",
+      "p_holm": "0.0657",
+      "efecto": "$W=0.05$",
+      "interp": "No rechaza igualdad global de F1 tras Holm."
+    }
+  ],
+  "holm": {
+    "C3_dual_vs_llama_fnr": 0.012844157635113587,
+    "C6_friedman": 0.06569256378899876,
+    "C1_claude_vs_llama": 0.23129961523062537,
+    "C5_latency": 1.0,
+    "C2_gpt_vs_deepseek": 1.0
+  }
+}

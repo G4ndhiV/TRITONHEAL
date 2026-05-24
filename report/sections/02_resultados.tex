@@ -1,0 +1,92 @@
+\section{Resultados descriptivos (2.1)}
+
+Se evaluaron $N=\Nkernels$ kernels (39 \texttt{safe}, 31 \texttt{unsafe}) en 5 configuraciones, totalizando 350 evaluaciones (\texttt{VERIFIER\_MODE=ollama}, mayo 2026, Apple M4 / Metal). La Tabla~\ref{tab:desc_ext} reporta tasas de JSON válido, MSR con IC 95\% Wilson, F1, FNR y latencia (mediana, mín., máx.).
+
+\input{tables/descriptive_extended.tex}
+
+\textbf{Narrativa alineada con la corrida.} Con timeout de 120\,s y aceleración Metal, \textbf{Llama-3.1-8B} y \textbf{DeepSeek-Coder-V2} operaron vía Ollama con 100\% de JSON válido. Llama alcanzó MSR 64.5\% (IC: 46.9--78.9\%; mediana $\approx$4.9\,s). DeepSeek local superó a Llama con MSR 87.1\% (IC: 71.1--94.9\%; mediana $\approx$2.0\,s). \textbf{Claude} y \textbf{GPT-4o} siguieron en modo \emph{heurístico} (sin API key), con MSR $\approx$83.9\% y latencia simulada $\approx$80\,ms. \textbf{Triton Heal dual} (Llama + prompt estricto de veto) obtuvo MSR 100\% en \texttt{unsafe} (IC: 89.0--100\%) pero F1 global 0.61 por falsos positivos en kernels \texttt{safe}; latencia mediana $\approx$8.1\,s.
+
+\section{Visualización (2.2)}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\linewidth]{fig_msr_f1.pdf}
+  \caption{MSR y F1 por configuración.}
+  \label{fig:msr_f1}
+\end{figure}
+
+La Figura~\ref{fig:msr_f1} muestra que DeepSeek y el modo dual lideran en detección (MSR), mientras Claude/GPT heurísticos mantienen el mayor F1 por menor tasa de falsos positivos.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\linewidth]{fig_valid_json.pdf}
+  \caption{Tasa de éxito de inferencia (\% JSON válido).}
+  \label{fig:valid_json}
+\end{figure}
+
+Tras reinstalar modelos tras el corte de luz, todas las configuraciones con Ollama real alcanzaron 100\% de JSON válido (Figura~\ref{fig:valid_json}).
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\linewidth]{fig_latency.pdf}
+  \caption{Distribución de latencia (ms, escala logarítmica).}
+  \label{fig:latency}
+\end{figure}
+
+La Figura~\ref{fig:latency} contrasta inferencia local en segundos (Llama, DeepSeek, dual) frente a latencias heurísticas de frontera ($\sim$80\,ms).
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\linewidth]{fig_msr_category.pdf}
+  \caption{MSR en kernels \texttt{unsafe} por categoría de error.}
+  \label{fig:category}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.65\linewidth]{fig_fnr_dual.pdf}
+  \caption{FNR: Triton Heal dual vs.\ solo Llama (contraste C3 / PRI-2).}
+  \label{fig:fnr}
+\end{figure}
+
+\section{Inferencia estadística (2.3)}
+
+\input{tables/inference.tex}
+
+\textbf{¿Se rechaza $H_0$?} En C1 (Claude heur.\ vs.\ Llama Ollama) \textbf{no} se rechaza $H_0$ tras Holm ($p_{\text{Holm}}=0.23$). En C2 (GPT vs.\ DeepSeek) tampoco ($p_{\text{Holm}}=1.00$). En C3 (dual vs.\ Llama) sí se rechaza ($p_{\text{Holm}}=0.013$): el dual reduce FNR. En C5 (latencia) no se rechaza $H_4$ ($p_{\text{Holm}}=1.00$): Claude heur.\ es más rápido que Llama local. Friedman (C6) no rechaza tras Holm ($p_{\text{Holm}}=0.066$).
+
+\textbf{Tamaño del efecto.} McNemar reporta $|\phi|$ grande en C1 y C3; el contraste C3 confirma ganancia del dual en detección de \texttt{unsafe}. La $\Delta$MSR Claude--Llama (+19.4 pp) no es significativa con la corrección múltiple.
+
+\textbf{Consistencia.} DeepSeek local (16B, M4) supera descriptivamente a Llama 8B y a baselines heurísticos de frontera en MSR, con la salvedad de que Claude/GPT no usaron API real.
+
+\section{Comparación crítica y robustez (2.4)}
+
+\textbf{Comparación crítica.} En este host, el SLM local \textbf{DeepSeek-Coder-V2} (87.1\% MSR) es competitivo frente a Claude/GPT heurísticos (83.9\%). El dual maximiza sensibilidad (MSR 100\%) pero penaliza precisión global (F1 0.61) al marcar muchos \texttt{safe} como inseguros.
+
+\textbf{Robustez.} (1) \emph{Frontera simulada:} Claude/GPT sin API. (2) \emph{Veto dual local:} no replica Claude comercial. (3) \emph{Seed único} (42). (4) \emph{Hardware:} resultados válidos para Apple M4 24\,GB, no para A100/CUDA.
+
+\section{Amenazas observadas (2.5)}
+
+\begin{itemize}[noitemsep]
+  \item \textbf{Interna:} APIs ausentes; veto dual implementado solo con Llama local.
+  \item \textbf{Externa:} benchmark de 70 kernels; un solo Mac M4.
+  \item \textbf{Constructo:} MSR $\neq$ seguridad en ejecución GPU real.
+\end{itemize}
+
+\section{Discusión (2.6)}
+
+\textbf{¿Qué evidencia hay?} Con Ollama en Metal, los SLM locales son viables (JSON 100\%, latencias de segundos). La superioridad estadística del dual sobre Llama en FNR (C3) apoya parcialmente PRI-2; PRI-1 no se confirma entre Claude heur.\ y Llama.
+
+\textbf{Limitaciones.} Sin APIs comerciales; dual con alto MSR pero bajo F1 por conservadurismo del prompt estricto.
+
+\textbf{¿Qué haríamos distinto?} Configurar claves API para contrastes de frontera reales; calibrar el veto para reducir falsos positivos; repetir en GPU NVIDIA para validez externa.
+
+\section{Conclusión (2.7)}
+
+\begin{enumerate}[noitemsep]
+  \item \textbf{$H_0$ MSR (C1):} No rechazada; DeepSeek local sí supera descriptivamente a Llama y a heurísticos de frontera.
+  \item \textbf{Evidencia para Triton Heal:} Dual reduce FNR vs.\ Llama (C3, Holm); trade-off en F1 por falsos positivos.
+  \item \textbf{Latencia:} Local Ollama (2--8\,s) vs.\ heurístico de frontera ($\sim$80\,ms); no comparable con WAN real.
+  \item \textbf{Reproducibilidad:} \texttt{make experiments stats figures pdf}; entorno M4 documentado en Tabla~\ref{tab:repro}.
+  \item \textbf{Escala:} Comparación 8B vs 16B local realizada; frontera comercial pendiente de API.
+\end{enumerate}

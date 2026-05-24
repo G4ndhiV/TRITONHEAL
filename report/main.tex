@@ -1,0 +1,75 @@
+\documentclass[11pt,a4paper]{article}
+\input{preamble}
+
+\newcommand{\Nkernels}{70}
+
+\title{%
+  \textbf{PROYECTO TRITON HEAL}\\[0.5em]
+  Reporte de Evaluación Experimental\\[0.3em]
+  \large TC3002B --- Arquitectura Generativa-Verificativa para\\
+  Detección Predictiva de Errores en Kernels GPU con Triton DSL
+}
+\author{Equipo 11}
+\date{Mayo 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+Evaluación TC3002B de Triton Heal (verificación pre-compilación de kernels Triton DSL).
+En \Nkernels\ kernels y 350 corridas (\texttt{VERIFIER\_MODE=ollama}, Apple M4, 24\,GB),
+Llama-3.1-8B y DeepSeek-Coder-V2 usaron Ollama (MSR 64.5\% y 87.1\%);
+Claude y GPT fueron heurísticos (sin API). El modo dual: MSR 100\%, F1 0.61.
+Se reportan IC Wilson, latencia y pruebas McNemar, Wilcoxon y Friedman (Holm):
+solo C3 (dual vs.\ Llama) rechaza $H_0$ tras corrección.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\part{Parte I --- Pre-registro Experimental}
+\input{sections/01_preregistro}
+
+\part{Parte II --- Resultados y Análisis}
+\input{sections/02_resultados}
+
+\appendix
+\section{Configuración planeada vs.\ corrida real}
+\begin{table}[ht]
+\centering
+\caption{Backends por configuración (mayo 2026).}
+\begin{adjustbox}{max width=\linewidth,center}
+{\footnotesize
+\begin{tabularx}{\linewidth}{@{}lXX@{}}
+\toprule
+Configuración & Planeado & Ejecutado \\
+\midrule
+solo\_llama & Ollama Llama-3.1-8B & Ollama \texttt{llama3.1:8b} (Metal / M4) \\
+solo\_deepseek & Ollama DeepSeek-Coder-V2 & Ollama \texttt{deepseek-coder-v2} (8.9\,GB, M4) \\
+solo\_claude & API Claude 3.5 Sonnet & Heurístico (sin API key) \\
+solo\_gpt4o & API GPT-4o & Heurístico (sin API key) \\
+triton\_heal\_dual & Llama + veto Claude & Ollama Llama + \texttt{verifier\_strict} (veto local) \\
+\bottomrule
+\end{tabularx}}
+\end{adjustbox}
+\end{table}
+
+\section{Reproducibilidad}
+\begin{verbatim}
+cd Estadistica/triton_heal_experiment
+.venv/bin/python -m src.stats_analysis
+.venv/bin/python -m src.plot_results
+cd ../report && tectonic main.tex
+\end{verbatim}
+Archivos: \texttt{results/predictions.csv}, \texttt{results/stats\_summary.json},
+\texttt{report/tables/*.tex}, \texttt{figures/*.pdf}.
+
+\section{Referencias}
+\begin{itemize}
+  \item Tillet, P., et al. (2019). Triton: An Intermediate Language and Compiler for Tiled Neural Network Computations.
+  \item McNemar, Q. (1947). Note on the sampling error of the difference between correlated proportions.
+  \item Holm, S. (1979). A simple sequentially rejective multiple test procedure.
+\end{itemize}
+
+\end{document}

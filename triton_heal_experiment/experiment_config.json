@@ -1,0 +1,20 @@
+{
+  "seed": 42,
+  "benchmark_size": 80,
+  "benchmark_balance": 0.5,
+  "temperature": 0.0,
+  "max_tokens": 512,
+  "timeout_seconds": 120,
+  "latency_repeats_local": 1,
+  "latency_repeats_api": 1,
+  "ollama_host": "http://127.0.0.1:11434",
+  "models": {
+    "llama_local": "llama3.1:8b",
+    "deepseek_local": "deepseek-coder-v2",
+    "claude_frontier": "claude-3-5-sonnet-20241022",
+    "gpt_frontier": "gpt-4o-2024-05-13"
+  },
+  "verifier_mode": "hybrid",
+  "practical_threshold_msr_pp": 5.0,
+  "alpha": 0.05
+}

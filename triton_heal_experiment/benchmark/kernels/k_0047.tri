@@ -1,0 +1,15 @@
+import triton
+import triton.language as tl
+
+@triton.jit
+def elem_15(x_ptr, out_ptr, n, BLOCK_SIZE: tl.constexpr):
+    pid = tl.program_id(0)
+    offs = pid * BLOCK_SIZE + tl.arange(0, BLOCK_SIZE)
+    mask = offs < n
+    x = tl.load(x_ptr + offs, mask=mask)
+    tl.store(out_ptr + offs, x * 2.0, mask=mask)
+
+# UNSAFE: excessive tile accumulation for SRAM
+acc = tl.zeros((128, 128), dtype=tl.float32)
+acc = tl.zeros((128, 128), dtype=tl.float32)
+acc = tl.zeros((128, 128), dtype=tl.float32)
