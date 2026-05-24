@@ -1,0 +1,351 @@
+kernel_id,config,config_label,model,pred_safe,local_safe,frontier_safe,disagreement,veto_applied,reason,latency_ms,valid_json,run_id,label,category,error_type
+k_0000,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30017.50987500418,False,0,safe,matmul,none
+k_0001,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30045.109625032637,False,0,safe,flash_attention,none
+k_0002,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30121.72237498453,False,0,safe,reduction,none
+k_0003,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30193.73216701206,False,0,safe,softmax,none
+k_0004,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,18435.27791602537,True,0,safe,elementwise,none
+k_0005,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30129.698833974544,False,0,safe,flash_attention,none
+k_0006,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30688.807708967943,False,0,safe,reduction,none
+k_0007,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30639.06745798886,False,0,safe,reduction,none
+k_0008,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30639.406875008717,False,0,safe,reduction,none
+k_0009,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30308.5359170218,False,0,safe,matmul,none
+k_0010,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30222.01716597192,False,0,safe,reduction,none
+k_0011,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30462.110916967504,False,0,safe,matmul,none
+k_0012,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30401.090916013345,False,0,safe,softmax,none
+k_0013,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30401.064832985867,False,0,safe,elementwise,none
+k_0014,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30235.443915997166,False,0,safe,elementwise,none
+k_0015,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30269.805999996606,False,0,safe,flash_attention,none
+k_0016,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30236.194416997023,False,0,safe,matmul,none
+k_0017,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30100.95187497791,False,0,safe,reduction,none
+k_0018,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30571.90995797282,False,0,safe,matmul,none
+k_0019,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30271.091957984027,False,0,safe,reduction,none
+k_0020,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30209.78983398527,False,0,safe,flash_attention,none
+k_0021,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30533.51920901332,False,0,safe,reduction,none
+k_0022,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,24050.412208016496,True,0,safe,matmul,none
+k_0023,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30157.161624985747,False,0,safe,softmax,none
+k_0024,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30217.3567499849,False,0,safe,flash_attention,none
+k_0025,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30242.959833005443,False,0,safe,flash_attention,none
+k_0026,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,23926.757415989414,True,0,safe,matmul,none
+k_0027,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30102.709791972302,False,0,safe,elementwise,none
+k_0028,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30386.571958020795,False,0,safe,flash_attention,none
+k_0029,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",31583.72833399335,False,0,safe,softmax,none
+k_0030,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30625.69620803697,False,0,safe,matmul,none
+k_0031,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30266.802250000183,False,0,safe,elementwise,none
+k_0032,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30189.32462495286,False,0,safe,elementwise,none
+k_0033,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30137.830874999054,False,0,safe,elementwise,none
+k_0034,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30186.869791999925,False,0,safe,softmax,none
+k_0035,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30418.558083998505,False,0,safe,softmax,none
+k_0036,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30989.561291004065,False,0,safe,softmax,none
+k_0037,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,21822.248707991093,True,0,safe,reduction,none
+k_0038,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30598.55737502221,False,0,safe,elementwise,none
+k_0039,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30407.69145800732,False,0,unsafe,flash_attention,memory_oob
+k_0040,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30262.860999966506,False,0,unsafe,matmul,memory_unmasked_store
+k_0041,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30383.23700003093,False,0,unsafe,elementwise,mixed_precision
+k_0042,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30493.318833992817,False,0,unsafe,reduction,sram_overflow
+k_0043,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30662.359167006798,False,0,unsafe,softmax,sram_overflow
+k_0044,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30460.901625046972,False,0,unsafe,softmax,memory_oob
+k_0045,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30255.353999964427,False,0,unsafe,elementwise,memory_unmasked_store
+k_0046,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30162.43620798923,False,0,unsafe,flash_attention,missing_decorator
+k_0047,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30707.671709009446,False,0,unsafe,elementwise,sram_overflow
+k_0048,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30280.84829094587,False,0,unsafe,matmul,memory_oob
+k_0049,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30220.41462501511,False,0,unsafe,reduction,lex_seed_unsafe
+k_0050,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30216.62258397555,False,0,unsafe,reduction,memory_unmasked_store
+k_0051,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30203.48374999594,False,0,unsafe,matmul,sram_tiling_misaligned
+k_0052,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30203.626916976646,False,0,unsafe,reduction,missing_decorator
+k_0053,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30397.839749988634,False,0,unsafe,matmul,sram_overflow
+k_0054,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30204.90570901893,False,0,unsafe,flash_attention,sram_overflow
+k_0055,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30074.15374997072,False,0,unsafe,softmax,sram_tiling_misaligned
+k_0056,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30564.785333001055,False,0,unsafe,reduction,sram_tiling_misaligned
+k_0057,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30785.344999982044,False,0,unsafe,elementwise,missing_decorator
+k_0058,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30392.78850000119,False,0,unsafe,softmax,memory_unmasked_store
+k_0059,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30850.65916698659,False,0,unsafe,flash_attention,memory_unmasked_store
+k_0060,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30276.265000051353,False,0,unsafe,matmul,mixed_precision
+k_0061,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",31663.383707986213,False,0,unsafe,matmul,missing_decorator
+k_0062,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30443.96487501217,False,0,unsafe,reduction,mixed_precision
+k_0063,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,out-of-bounds memory access: load with offset + 999999,27535.754333948717,True,0,unsafe,elementwise,memory_oob
+k_0064,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30168.64629200427,False,0,unsafe,softmax,missing_decorator
+k_0065,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30474.802000040654,False,0,unsafe,reduction,memory_oob
+k_0066,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30412.239584024064,False,0,unsafe,flash_attention,mixed_precision
+k_0067,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",30299.104333971627,False,0,unsafe,flash_attention,sram_tiling_misaligned
+k_0068,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",31644.02716595214,False,0,unsafe,softmax,mixed_precision
+k_0069,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",31198.096958047245,False,0,unsafe,elementwise,sram_tiling_misaligned
+k_0000,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,11.650541967246681,True,0,safe,matmul,none
+k_0001,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.015875033568591,True,0,safe,flash_attention,none
+k_0002,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.00816595274955,True,0,safe,reduction,none
+k_0003,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.007290975190699,True,0,safe,softmax,none
+k_0004,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.007249996997416,True,0,safe,elementwise,none
+k_0005,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.007916998583823,True,0,safe,flash_attention,none
+k_0006,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.005708017852157,True,0,safe,reduction,none
+k_0007,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.005124951712787,True,0,safe,reduction,none
+k_0008,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.004583969712257,True,0,safe,reduction,none
+k_0009,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.007249996997416,True,0,safe,matmul,none
+k_0010,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.0097909942269325,True,0,safe,reduction,none
+k_0011,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.010750023648143,True,0,safe,matmul,none
+k_0012,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.005499983672053,True,0,safe,softmax,none
+k_0013,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.004834029823542,True,0,safe,elementwise,none
+k_0014,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.004542001988739,True,0,safe,elementwise,none
+k_0015,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.005083973519504,True,0,safe,flash_attention,none
+k_0016,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.006625021342188,True,0,safe,matmul,none
+k_0017,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.005749985575676,True,0,safe,reduction,none
+k_0018,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.006415997631848,True,0,safe,matmul,none
+k_0019,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.006458023563027,True,0,safe,reduction,none
+k_0020,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.006582995411009,True,0,safe,flash_attention,none
+k_0021,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.004083034582436,True,0,safe,reduction,none
+k_0022,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.008083006832749,True,0,safe,matmul,none
+k_0023,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.004165980499238,True,0,safe,softmax,none
+k_0024,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.005292007699609,True,0,safe,flash_attention,none
+k_0025,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.0047500361688435,True,0,safe,flash_attention,none
+k_0026,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.007000053301454,True,0,safe,matmul,none
+k_0027,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.005375011824071,True,0,safe,elementwise,none
+k_0028,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.0047089997678995,True,0,safe,flash_attention,none
+k_0029,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.004125002305955,True,0,safe,softmax,none
+k_0030,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.006332993507385,True,0,safe,matmul,none
+k_0031,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.005499983672053,True,0,safe,elementwise,none
+k_0032,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.00504101626575,True,0,safe,elementwise,none
+k_0033,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.004999979864806,True,0,safe,elementwise,none
+k_0034,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.0053749536164105,True,0,safe,softmax,none
+k_0035,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.004375004209578,True,0,safe,softmax,none
+k_0036,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.004292000085115,True,0,safe,softmax,none
+k_0037,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.004458997864276,True,0,safe,reduction,none
+k_0038,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.003833964001387,True,0,safe,elementwise,none
+k_0039,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,False,,,,,memory_oob,5.02037500962615,True,0,unsafe,flash_attention,memory_oob
+k_0040,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,False,,,,,unbalanced_parens,5.0147909740917385,True,0,unsafe,matmul,memory_unmasked_store
+k_0041,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.004458008334041,True,0,unsafe,elementwise,mixed_precision
+k_0042,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.005292007699609,True,0,unsafe,reduction,sram_overflow
+k_0043,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.005209003575146,True,0,unsafe,softmax,sram_overflow
+k_0044,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,False,,,,,memory_oob,5.011082971468568,True,0,unsafe,softmax,memory_oob
+k_0045,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.003416964318603,True,0,unsafe,elementwise,memory_unmasked_store
+k_0046,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,False,,,,,missing_jit_decorator,5.013957964256406,True,0,unsafe,flash_attention,missing_decorator
+k_0047,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.004915986210108,True,0,unsafe,elementwise,sram_overflow
+k_0048,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,False,,,,,memory_oob,5.012375006917864,True,0,unsafe,matmul,memory_oob
+k_0049,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,False,,,,,missing_jit_decorator; memory_oob,5.0076669966802,True,0,unsafe,reduction,lex_seed_unsafe
+k_0050,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.00391696812585,True,0,unsafe,reduction,memory_unmasked_store
+k_0051,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.006249989382923,True,0,unsafe,matmul,sram_tiling_misaligned
+k_0052,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,False,,,,,missing_jit_decorator,5.0151669955812395,True,0,unsafe,reduction,missing_decorator
+k_0053,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.007833004929125,True,0,unsafe,matmul,sram_overflow
+k_0054,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.006374961230904,True,0,unsafe,flash_attention,sram_overflow
+k_0055,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.004292000085115,True,0,unsafe,softmax,sram_tiling_misaligned
+k_0056,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.003917026333511,True,0,unsafe,reduction,sram_tiling_misaligned
+k_0057,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,False,,,,,missing_jit_decorator,5.011750031262636,True,0,unsafe,elementwise,missing_decorator
+k_0058,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,False,,,,,unbalanced_parens,5.012166041415185,True,0,unsafe,softmax,memory_unmasked_store
+k_0059,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.004292000085115,True,0,unsafe,flash_attention,memory_unmasked_store
+k_0060,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.0061249593272805,True,0,unsafe,matmul,mixed_precision
+k_0061,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,False,,,,,missing_jit_decorator,5.012832984793931,True,0,unsafe,matmul,missing_decorator
+k_0062,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.004082976374775,True,0,unsafe,reduction,mixed_precision
+k_0063,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,False,,,,,memory_oob,5.0090409885160625,True,0,unsafe,elementwise,memory_oob
+k_0064,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,False,,,,,missing_jit_decorator,5.010417017620057,True,0,unsafe,softmax,missing_decorator
+k_0065,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,False,,,,,memory_oob,5.012541015166789,True,0,unsafe,reduction,memory_oob
+k_0066,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.006666989065707,True,0,unsafe,flash_attention,mixed_precision
+k_0067,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.005083973519504,True,0,unsafe,flash_attention,sram_tiling_misaligned
+k_0068,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.004249974153936,True,0,unsafe,softmax,mixed_precision
+k_0069,solo_deepseek,DeepSeek-Coder-V2 (local),heuristic_local,True,,,,,no issues detected,5.0047500361688435,True,0,unsafe,elementwise,sram_tiling_misaligned
+k_0000,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.58683397946879,True,0,safe,matmul,none
+k_0001,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01704099122435,True,0,safe,flash_attention,none
+k_0002,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01175003126264,True,0,safe,reduction,none
+k_0003,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01891696592793,True,0,safe,softmax,none
+k_0004,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01004198566079,True,0,safe,elementwise,none
+k_0005,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01595803769305,True,0,safe,flash_attention,none
+k_0006,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01650000922382,True,0,safe,reduction,none
+k_0007,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00933301635087,True,0,safe,reduction,none
+k_0008,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00875000841916,True,0,safe,reduction,none
+k_0009,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01566699938849,True,0,safe,matmul,none
+k_0010,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00845798058435,True,0,safe,reduction,none
+k_0011,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01487496774644,True,0,safe,matmul,none
+k_0012,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00949995592237,True,0,safe,softmax,none
+k_0013,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01675001112744,True,0,safe,elementwise,none
+k_0014,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01237500691786,True,0,safe,elementwise,none
+k_0015,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01312501262873,True,0,safe,flash_attention,none
+k_0016,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01679203705862,True,0,safe,matmul,none
+k_0017,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01066701952368,True,0,safe,reduction,none
+k_0018,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01499999780208,True,0,safe,matmul,none
+k_0019,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.0095420400612,True,0,safe,reduction,none
+k_0020,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01091597368941,True,0,safe,flash_attention,none
+k_0021,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00891601666808,True,0,safe,reduction,none
+k_0022,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01445796806365,True,0,safe,matmul,none
+k_0023,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00999995972961,True,0,safe,softmax,none
+k_0024,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01058401539922,True,0,safe,flash_attention,none
+k_0025,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00991602428257,True,0,safe,flash_attention,none
+k_0026,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01437496393919,True,0,safe,matmul,none
+k_0027,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.0097089796327,True,0,safe,elementwise,none
+k_0028,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01316599082202,True,0,safe,flash_attention,none
+k_0029,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00933301635087,True,0,safe,softmax,none
+k_0030,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.0139590119943,True,0,safe,matmul,none
+k_0031,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00800000270829,True,0,safe,elementwise,none
+k_0032,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00787497265264,True,0,safe,elementwise,none
+k_0033,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00787497265264,True,0,safe,elementwise,none
+k_0034,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00916596036404,True,0,safe,softmax,none
+k_0035,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00879098661244,True,0,safe,softmax,none
+k_0036,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.0089579843916,True,0,safe,softmax,none
+k_0037,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.0087499502115,True,0,safe,reduction,none
+k_0038,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01045799581334,True,0,safe,elementwise,none
+k_0039,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,memory_oob,80.02454099012539,True,0,unsafe,flash_attention,memory_oob
+k_0040,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01541699748486,True,0,unsafe,matmul,memory_unmasked_store
+k_0041,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,mixed_precision,80.02345797838643,True,0,unsafe,elementwise,mixed_precision
+k_0042,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_overflow,80.02808403223753,True,0,unsafe,reduction,sram_overflow
+k_0043,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_overflow,80.0271670287475,True,0,unsafe,softmax,sram_overflow
+k_0044,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,memory_oob,80.01795799471438,True,0,unsafe,softmax,memory_oob
+k_0045,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00887498026714,True,0,unsafe,elementwise,memory_unmasked_store
+k_0046,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.36624999484047,True,0,unsafe,flash_attention,missing_decorator
+k_0047,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_overflow,80.02733297878876,True,0,unsafe,elementwise,sram_overflow
+k_0048,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,memory_oob,80.0245829578489,True,0,unsafe,matmul,memory_oob
+k_0049,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; memory_oob; missing_jit_decorator,80.01504097599536,True,0,unsafe,reduction,lex_seed_unsafe
+k_0050,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00987498788163,True,0,unsafe,reduction,memory_unmasked_store
+k_0051,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.02562499139458,True,0,unsafe,matmul,sram_tiling_misaligned
+k_0052,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.02137501724064,True,0,unsafe,reduction,missing_decorator
+k_0053,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_overflow,80.02958398545161,True,0,unsafe,matmul,sram_overflow
+k_0054,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_overflow,80.03341701813042,True,0,unsafe,flash_attention,sram_overflow
+k_0055,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.021249987185,True,0,unsafe,softmax,sram_tiling_misaligned
+k_0056,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.49458298599347,True,0,unsafe,reduction,sram_tiling_misaligned
+k_0057,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.02133299130946,True,0,unsafe,elementwise,missing_decorator
+k_0058,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01108297146857,True,0,unsafe,softmax,memory_unmasked_store
+k_0059,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01108297146857,True,0,unsafe,flash_attention,memory_unmasked_store
+k_0060,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,mixed_precision,80.02433301415294,True,0,unsafe,matmul,mixed_precision
+k_0061,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.02520903944969,True,0,unsafe,matmul,missing_decorator
+k_0062,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,mixed_precision,80.03791600465775,True,0,unsafe,reduction,mixed_precision
+k_0063,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,memory_oob,80.01674995291978,True,0,unsafe,elementwise,memory_oob
+k_0064,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.01862499630079,True,0,unsafe,softmax,missing_decorator
+k_0065,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,memory_oob,80.01583399716765,True,0,unsafe,reduction,memory_oob
+k_0066,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,mixed_precision,80.02333399606869,True,0,unsafe,flash_attention,mixed_precision
+k_0067,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.54045801516622,True,0,unsafe,flash_attention,sram_tiling_misaligned
+k_0068,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,mixed_precision,80.02204201882705,True,0,unsafe,softmax,mixed_precision
+k_0069,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.0166249810718,True,0,unsafe,elementwise,sram_tiling_misaligned
+k_0000,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01937500201166,True,0,safe,matmul,none
+k_0001,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01012498978525,True,0,safe,flash_attention,none
+k_0002,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00870798248798,True,0,safe,reduction,none
+k_0003,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00812497455627,True,0,safe,softmax,none
+k_0004,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00704196281731,True,0,safe,elementwise,none
+k_0005,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00816700048745,True,0,safe,flash_attention,none
+k_0006,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00733300112188,True,0,safe,reduction,none
+k_0007,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00683299731463,True,0,safe,reduction,none
+k_0008,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00616698525846,True,0,safe,reduction,none
+k_0009,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01154199708253,True,0,safe,matmul,none
+k_0010,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00637501943856,True,0,safe,reduction,none
+k_0011,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01074996544048,True,0,safe,matmul,none
+k_0012,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00716699287295,True,0,safe,softmax,none
+k_0013,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00649999128655,True,0,safe,elementwise,none
+k_0014,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00604102388024,True,0,safe,elementwise,none
+k_0015,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.0076669966802,True,0,safe,flash_attention,none
+k_0016,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01054198946804,True,0,safe,matmul,none
+k_0017,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01137499930337,True,0,safe,reduction,none
+k_0018,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01008296385407,True,0,safe,matmul,none
+k_0019,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.60879101511091,True,0,safe,reduction,none
+k_0020,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.0076669966802,True,0,safe,flash_attention,none
+k_0021,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00624998938292,True,0,safe,reduction,none
+k_0022,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01029099803418,True,0,safe,matmul,none
+k_0023,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00720901880413,True,0,safe,softmax,none
+k_0024,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00741699477658,True,0,safe,flash_attention,none
+k_0025,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.0072080292739,True,0,safe,flash_attention,none
+k_0026,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01016701571643,True,0,safe,matmul,none
+k_0027,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00704196281731,True,0,safe,elementwise,none
+k_0028,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00716600334272,True,0,safe,flash_attention,none
+k_0029,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00716600334272,True,0,safe,softmax,none
+k_0030,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01029198756441,True,0,safe,matmul,none
+k_0031,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00649999128655,True,0,safe,elementwise,none
+k_0032,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00654102768749,True,0,safe,elementwise,none
+k_0033,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,81.46929197944701,True,0,safe,elementwise,none
+k_0034,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01158402301371,True,0,safe,softmax,none
+k_0035,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00866601476446,True,0,safe,softmax,none
+k_0036,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00787497265264,True,0,safe,softmax,none
+k_0037,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00808399636298,True,0,safe,reduction,none
+k_0038,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00691699096933,True,0,safe,elementwise,none
+k_0039,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,memory_oob,80.01816602889448,True,0,unsafe,flash_attention,memory_oob
+k_0040,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01212500501424,True,0,unsafe,matmul,memory_unmasked_store
+k_0041,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,mixed_precision,80.01745898043737,True,0,unsafe,elementwise,mixed_precision
+k_0042,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_overflow,80.02174999099225,True,0,unsafe,reduction,sram_overflow
+k_0043,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_overflow,80.01987494761124,True,0,unsafe,softmax,sram_overflow
+k_0044,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,memory_oob,80.01374998828396,True,0,unsafe,softmax,memory_oob
+k_0045,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00683299731463,True,0,unsafe,elementwise,memory_unmasked_store
+k_0046,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.02279196633026,True,0,unsafe,flash_attention,missing_decorator
+k_0047,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_overflow,80.018207996618,True,0,unsafe,elementwise,sram_overflow
+k_0048,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,memory_oob,80.41058304486796,True,0,unsafe,matmul,memory_oob
+k_0049,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; memory_oob; missing_jit_decorator,80.01058401539922,True,0,unsafe,reduction,lex_seed_unsafe
+k_0050,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01420796616003,True,0,unsafe,reduction,memory_unmasked_store
+k_0051,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.02012494951487,True,0,unsafe,matmul,sram_tiling_misaligned
+k_0052,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.01579098170623,True,0,unsafe,reduction,missing_decorator
+k_0053,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_overflow,80.02274999860674,True,0,unsafe,matmul,sram_overflow
+k_0054,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_overflow,80.02100004348904,True,0,unsafe,flash_attention,sram_overflow
+k_0055,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.01537502976134,True,0,unsafe,softmax,sram_tiling_misaligned
+k_0056,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.01491600414738,True,0,unsafe,reduction,sram_tiling_misaligned
+k_0057,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.01304096076638,True,0,unsafe,elementwise,missing_decorator
+k_0058,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00741699477658,True,0,unsafe,softmax,memory_unmasked_store
+k_0059,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.0078750308603,True,0,unsafe,flash_attention,memory_unmasked_store
+k_0060,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,mixed_precision,80.01908402191475,True,0,unsafe,matmul,mixed_precision
+k_0061,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.018207996618,True,0,unsafe,matmul,missing_decorator
+k_0062,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,mixed_precision,80.01712498487905,True,0,unsafe,reduction,mixed_precision
+k_0063,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,memory_oob,80.0119170290418,True,0,unsafe,elementwise,memory_oob
+k_0064,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.01499999780208,True,0,unsafe,softmax,missing_decorator
+k_0065,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,memory_oob,80.01245801104233,True,0,unsafe,reduction,memory_oob
+k_0066,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,mixed_precision,80.01879199407995,True,0,unsafe,flash_attention,mixed_precision
+k_0067,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.01708295894787,True,0,unsafe,flash_attention,sram_tiling_misaligned
+k_0068,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,mixed_precision,80.01645798329264,True,0,unsafe,softmax,mixed_precision
+k_0069,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.01304096076638,True,0,unsafe,elementwise,sram_tiling_misaligned
+k_0000,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,56974.85366591718,False,0,safe,matmul,none
+k_0001,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on seq_len,56865.851999027655,False,0,safe,flash_attention,none
+k_0002,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",61222.42945898324,False,0,safe,reduction,none
+k_0003,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",61328.59604101395,False,0,safe,softmax,none
+k_0004,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",61012.51562399557,False,0,safe,elementwise,none
+k_0005,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",62382.22762505757,False,0,safe,flash_attention,none
+k_0006,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",63315.70449995343,False,0,safe,reduction,none
+k_0007,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",61343.59904198209,False,0,safe,reduction,none
+k_0008,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",64115.58204202447,False,0,safe,reduction,none
+k_0009,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",61482.037624984514,False,0,safe,matmul,none
+k_0010,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",60842.50141697703,False,0,safe,reduction,none
+k_0011,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",61888.83020897629,False,0,safe,matmul,none
+k_0012,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",60752.63545796042,False,0,safe,softmax,none
+k_0013,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on 'n',49818.03912401665,True,0,safe,elementwise,none
+k_0014,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on 'n',43353.49199996563,True,0,safe,elementwise,none
+k_0015,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",60918.58625103487,False,0,safe,flash_attention,none
+k_0016,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",64014.78283299366,False,0,safe,matmul,none
+k_0017,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",61209.89241596544,False,0,safe,reduction,none
+k_0018,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",60580.956707999576,False,0,safe,matmul,none
+k_0019,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",61399.71124997828,False,0,safe,reduction,none
+k_0020,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",60626.68737501372,False,0,safe,flash_attention,none
+k_0021,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",60402.078832965344,False,0,safe,reduction,none
+k_0022,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",61598.4679160174,False,0,safe,matmul,none
+k_0023,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",60971.65850101737,False,0,safe,softmax,none
+k_0024,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",60639.24816594226,False,0,safe,flash_attention,none
+k_0025,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",60642.93433306739,False,0,safe,flash_attention,none
+k_0026,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",60397.292542038485,False,0,safe,matmul,none
+k_0027,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",60887.0469169924,False,0,safe,elementwise,none
+k_0028,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",61708.53174995864,False,0,safe,flash_attention,none
+k_0029,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",64496.014458010904,False,0,safe,softmax,none
+k_0030,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",60831.098457972985,False,0,safe,matmul,none
+k_0031,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",63716.353000025265,False,0,safe,elementwise,none
+k_0032,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",61818.2578329579,False,0,safe,elementwise,none
+k_0033,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",60443.973291956354,False,0,safe,elementwise,none
+k_0034,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",60258.63445899449,False,0,safe,softmax,none
+k_0035,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",62160.18679103581,False,0,safe,softmax,none
+k_0036,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",60952.498833008576,False,0,safe,softmax,none
+k_0037,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on n,53747.11999995634,False,0,safe,reduction,none
+k_0038,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,47012.799041986,False,0,safe,elementwise,none
+k_0039,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to addition of arbitrary value (999999) to the mask,57936.58883398166,False,0,unsafe,flash_attention,memory_oob
+k_0040,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,False,True,True,True,"veto_frontier: ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",51367.08112497581,False,0,unsafe,matmul,memory_unmasked_store
+k_0041,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Mixed FP16/FP32 load without explicit cast,47945.27125003515,False,0,unsafe,elementwise,mixed_precision
+k_0042,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,excessive tile accumulation for SRAM,43904.790374974255,True,0,unsafe,reduction,sram_overflow
+k_0043,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,excessive tile accumulation for SRAM,46903.197916049976,True,0,unsafe,softmax,sram_overflow
+k_0044,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to arithmetic overflow in mask calculation,52715.25370894233,False,0,unsafe,softmax,memory_oob
+k_0045,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on 'n',52667.609124968294,False,0,unsafe,elementwise,memory_unmasked_store
+k_0046,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on seq_len,57896.49233291857,False,0,unsafe,flash_attention,missing_decorator
+k_0047,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,False,True,True,True,"veto_frontier: ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",48323.84174998151,False,0,unsafe,elementwise,sram_overflow
+k_0048,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",60538.17504300969,False,0,unsafe,matmul,memory_oob
+k_0049,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Out-of-bounds memory access,48028.92158302711,False,0,unsafe,reduction,lex_seed_unsafe
+k_0050,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on 'offs',54455.51316707861,False,0,unsafe,reduction,memory_unmasked_store
+k_0051,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,BLOCK_SIZE is not a power-of-two,52427.6289580157,True,0,unsafe,matmul,sram_tiling_misaligned
+k_0052,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on 'n',36815.58054202469,True,0,unsafe,reduction,missing_decorator
+k_0053,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,excessive tile accumulation for SRAM,55738.49445901578,True,0,unsafe,matmul,sram_overflow
+k_0054,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,excessive tile accumulation for SRAM,44827.39329099422,True,0,unsafe,flash_attention,sram_overflow
+k_0055,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Non-power-of-two BLOCK_SIZE (48) may lead to inefficient memory access or incorrect results due to non-uniform block size,54997.996041958686,False,0,unsafe,softmax,sram_tiling_misaligned
+k_0056,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Non-power-of-two BLOCK_SIZE (48) may lead to inefficient memory access patterns and potential out-of-bounds errors.,55794.98595895711,False,0,unsafe,reduction,sram_tiling_misaligned
+k_0057,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on 'n',52411.19116701884,False,0,unsafe,elementwise,missing_decorator
+k_0058,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to missing bounds checking on n,58004.192291002255,False,0,unsafe,softmax,memory_unmasked_store
+k_0059,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",60933.70783305727,False,0,unsafe,flash_attention,memory_unmasked_store
+k_0060,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Mixed FP16/FP32 load without explicit cast,54746.02429202059,False,0,unsafe,matmul,mixed_precision
+k_0061,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access in load operation,45922.65058401972,True,0,unsafe,matmul,missing_decorator
+k_0062,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",60353.39920804836,False,0,unsafe,reduction,mixed_precision
+k_0063,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,out-of-bounds memory access: load with offset + 999999,41329.15945793502,True,0,unsafe,elementwise,memory_oob
+k_0064,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",60308.66841599345,False,0,unsafe,softmax,missing_decorator
+k_0065,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on 'offs',52670.79554195516,False,0,unsafe,reduction,memory_oob
+k_0066,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Mixed FP16/FP32 load without explicit cast,58766.41641603783,False,0,unsafe,flash_attention,mixed_precision
+k_0067,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",60396.32283395622,False,0,unsafe,flash_attention,sram_tiling_misaligned
+k_0068,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,"ollama_error: HTTPConnectionPool(host='127.0.0.1', port=11434): Read timed out. (read timeout=30)",61053.6949999514,False,0,unsafe,softmax,mixed_precision
+k_0069,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,BLOCK_SIZE is not a power-of-two,47048.09287498938,True,0,unsafe,elementwise,sram_tiling_misaligned

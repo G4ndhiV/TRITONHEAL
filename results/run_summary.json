@@ -1,0 +1,244 @@
+{
+  "n_kernels": 70,
+  "n_evaluations_total": 350,
+  "n_safe": 39,
+  "n_unsafe": 31,
+  "verifier_mode": "ollama",
+  "ollama_available": true,
+  "configs_backend": {
+    "solo_llama": "Ollama llama3.1:8b",
+    "solo_deepseek": "Heur\u00edstico (DeepSeek no descargado)",
+    "solo_claude": "Heur\u00edstico (sin API)",
+    "solo_gpt4o": "Heur\u00edstico (sin API)",
+    "triton_heal_dual": "Ollama Llama + prompt estricto (veto local)"
+  },
+  "descriptive_extended": [
+    {
+      "config": "solo_llama",
+      "label": "Llama-3.1-8B (local)",
+      "n_kernels": 70,
+      "n_evaluations": 70,
+      "n_valid_json": 5,
+      "valid_json_pct": 7.142857142857143,
+      "timeout_pct": 92.85714285714286,
+      "msr_pct": 3.225806451612903,
+      "msr_ci_lo": 0.5717221525416816,
+      "msr_ci_hi": 16.194105164724906,
+      "fnr_pct": 96.7741935483871,
+      "f1": 0.0625,
+      "latency_mean": 29904.922221453828,
+      "latency_std": 2078.2108857903922,
+      "latency_median": 30273.67847901769,
+      "latency_min": 18435.27791602537,
+      "latency_max": 31663.383707986213,
+      "tp": 1,
+      "fn": 30
+    },
+    {
+      "config": "solo_deepseek",
+      "label": "DeepSeek-Coder-V2 (local)",
+      "n_kernels": 70,
+      "n_evaluations": 70,
+      "n_valid_json": 70,
+      "valid_json_pct": 100.0,
+      "timeout_pct": 0.0,
+      "msr_pct": 41.935483870967744,
+      "msr_ci_lo": 26.415543067312232,
+      "msr_ci_hi": 59.23373750463029,
+      "fnr_pct": 58.06451612903226,
+      "f1": 0.5909090909090909,
+      "latency_mean": 5.101987482048571,
+      "latency_std": 0.7940531376403364,
+      "latency_median": 5.005729001713917,
+      "latency_min": 5.003416964318603,
+      "latency_max": 11.65054196724668,
+      "tp": 13,
+      "fn": 18
+    },
+    {
+      "config": "solo_claude",
+      "label": "Claude 3.5 Sonnet (frontera)",
+      "n_kernels": 70,
+      "n_evaluations": 70,
+      "n_valid_json": 70,
+      "valid_json_pct": 100.0,
+      "timeout_pct": 0.0,
+      "msr_pct": 83.87096774193549,
+      "msr_ci_lo": 67.36564604120674,
+      "msr_ci_hi": 92.9073755566347,
+      "fnr_pct": 16.129032258064516,
+      "f1": 0.9122807017543859,
+      "latency_mean": 80.04331602332448,
+      "latency_std": 0.1144359790431707,
+      "latency_median": 80.01502048689872,
+      "latency_min": 80.00787497265264,
+      "latency_max": 80.58683397946879,
+      "tp": 26,
+      "fn": 5
+    },
+    {
+      "config": "solo_gpt4o",
+      "label": "GPT-4o (frontera)",
+      "n_kernels": 70,
+      "n_evaluations": 70,
+      "n_valid_json": 70,
+      "valid_json_pct": 100.0,
+      "timeout_pct": 0.0,
+      "msr_pct": 83.87096774193549,
+      "msr_ci_lo": 67.36564604120674,
+      "msr_ci_hi": 92.9073755566347,
+      "fnr_pct": 16.129032258064516,
+      "f1": 0.9122807017543859,
+      "latency_mean": 80.04679758151595,
+      "latency_std": 0.19245245312963333,
+      "latency_median": 80.01056300243363,
+      "latency_min": 80.00604102388024,
+      "latency_max": 81.46929197944701,
+      "tp": 26,
+      "fn": 5
+    },
+    {
+      "config": "triton_heal_dual",
+      "label": "Triton Heal (dual + veto)",
+      "n_kernels": 70,
+      "n_evaluations": 70,
+      "n_valid_json": 11,
+      "valid_json_pct": 15.714285714285714,
+      "timeout_pct": 58.57142857142858,
+      "msr_pct": 74.19354838709677,
+      "msr_ci_lo": 56.753864190566205,
+      "msr_ci_hi": 86.29829409360626,
+      "fnr_pct": 25.806451612903224,
+      "f1": 0.7931034482758621,
+      "latency_mean": 56790.897702351715,
+      "latency_std": 6404.858982503511,
+      "latency_median": 60396.80768799735,
+      "latency_min": 36815.58054202469,
+      "latency_max": 64496.014458010904,
+      "tp": 23,
+      "fn": 8
+    }
+  ],
+  "inference": [
+    {
+      "test": "C1_claude_vs_llama",
+      "chi2": 23.04,
+      "p": 1.5866563039511892e-06,
+      "phi": -5.0,
+      "table": [
+        [
+          5,
+          0
+        ],
+        [
+          25,
+          1
+        ]
+      ],
+      "n_discordant": 25,
+      "p_holm": 6.346625215804757e-06
+    },
+    {
+      "test": "C2_gpt_vs_deepseek",
+      "chi2": 8.470588235294118,
+      "p": 0.003609346935945442,
+      "phi": -3.1529631254723287,
+      "table": [
+        [
+          3,
+          2
+        ],
+        [
+          15,
+          11
+        ]
+      ],
+      "n_discordant": 17,
+      "p_holm": 0.007218693871890884
+    },
+    {
+      "test": "C3_dual_vs_llama_fnr",
+      "chi2": 20.045454545454547,
+      "p": 7.562306614504704e-06,
+      "phi": -4.69041575982343,
+      "table": [
+        [
+          8,
+          0
+        ],
+        [
+          22,
+          1
+        ]
+      ],
+      "n_discordant": 22,
+      "p_holm": 2.268691984351411e-05
+    },
+    {
+      "test": "C5_latency",
+      "stat": 0.0,
+      "p": 0.999999999999822,
+      "p_two_sided": 3.559469460061398e-13,
+      "r": 1.0,
+      "median_diff": -30193.661541490583,
+      "mean_diff": -29824.8789054305,
+      "p_holm": 0.999999999999822
+    },
+    {
+      "test": "C6_friedman",
+      "chi2": 54.1250000000004,
+      "p": 1.0552542691810808e-11,
+      "w": 0.25773809523809715,
+      "p_holm": 5.276271345905404e-11
+    }
+  ],
+  "inference_display": [
+    {
+      "nombre": "Claude vs Llama (MSR)",
+      "prueba": "McNemar",
+      "stat": "$\\chi^2=23.04$",
+      "p_holm": "$<0.001$",
+      "efecto": "$\\phi=-5.00$ (grande)",
+      "interp": "Rechaza $H_0$; $\\Delta$MSR=80.6 pp (heur. vs Ollama)."
+    },
+    {
+      "nombre": "GPT-4o vs DeepSeek",
+      "prueba": "McNemar",
+      "stat": "$\\chi^2=8.47$",
+      "p_holm": "0.0072",
+      "efecto": "$\\phi=-3.15$ (grande)",
+      "interp": "Rechaza $H_0$; ambos heur\u00edsticos en esta corrida."
+    },
+    {
+      "nombre": "Dual vs Llama",
+      "prueba": "McNemar",
+      "stat": "$\\chi^2=20.05$",
+      "p_holm": "$<0.001$",
+      "efecto": "$\\phi=-4.69$ (grande)",
+      "interp": "Dual detecta m\u00e1s unsafe; Llama con timeouts."
+    },
+    {
+      "nombre": "Lat. Claude vs Llama",
+      "prueba": "Wilcoxon",
+      "stat": "$W=0$",
+      "p_holm": "1.0000",
+      "efecto": "$r=1.00$",
+      "interp": "No rechaza $H_4$ (frontera$>$local); med. $\\Delta$=-30194 ms."
+    },
+    {
+      "nombre": "F1 global (4 cfg.)",
+      "prueba": "Friedman",
+      "stat": "$\\chi^2=54.1$",
+      "p_holm": "$<0.001$",
+      "efecto": "$W=0.26$",
+      "interp": "Diferencias globales entre configuraciones."
+    }
+  ],
+  "holm": {
+    "C6_friedman": 5.276271345905404e-11,
+    "C1_claude_vs_llama": 6.346625215804757e-06,
+    "C3_dual_vs_llama_fnr": 2.268691984351411e-05,
+    "C2_gpt_vs_deepseek": 0.007218693871890884,
+    "C5_latency": 0.999999999999822
+  }
+}

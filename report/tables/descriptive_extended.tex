@@ -1,0 +1,17 @@
+\begin{table}[ht]
+\centering
+\caption{Resultados descriptivos extendidos (IC 95\% Wilson para MSR).}
+\label{tab:desc_ext}
+\small
+\begin{tabular}{lrrrrrrrrrr}
+\toprule
+Config. & N & JSON válido (\%) & MSR (\%) & IC MSR lo & IC MSR hi & F1 & FNR (\%) & Lat. med. & Lat. min & Lat. max \\
+\midrule
+Llama-3.1-8B (local) & 70 & 7.1 & 3.2 & 0.6 & 16.2 & 0.1 & 96.8 & 30273.7 & 18435.3 & 31663.4 \\
+DeepSeek-Coder-V2 (local) & 70 & 100.0 & 41.9 & 26.4 & 59.2 & 0.6 & 58.1 & 5.0 & 5.0 & 11.7 \\
+Claude 3.5 Sonnet (frontera) & 70 & 100.0 & 83.9 & 67.4 & 92.9 & 0.9 & 16.1 & 80.0 & 80.0 & 80.6 \\
+GPT-4o (frontera) & 70 & 100.0 & 83.9 & 67.4 & 92.9 & 0.9 & 16.1 & 80.0 & 80.0 & 81.5 \\
+Triton Heal (dual + veto) & 70 & 15.7 & 74.2 & 56.8 & 86.3 & 0.8 & 25.8 & 60396.8 & 36815.6 & 64496.0 \\
+\bottomrule
+\end{tabular}
+\end{table}

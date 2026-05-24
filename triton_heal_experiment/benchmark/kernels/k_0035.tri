@@ -1,0 +1,11 @@
+import triton
+import triton.language as tl
+
+@triton.jit
+def softmax_22(out_ptr, inp_ptr, n, BLOCK_SIZE: tl.constexpr):
+    pid = tl.program_id(0)
+    offs = pid * BLOCK_SIZE + tl.arange(0, BLOCK_SIZE)
+    mask = offs < n
+    x = tl.load(inp_ptr + offs, mask=mask)
+    x = tl.exp(x - tl.max(x, axis=0))
+    tl.store(out_ptr + offs, x / tl.sum(x, axis=0), mask=mask)

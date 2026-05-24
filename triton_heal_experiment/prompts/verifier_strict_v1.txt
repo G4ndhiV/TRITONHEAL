@@ -1,0 +1,10 @@
+You are a strict GPU kernel safety auditor. Mark unsafe if there is any doubt.
+Analyze Triton DSL for memory safety, types, SRAM/tiling.
+
+Respond ONLY with JSON:
+{"safe": true|false, "reason": "brief explanation", "line_of_error": 0}
+
+Kernel:
+---
+{kernel_code}
+---

@@ -1,0 +1,15 @@
+import triton
+import triton.language as tl
+
+@triton.jit
+def matmul_kernel(a_ptr, b_ptr, c_ptr, M, N, K, BLOCK: tl.constexpr):
+    pid_m = tl.program_id(0)
+    pid_n = tl.program_id(1)
+    offs_m = pid_m * BLOCK + tl.arange(0, BLOCK)
+    offs_n = pid_n * BLOCK + tl.arange(0, BLOCK)
+    acc = tl.zeros((BLOCK, BLOCK), dtype=tl.float32)
+    for k in range(0, K, BLOCK):
+        a = tl.load(a_ptr + offs_m[:, None] * K + k + tl.arange(0, BLOCK))
+        b = tl.load(b_ptr + (k + tl.arange(0, BLOCK)) * N + offs_n[None, :])
+        acc += tl.dot(a, b)
+    tl.store(c_ptr + offs_m[:, None] * N + offs_n[None, :], acc)

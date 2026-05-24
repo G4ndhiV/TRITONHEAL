@@ -1,0 +1,15 @@
+import triton
+import triton.language as tl
+
+@triton.jit
+def matmul_37(a_ptr, b_ptr, c_ptr, M, N, K, BLOCK: tl.constexpr):
+    pid_m = tl.program_id(0)
+    pid_n = tl.program_id(1)
+    rm = pid_m * BLOCK + tl.arange(0, BLOCK)
+    rn = pid_n * BLOCK + tl.arange(0, BLOCK)
+    acc = tl.zeros((BLOCK, BLOCK), dtype=tl.float32)
+    for k in range(0, K, BLOCK):
+        a = tl.load(a_ptr + rm[:, None] * K + k + tl.arange(0, BLOCK), mask=rm[:, None] < M)
+        b = tl.load(b_ptr + (k + tl.arange(0, BLOCK)) * N + rn[None, :], mask=rn[None, :] < N)
+        acc += tl.dot(a, b)
+    tl.store(c_ptr + rm[:, None] * N + rn[None, :], acc, mask=(rm[:, None] < M) & (rn[None, :] < N))

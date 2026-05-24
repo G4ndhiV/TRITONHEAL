@@ -1,0 +1,94 @@
+\section{Resultados descriptivos (2.1)}
+
+Se evaluaron $N=\Nkernels$ kernels (39 \texttt{safe}, 31 \texttt{unsafe}) en 5 configuraciones, totalizando 350 evaluaciones (\texttt{VERIFIER\_MODE=ollama}, mayo 2026). La Tabla~\ref{tab:desc_ext} reporta tasas de JSON válido, MSR con IC 95\% Wilson, F1, FNR y latencia (mediana, mín., máx.).
+
+\input{tables/descriptive_extended.tex}
+
+\textbf{Narrativa alineada con la corrida.} El verificador \textbf{Llama-3.1-8B vía Ollama} fue el único SLM con inferencia LLM real; sin embargo, el 92.9\% de las llamadas alcanzó el timeout de 30\,s y solo el 7.1\% produjo JSON parseable, lo que deprime el MSR observado (3.2\%; IC 95\%: 0.6--16.2\%). \textbf{DeepSeek}, \textbf{Claude} y \textbf{GPT-4o} operaron en modo \emph{heurístico} (DeepSeek no descargado por espacio en disco; APIs comerciales sin clave). En ese escenario, Claude y GPT alcanzan MSR $\approx$83.9\% (IC: 67.4--92.9\%) con latencia simulada $\approx$80\,ms. \textbf{Triton Heal dual} combina Llama Ollama con prompt estricto de veto: MSR 74.2\% (IC: 56.8--86.3\%) pero solo 15.7\% de JSON válidos y mediana de latencia $\approx$60\,s por timeouts parciales.
+
+\section{Visualización (2.2)}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\linewidth]{fig_msr_f1.pdf}
+  \caption{MSR y F1 por configuración. Eje horizontal: configuración experimental; barras: MSR (\%) y F1 (adimensional, 0--1). Permite comparar detección en kernels \texttt{unsafe} frente al balance global.}
+  \label{fig:msr_f1}
+\end{figure}
+
+La Figura~\ref{fig:msr_f1} muestra la separación entre baselines heurísticos de frontera (MSR alto) y Llama Ollama (MSR casi nulo por fallos de inferencia).
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\linewidth]{fig_valid_json.pdf}
+  \caption{Tasa de éxito de inferencia (\% JSON válido). Proxy rubrica de ``compilación/ejecución exitosa'' del verificador: respuesta parseable dentro del timeout.}
+  \label{fig:valid_json}
+\end{figure}
+
+La Figura~\ref{fig:valid_json} cuantifica la viabilidad operativa: solo DeepSeek/Claude/GPT heurísticos alcanzan 100\% de JSON válido; Llama y dual quedan limitados por timeouts de Ollama.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\linewidth]{fig_latency.pdf}
+  \caption{Distribución de latencia (ms, escala logarítmica). Unidades: milisegundos desde envío del prompt hasta respuesta o timeout.}
+  \label{fig:latency}
+\end{figure}
+
+La Figura~\ref{fig:latency} contrasta latencias simuladas $\sim$80\,ms (heurístico) con colas de $\sim$30--60\,s en configuraciones Ollama.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\linewidth]{fig_msr_category.pdf}
+  \caption{MSR en kernels \texttt{unsafe} por categoría de error (tiling, SRAM, tipos, etc.).}
+  \label{fig:category}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.65\linewidth]{fig_fnr_dual.pdf}
+  \caption{FNR: Triton Heal dual vs.\ solo Llama (contraste C3 / PRI-2).}
+  \label{fig:fnr}
+\end{figure}
+
+\section{Inferencia estadística (2.3)}
+
+\input{tables/inference.tex}
+
+\textbf{¿Se rechaza $H_0$?} En C1 (Claude heur.\ vs.\ Llama Ollama), C2 (GPT vs.\ DeepSeek heur.) y C3 (dual vs.\ Llama) McNemar rechaza $H_0$ tras Holm ($p<0.01$). En C5 (latencia Claude vs.\ Llama) \textbf{no} se rechaza $H_4$ unilateral ($p_{\text{Holm}}=1.00$): la mediana de Llama ($\approx$30\,s) supera a la de Claude heur.\ ($\approx$80\,ms), contrario al escenario de frontera comercial lenta; esto refleja timeouts locales, no latencia real de API. Friedman (C6) rechaza igualdad global de F1 ($p_{\text{Holm}}<10^{-10}$, $W=0.26$).
+
+\textbf{Tamaño del efecto.} McNemar reporta $|\phi|>3$ (grande) en C1--C3; Wilcoxon $r=1.00$ en C5. La $\Delta$MSR Claude--Llama es $\approx$80.6 pp, pero \textbf{no es atribuible a superioridad del modelo Claude} en esta corrida, sino a heurístico funcional vs.\ Ollama degradado.
+
+\textbf{Consistencia.} Los contrastes de detección son coherentes con MSR descriptivo; la inferencia de latencia es consistente con la mezcla de backends y no valida PRI-3 con APIs reales.
+
+\section{Comparación crítica y robustez (2.4)}
+
+\textbf{Comparación crítica.} No puede afirmarse que un SLM local de 8B supere a frontera comercial: la evidencia favorable a ``frontera'' proviene de reglas heurísticas con 100\% de JSON válido. El dual mejora detección respecto a Llama roto por timeout (FNR 96.8\% $\rightarrow$ 25.8\% en filas con predicción), pero su latencia mediana ($\approx$60\,s) inviabiliza pipeline interactivo sin reconfigurar timeout o hardware.
+
+\textbf{Robustez.} (1) \emph{Variabilidad por timeout:} 93\% de inferencias Llama sin respuesta útil. (2) \emph{Mezcla Ollama/heurístico:} invalida comparación directa de escalas de modelo. (3) \emph{Seed único} (42): sin intervalos de re-muestreo. (4) \emph{Subconjuntos por categoría:} Figura~\ref{fig:category} sugiere mayor dificultad en mutaciones de tiling/SRAM para el tier local cuando responde.
+
+\section{Amenazas observadas (2.5)}
+
+\begin{itemize}[noitemsep]
+  \item \textbf{Interna:} timeouts 30\,s; disco lleno impidió DeepSeek; APIs ausentes; predicción por defecto en error de Ollama.
+  \item \textbf{Externa:} $N=70$ kernels sintéticos/semi-sintéticos; un solo host macOS.
+  \item \textbf{Constructo:} MSR $\neq$ compilación GPU; JSON válido $\neq$ veredicto correcto; latencia heurística no representa red WAN.
+\end{itemize}
+
+\section{Discusión (2.6)}
+
+\textbf{¿Qué evidencia hay?} Estadísticamente hay diferencias pareadas (McNemar, Friedman), pero su interpretación causal sobre modelos está \textbf{matizada} por el diseño híbrido de la corrida.
+
+\textbf{Limitaciones.} Sin DeepSeek real, sin Claude/GPT por API, y con Llama sistemáticamente timeout. El dual no reproduce el veto jerárquico con Claude comercial planeado.
+
+\textbf{¿Qué haríamos distinto?} Aumentar timeout (p.\,ej.\ 120\,s), liberar disco para DeepSeek, configurar API keys, fijar \texttt{VERIFIER\_MODE} homogéneo por contraste, y reportar DR entre verificadores.
+
+\textbf{Amenazas abiertas.} Validez ecológica del benchmark Lex; generalización a kernels de producción.
+
+\section{Conclusión (2.7)}
+
+\begin{enumerate}[noitemsep]
+  \item \textbf{$H_0$ MSR:} Se rechaza en C1/C2/C3 con Holm, pero la relevancia práctica para el curso (SLM local competitivo) \textbf{no} está demostrada: Llama Ollama obtuvo 3.2\% MSR.
+  \item \textbf{Evidencia para Triton Heal:} El dual supera a Llama en detección en esta corrida, a costa de latencia alta y baja tasa de JSON válido; no equivale al diseño dual con veto de frontera real.
+  \item \textbf{Latencia:} No se confirma que frontera sea más lenta que local (C5); el cuello de botella fue Ollama local.
+  \item \textbf{Reproducibilidad:} Pipeline \texttt{make all}, \texttt{results/stats\_summary.json} y tablas generadas; configuración real documentada en Apéndice.
+  \item \textbf{Escala de modelos:} La comparación 8B vs frontera quedó \textbf{no realizada} con ambos backends LLM; solo heurístico vs Ollama parcial.
+\end{enumerate}

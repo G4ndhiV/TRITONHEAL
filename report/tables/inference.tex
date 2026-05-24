@@ -1,0 +1,17 @@
+\begin{table}[ht]
+\centering
+\caption{Inferencia estadística (plan pre-registrado, corrección Holm).}
+\label{tab:infer}
+\small
+\begin{tabular}{p{3.2cm}llrrlp{2.8cm}}
+\toprule
+Contraste & Prueba & Estad. & $p$ Holm & Efecto & Interpretación \\
+\midrule
+Claude vs Llama (MSR) & McNemar & $\chi^2=23.04$ & $<0.001$ & $\phi=-5.00$ (grande) & Rechaza $H_0$; $\Delta$MSR=80.6 pp (heur. vs Ollama). \\
+GPT-4o vs DeepSeek & McNemar & $\chi^2=8.47$ & 0.0072 & $\phi=-3.15$ (grande) & Rechaza $H_0$; ambos heurísticos en esta corrida. \\
+Dual vs Llama & McNemar & $\chi^2=20.05$ & $<0.001$ & $\phi=-4.69$ (grande) & Dual detecta más unsafe; Llama con timeouts. \\
+Lat. Claude vs Llama & Wilcoxon & $W=0$ & 1.0000 & $r=1.00$ & No rechaza $H_4$ (frontera$>$local); med. $\Delta$=-30194 ms. \\
+F1 global (4 cfg.) & Friedman & $\chi^2=54.1$ & $<0.001$ & $W=0.26$ & Diferencias globales entre configuraciones. \\
+\bottomrule
+\end{tabular}
+\end{table}

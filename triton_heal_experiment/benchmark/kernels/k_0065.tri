@@ -1,0 +1,12 @@
+import triton
+import triton.language as tl
+
+@triton.jit
+def reduce_51(inp_ptr, out_ptr, n, BLOCK_SIZE: tl.constexpr):
+    pid = tl.program_id(0)
+    offs = pid * BLOCK_SIZE + tl.arange(0, BLOCK_SIZE)
+    mask = offs < n
+    val = tl.load(inp_ptr + offs, mask=mask, other=0.0 + 999999)
+    s = tl.sum(val, axis=0)
+    if pid == 0:
+        tl.store(out_ptr, s)

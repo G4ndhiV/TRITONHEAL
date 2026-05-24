@@ -1,0 +1,16 @@
+\begin{table}[ht]
+\centering
+\caption{Resultados descriptivos por configuración.}
+\label{tab:desc}
+\begin{tabular}{lrrrrr}
+\toprule
+Configuración & N & MSR (\%) & F1 & FNR (\%) & Lat. med. (ms) \\
+\midrule
+Llama-3.1-8B (local) & 70 & 3.2 & 0.1 & 96.8 & 30273.7 \\
+DeepSeek-Coder-V2 (local) & 70 & 41.9 & 0.6 & 58.1 & 5.0 \\
+Claude 3.5 Sonnet (frontera) & 70 & 83.9 & 0.9 & 16.1 & 80.0 \\
+GPT-4o (frontera) & 70 & 83.9 & 0.9 & 16.1 & 80.0 \\
+Triton Heal (dual + veto) & 70 & 74.2 & 0.8 & 25.8 & 60396.8 \\
+\bottomrule
+\end{tabular}
+\end{table}
