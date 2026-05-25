@@ -3,12 +3,14 @@
 
 \newcommand{\Nkernels}{70}
 \newcommand{\Neval}{420}
+\newcommand{\Ngen}{50}
+\newcommand{\Ntasks}{10}
 
 \title{%
   \textbf{PROYECTO TRITON HEAL}\\[0.5em]
   Reporte de Evaluación Experimental\\[0.3em]
-  \large TC3002B --- Evaluación experimental de método basado en SLM\\
-  para kernels GPU con Triton DSL (generativo-verificativo)
+  \large TC3002B --- Generación de kernels con SLM y comparación experimental\\
+  (compilación, speedup proxy y verificación pre-GPU)
 }
 \author{Equipo 11}
 \date{Mayo 2026}
@@ -18,14 +20,10 @@
 
 \begin{abstract}
 \noindent
-Evaluación TC3002B de Triton Heal como método \textbf{generativo-verificativo}
-(verificación SLM + veto de frontera + filtrado pre-compilación).
-En \Nkernels\ kernels y \Neval\ evaluaciones (6 configuraciones, Apple M4 24\,GB):
-DeepSeek-Coder-V2 (frontera) MSR 87.1\%; Llama-8B local 64.5\%;
-R1-Distill-14B local JSON 14.3\%; dual MSR 80.6\%, F1 0.86.
-Inferencia: McNemar/Wilcoxon individuales no rechazan $H_0$ tras Holm;
-Friedman global sí ($p_{\text{Holm}}<0.001$).
-Speedup y generación kernel-a-kernel no medidos (limitación documentada).
+Evaluación de \textbf{generación de kernels Triton} con SLM (\Ntasks\ tareas $\times$ 5 configuraciones activas = \Ngen\ generaciones; Coder-V2 100\% compilación; dual 50\%) y verificación del benchmark (\Nkernels\ kernels, Apple M4).
+Métricas: tasa de compilación L1--L3, speedup proxy, MSR/FNR.
+Método dual: generación Llama + reparación Coder-V2.
+Limitación: sin speedup CUDA; R1-14B excluido de generación por timeout.
 \end{abstract}
 
 \tableofcontents
@@ -50,12 +48,11 @@ Speedup y generación kernel-a-kernel no medidos (limitación documentada).
 \toprule
 Configuración & Planeado & Ejecutado \\
 \midrule
-solo\_llama & Ollama Llama-3.1-8B (local) & \texttt{llama3.1:8b} \\
-solo\_deepseek & Ollama DeepSeek-R1 14B (local) & \texttt{deepseek-r1:14b} \\
-solo\_deepseek\_coder & Ollama DeepSeek-Coder-V2 (frontera) & \texttt{deepseek-coder-v2} \\
-solo\_claude & API Claude 3.5 Sonnet & Heurístico (sin API) \\
-solo\_gpt4o & API GPT-4o & Heurístico (sin API) \\
-triton\_heal\_dual & Llama local + veto frontera & Llama + Coder-V2 \texttt{strict} \\
+solo\_llama & Ollama Llama-3.1-8B & \texttt{llama3.1:8b} generación \\
+solo\_deepseek & Ollama R1-Distill-14B & \texttt{deepseek-r1:14b} \\
+solo\_deepseek\_coder & Ollama Coder-V2 & \texttt{deepseek-coder-v2} \\
+solo\_claude / solo\_gpt4o & API & Heurístico plantilla si sin API \\
+triton\_heal\_dual & Llama + reparación Coder-V2 & \texttt{run\_generation} dual \\
 \bottomrule
 \end{tabularx}}
 \end{adjustbox}
@@ -65,10 +62,10 @@ triton\_heal\_dual & Llama local + veto frontera & Llama + Coder-V2 \texttt{stri
 \begin{verbatim}
 git clone https://github.com/G4ndhiV/TRITONHEAL.git
 cd TRITONHEAL
-make stats figures pdf
+make benchmark generation experiments stats-all figures pdf
 \end{verbatim}
-Archivos: \texttt{results/predictions.csv}, \texttt{results/stats\_summary.json},
-\texttt{report/tables/*.tex}, \texttt{report/figures/*.png}, \texttt{report/main.pdf}.
+Archivos: \texttt{results/generation.csv}, \texttt{results/predictions.csv},
+\texttt{results/generation\_summary.json}, \texttt{report/main.pdf}.
 
 \section{Referencias}
 \begin{itemize}

@@ -1,0 +1,17 @@
+\begin{table}[ht]
+\centering
+\caption{Inferencia estadistica -- generacion de kernels (Holm).}
+\label{tab:gen_infer}
+\footnotesize
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabularx}{\linewidth}{@{}lcccp{0.35\linewidth}@{}}
+\toprule
+Contraste & Prueba & Estad. & $p$ Holm & Interpretación \\
+\midrule
+Dual vs GPT-4o (compilación) & McNemar & $\chi^2=3.20$ & 0.1473 & No rechaza $H_0$; dual 50.0\% vs GPT 100.0\%. \\
+Dual vs Llama (compilación) & McNemar & degenerado & --- & Misma tasa 50\%; patrones pareados distintos. \\
+Speedup proxy dual vs GPT & Wilcoxon & $W=0$ & 1.0000 & Med. $\Delta$ speedup $=-0.37$ (GPT heur. más rápido). \\
+\bottomrule
+\end{tabularx}
+\end{adjustbox}
+\end{table}

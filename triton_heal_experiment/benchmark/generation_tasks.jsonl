@@ -1,0 +1,20 @@
+{"task_id": "gen_0000", "category": "matmul", "spec": "Write a simplified Triton matmul-style kernel using tl.load/store and program_id tiling.", "reference_kernel_id": "k_0000", "seed": 42}
+{"task_id": "gen_0001", "category": "flash_attention", "spec": "Write a simplified Triton flash-attention style kernel (q,k,v loads, masked store).", "reference_kernel_id": "k_0001", "seed": 43}
+{"task_id": "gen_0002", "category": "reduction", "spec": "Write a Triton reduction kernel that loads a block and stores per-program result.", "reference_kernel_id": "k_0002", "seed": 44}
+{"task_id": "gen_0003", "category": "softmax", "spec": "Write a Triton softmax-style kernel over a 1D row with masked tl.load and tl.store.", "reference_kernel_id": "k_0003", "seed": 45}
+{"task_id": "gen_0004", "category": "elementwise", "spec": "Write a Triton elementwise kernel that doubles input values (x * 2) with masked load/store.", "reference_kernel_id": "k_0004", "seed": 46}
+{"task_id": "gen_0005", "category": "flash_attention", "spec": "Write a simplified Triton flash-attention style kernel (q,k,v loads, masked store).", "reference_kernel_id": "k_0005", "seed": 47}
+{"task_id": "gen_0006", "category": "reduction", "spec": "Write a Triton reduction kernel that loads a block and stores per-program result.", "reference_kernel_id": "k_0006", "seed": 48}
+{"task_id": "gen_0007", "category": "reduction", "spec": "Write a Triton reduction kernel that loads a block and stores per-program result.", "reference_kernel_id": "k_0007", "seed": 49}
+{"task_id": "gen_0008", "category": "reduction", "spec": "Write a Triton reduction kernel that loads a block and stores per-program result.", "reference_kernel_id": "k_0008", "seed": 50}
+{"task_id": "gen_0009", "category": "matmul", "spec": "Write a simplified Triton matmul-style kernel using tl.load/store and program_id tiling.", "reference_kernel_id": "k_0009", "seed": 51}
+{"task_id": "gen_0010", "category": "matmul", "spec": "Write a simplified Triton matmul-style kernel using tl.load/store and program_id tiling.", "reference_kernel_id": "k_0011", "seed": 52}
+{"task_id": "gen_0011", "category": "softmax", "spec": "Write a Triton softmax-style kernel over a 1D row with masked tl.load and tl.store.", "reference_kernel_id": "k_0012", "seed": 53}
+{"task_id": "gen_0012", "category": "elementwise", "spec": "Write a Triton elementwise kernel that doubles input values (x * 2) with masked load/store.", "reference_kernel_id": "k_0013", "seed": 54}
+{"task_id": "gen_0013", "category": "elementwise", "spec": "Write a Triton elementwise kernel that doubles input values (x * 2) with masked load/store.", "reference_kernel_id": "k_0014", "seed": 55}
+{"task_id": "gen_0014", "category": "flash_attention", "spec": "Write a simplified Triton flash-attention style kernel (q,k,v loads, masked store).", "reference_kernel_id": "k_0015", "seed": 56}
+{"task_id": "gen_0015", "category": "matmul", "spec": "Write a simplified Triton matmul-style kernel using tl.load/store and program_id tiling.", "reference_kernel_id": "k_0016", "seed": 57}
+{"task_id": "gen_0016", "category": "flash_attention", "spec": "Write a simplified Triton flash-attention style kernel (q,k,v loads, masked store).", "reference_kernel_id": "k_0020", "seed": 58}
+{"task_id": "gen_0017", "category": "softmax", "spec": "Write a Triton softmax-style kernel over a 1D row with masked tl.load and tl.store.", "reference_kernel_id": "k_0023", "seed": 59}
+{"task_id": "gen_0018", "category": "elementwise", "spec": "Write a Triton elementwise kernel that doubles input values (x * 2) with masked load/store.", "reference_kernel_id": "k_0027", "seed": 60}
+{"task_id": "gen_0019", "category": "softmax", "spec": "Write a Triton softmax-style kernel over a 1D row with masked tl.load and tl.store.", "reference_kernel_id": "k_0029", "seed": 61}

@@ -1,0 +1,7 @@
+{
+  "n_tasks": 10,
+  "n_configs": 6,
+  "repeats": 1,
+  "n_rows": 50,
+  "compile_rate_global": 0.8
+}

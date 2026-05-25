@@ -1,0 +1,251 @@
+task_id,category,config,config_label,reference_kernel_id,seed,run_id,generated_code_len,gen_latency_ms,check_ms,gen_pipeline_ms,baseline_check_ms,ast_ok,lex_ok,compile_ok,triton_import_ok,compile_error,levels_passed,retries,speedup_proxy,gpu_efficiency_proxy,backend,gen_error
+gen_0000,matmul,solo_llama,Llama-3.1-8B (local),k_0000,42,0,1784,52124.76787499327,38.306750007905066,52163.07462500117,30.562625004677102,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.0005859053597662892,0.01918473771237162,ollama,
+gen_0001,flash_attention,solo_llama,Llama-3.1-8B (local),k_0001,43,0,1416,57401.3795840001,37.423000001581386,57438.80258400168,29.333333994145505,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.0005106884662375546,0.01742118407688475,ollama,
+gen_0002,reduction,solo_llama,Llama-3.1-8B (local),k_0002,44,0,1243,66661.88420800609,43.660499999532476,66705.54470800562,30.0896249973448,True,True,False,False,"triton_surface; triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2",0,,0.0,ollama,
+gen_0003,softmax,solo_llama,Llama-3.1-8B (local),k_0003,45,0,1006,61056.65545800002,37.923374999081716,61094.578832999105,30.697458001668565,False,True,False,False,"ast:parameter without a default follows parameter with a default (<unknown>, line 9); triton_surface; triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+",L2,0,,0.0,ollama,
+gen_0004,elementwise,solo_llama,Llama-3.1-8B (local),k_0004,46,0,456,54330.86387500225,39.003792000585236,54369.867667002836,30.23725000093691,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.0005561398491188153,0.018405744519370732,ollama,
+gen_0005,flash_attention,solo_llama,Llama-3.1-8B (local),k_0005,47,0,1416,66721.6166670114,36.53183300048113,66758.14850001188,30.033791990717873,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.0004498895290769265,0.014987646432350633,ollama,
+gen_0006,reduction,solo_llama,Llama-3.1-8B (local),k_0006,48,0,1243,65871.52366699593,43.26716701325495,65914.79083400918,30.107833008514717,True,True,False,False,"triton_surface; triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2",0,,0.0,ollama,
+gen_0007,reduction,solo_llama,Llama-3.1-8B (local),k_0007,49,0,1243,65915.12679199514,44.280000001890585,65959.40679199703,29.582041999674402,True,True,False,False,"triton_surface; triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2",0,,0.0,ollama,
+gen_0008,reduction,solo_llama,Llama-3.1-8B (local),k_0008,50,0,1243,50720.17429200059,42.303292008000426,50762.47758400859,30.244832989410497,True,True,False,False,"triton_surface; triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2",0,,0.0,ollama,
+gen_0009,matmul,solo_llama,Llama-3.1-8B (local),k_0009,51,0,1784,61400.05462500267,42.35841700574383,61442.41304200841,30.37620900431648,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.0004943850265702968,0.01628663046160859,ollama,
+gen_0000,matmul,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),k_0000,42,0,730,26435.0762499962,56.27179201110266,26491.348042007303,30.562625004677102,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.001153683268824749,0.03782852716379601,ollama,
+gen_0001,flash_attention,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),k_0001,43,0,1255,29885.300207999535,55.094249997637235,29940.394457997172,29.333333994145505,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.000979724366534205,0.03346126667759976,ollama,
+gen_0002,reduction,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),k_0002,44,0,667,12924.18658400129,54.83720899792388,12979.023792999214,30.0896249973448,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.0023183272854137853,0.07737430851067169,ollama,
+gen_0003,softmax,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),k_0003,45,0,784,16558.051375002833,53.004625005996786,16611.05600000883,30.697458001668565,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.001848013636318621,0.060393579978237556,ollama,
+gen_0004,elementwise,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),k_0004,46,0,309,7674.567666996154,42.94887500873301,7717.516542004887,30.23725000093691,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.0039180026160438594,0.1303004994405636,ollama,
+gen_0005,flash_attention,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),k_0005,47,0,1255,29896.305834001396,42.12470800848678,29938.430542009883,30.033791990717873,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.0010031852520984417,0.033448948694613935,ollama,
+gen_0006,reduction,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),k_0006,48,0,667,12923.010083002737,48.469291999936104,12971.479375002673,30.107833008514717,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.002321079357111379,0.07738135260880677,ollama,
+gen_0007,reduction,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),k_0007,49,0,667,12391.2217499892,60.01270900014788,12451.234458989347,29.582041999674402,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.0023758320588298954,0.08070229233052598,ollama,
+gen_0008,reduction,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),k_0008,50,0,667,12836.204749997705,42.24841599352658,12878.453165991232,30.244832989410497,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.0023484833620608663,0.07790464701026048,ollama,
+gen_0009,matmul,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),k_0009,51,0,730,18670.41849999805,52.757958008442074,18723.176458006492,30.37620900431648,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.0016223854468522547,0.05356066335631975,ollama,
+gen_0000,matmul,solo_claude,Claude 3.5 Sonnet (frontera),k_0000,42,0,303,50.00254198675975,31.446707987925038,81.44924997468479,30.562625004677102,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.37523519264052474,19.998983256987046,heuristic_template,
+gen_0001,flash_attention,solo_claude,Claude 3.5 Sonnet (frontera),k_0001,43,0,313,50.00245800765697,55.43691699858755,105.43937500624452,29.333333994145505,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.27820094715478233,19.99901684526925,heuristic_template,
+gen_0002,reduction,solo_claude,Claude 3.5 Sonnet (frontera),k_0002,44,0,308,50.001541993697174,30.539041006704792,80.54058300040197,30.0896249973448,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.37359581811314463,19.999383221542498,heuristic_template,
+gen_0003,softmax,solo_claude,Claude 3.5 Sonnet (frontera),k_0003,45,0,310,50.00141700729728,31.563917000312358,81.56533400760964,30.697458001668565,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.37635422419535053,19.999433213143913,heuristic_template,
+gen_0004,elementwise,solo_claude,Claude 3.5 Sonnet (frontera),k_0004,46,0,313,50.00104100035969,30.734583997400478,80.73562499776017,30.23725000093691,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.3745217802150634,19.9995836085254,heuristic_template,
+gen_0005,flash_attention,solo_claude,Claude 3.5 Sonnet (frontera),k_0005,47,0,313,50.002250002580695,30.557374993804842,80.55962499638554,30.033791990717873,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.3728144463441258,19.999100039465993,heuristic_template,
+gen_0006,reduction,solo_claude,Claude 3.5 Sonnet (frontera),k_0006,48,0,308,50.00200000067707,31.423292006365955,81.42529200704303,30.107833008514717,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.3697602092223444,19.999200031727913,heuristic_template,
+gen_0007,reduction,solo_claude,Claude 3.5 Sonnet (frontera),k_0007,49,0,308,50.00191599247046,30.425959004787728,80.42787499725819,29.582041999674402,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.36780832516938766,19.999233632378907,heuristic_template,
+gen_0008,reduction,solo_claude,Claude 3.5 Sonnet (frontera),k_0008,50,0,308,50.001499996869825,31.17641700373497,81.1779170006048,30.244832989410497,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.3725746373756445,19.999400019251453,heuristic_template,
+gen_0009,matmul,solo_claude,Claude 3.5 Sonnet (frontera),k_0009,51,0,303,50.00137501046993,30.30312499322463,80.30450000369456,30.37620900431648,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.378262849565329,19.999450010936844,heuristic_template,
+gen_0000,matmul,solo_gpt4o,GPT-4o (frontera),k_0000,42,0,303,50.00162499782164,31.641624998883344,81.64324999670498,30.562625004677102,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.374343561848782,19.999350021995603,heuristic_template,
+gen_0001,flash_attention,solo_gpt4o,GPT-4o (frontera),k_0001,43,0,313,50.00191599247046,31.79454199562315,81.79645798809361,29.333333994145505,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.3586137433776815,19.999233632378907,heuristic_template,
+gen_0002,reduction,solo_gpt4o,GPT-4o (frontera),k_0002,44,0,308,50.001541993697174,31.004958000266925,81.0064999939641,30.0896249973448,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.3714470443678818,19.999383221542498,heuristic_template,
+gen_0003,softmax,solo_gpt4o,GPT-4o (frontera),k_0003,45,0,310,50.00166600511875,30.50249999796506,80.50416600308381,30.697458001668565,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.38131514834266667,19.999333620156342,heuristic_template,
+gen_0004,elementwise,solo_gpt4o,GPT-4o (frontera),k_0004,46,0,313,50.00116699084174,30.316582997329533,80.31774998817127,30.23725000093691,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.37647033196759216,19.999533214557992,heuristic_template,
+gen_0005,flash_attention,solo_gpt4o,GPT-4o (frontera),k_0005,47,0,313,50.00191699655261,31.55499999411404,81.55691699066665,30.033791990717873,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.3682556072362928,19.999233230776838,heuristic_template,
+gen_0006,reduction,solo_gpt4o,GPT-4o (frontera),k_0006,48,0,308,50.00174999877345,31.184790990664624,81.18654098943807,30.107833008514717,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.3708475892873867,19.99930002498973,heuristic_template,
+gen_0007,reduction,solo_gpt4o,GPT-4o (frontera),k_0007,49,0,308,50.00141700729728,31.179750003502704,81.18116701079998,29.582041999674402,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.3643953775108818,19.999433213143913,heuristic_template,
+gen_0008,reduction,solo_gpt4o,GPT-4o (frontera),k_0008,50,0,308,50.00212500162888,30.856333003612235,80.85845800524112,30.244832989410497,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.37404662091688756,19.999150035471967,heuristic_template,
+gen_0009,matmul,solo_gpt4o,GPT-4o (frontera),k_0009,51,0,303,50.001332999090664,30.920624994905666,80.92195799399633,30.37620900431648,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.37537659440432863,19.999466814578447,heuristic_template,
+gen_0000,matmul,triton_heal_dual,Triton Heal (dual + veto),k_0000,42,0,1784,50925.26670900406,31.113917008042336,50956.380626012105,30.562625004677102,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.0005997801380162302,0.019636617824982164,triton_heal_dual_gen,
+gen_0001,flash_attention,triton_heal_dual,Triton Heal (dual + veto),k_0001,43,0,1416,57125.04004199582,31.102207998628728,57156.142249994446,29.333333994145505,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.0005132140280889645,0.017505458188998096,triton_heal_dual_gen,
+gen_0002,reduction,triton_heal_dual,Triton Heal (dual + veto),k_0002,44,0,972,104052.93749901466,44.766207996872254,104097.70370701153,30.0896249973448,True,True,False,False,"triton_surface; triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2",2,,0.0,triton_heal_dual_gen,
+gen_0003,softmax,triton_heal_dual,Triton Heal (dual + veto),k_0003,45,0,751,75708.77225000004,41.233416995964944,75750.005666996,30.697458001668565,False,True,False,False,"ast:parameter without a default follows parameter with a default (<unknown>, line 9); triton_surface; triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+",L2,2,,0.0,triton_heal_dual_gen,
+gen_0004,elementwise,triton_heal_dual,Triton Heal (dual + veto),k_0004,46,0,988,32151.55833400786,30.138792004436255,32181.697126012295,30.23725000093691,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.0009395790993414173,0.031102691496675106,triton_heal_dual_gen,
+gen_0005,flash_attention,triton_heal_dual,Triton Heal (dual + veto),k_0005,47,0,1416,49683.69041699043,29.418541002087295,49713.10895799252,30.033791990717873,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.0006041423000942542,0.02012732934303181,triton_heal_dual_gen,
+gen_0006,reduction,triton_heal_dual,Triton Heal (dual + veto),k_0006,48,0,972,103750.26133400388,38.58258300169837,103788.84391700558,30.107833008514717,True,True,False,False,"triton_surface; triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2",2,,0.0,triton_heal_dual_gen,
+gen_0007,reduction,triton_heal_dual,Triton Heal (dual + veto),k_0007,49,0,972,98044.15058299492,43.37624998879619,98087.52683298371,29.582041999674402,True,True,False,False,"triton_surface; triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2",2,,0.0,triton_heal_dual_gen,
+gen_0008,reduction,triton_heal_dual,Triton Heal (dual + veto),k_0008,50,0,972,89047.99487499986,44.80445799708832,89092.79933299695,30.244832989410497,True,True,False,False,"triton_surface; triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2",2,,0.0,triton_heal_dual_gen,
+gen_0009,matmul,triton_heal_dual,Triton Heal (dual + veto),k_0009,51,0,1784,56577.209416995174,29.981041996506974,56607.19045899168,30.37620900431648,True,True,True,False,"triton_import:Traceback (most recent call last):
+  File ""<string>"", line 1, in <module>
+    import triton
+ModuleNotFoundError: No module named 'triton'
+","L1,L2,L3",0,0.0005366139664946296,0.017674961531411463,triton_heal_dual_gen,

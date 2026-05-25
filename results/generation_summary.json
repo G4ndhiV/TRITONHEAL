@@ -1,0 +1,138 @@
+{
+  "descriptive": [
+    {
+      "config": "solo_llama",
+      "label": "Llama-3.1-8B (local)",
+      "n": 10,
+      "compile_pct": 50.0,
+      "compile_n_ok": 5,
+      "speedup_mean": 0.00051940164615392,
+      "speedup_std": 5.3165131104641015e-05,
+      "speedup_min": 0.0004498895290769,
+      "speedup_max": 0.0005859053597662,
+      "gen_latency_mean": 60220.404704300745,
+      "gen_latency_std": 6223.982442433843,
+      "gpu_eff_mean": 0.00862859432025861
+    },
+    {
+      "config": "solo_deepseek",
+      "label": "DeepSeek-R1-Distill-Qwen-14B (local)",
+      "n": 0,
+      "compile_pct": 0.0,
+      "compile_n_ok": 0,
+      "speedup_mean": NaN,
+      "speedup_std": NaN,
+      "speedup_min": NaN,
+      "speedup_max": NaN,
+      "gen_latency_mean": NaN,
+      "gen_latency_std": NaN,
+      "gpu_eff_mean": NaN
+    },
+    {
+      "config": "solo_deepseek_coder",
+      "label": "DeepSeek-Coder-V2 (frontera)",
+      "n": 10,
+      "compile_pct": 100.0,
+      "compile_n_ok": 10,
+      "speedup_mean": 0.00198887166500875,
+      "speedup_std": 0.0008857612461024641,
+      "speedup_min": 0.0009797243665342,
+      "speedup_max": 0.0039180026160438,
+      "gen_latency_mean": 18019.43430009851,
+      "gen_latency_std": 7977.2962623253725,
+      "gpu_eff_mean": 0.0662356085771395
+    },
+    {
+      "config": "solo_claude",
+      "label": "Claude 3.5 Sonnet (frontera)",
+      "n": 10,
+      "compile_pct": 100.0,
+      "compile_n_ok": 10,
+      "speedup_mean": 0.36391284299956966,
+      "speedup_std": 0.030268018688752455,
+      "speedup_min": 0.2782009471547823,
+      "speedup_max": 0.378262849565329,
+      "gen_latency_mean": 50.001804099883884,
+      "gen_latency_std": 0.0005054432905736246,
+      "gpu_eff_mean": 19.99927838792292
+    },
+    {
+      "config": "solo_gpt4o",
+      "label": "GPT-4o (frontera)",
+      "n": 10,
+      "compile_pct": 100.0,
+      "compile_n_ok": 10,
+      "speedup_mean": 0.37151116192603817,
+      "speedup_std": 0.006481812127619289,
+      "speedup_min": 0.3586137433776815,
+      "speedup_max": 0.3813151483426666,
+      "gen_latency_mean": 50.001645798329264,
+      "gen_latency_std": 0.00029403487556064936,
+      "gpu_eff_mean": 19.99934170295922
+    },
+    {
+      "config": "triton_heal_dual",
+      "label": "Triton Heal (dual + veto)",
+      "n": 10,
+      "compile_pct": 50.0,
+      "compile_n_ok": 5,
+      "speedup_mean": 0.00063866590640706,
+      "speedup_std": 0.0001727755077199768,
+      "speedup_min": 0.0005132140280889,
+      "speedup_max": 0.0009395790993414,
+      "gen_latency_mean": 71706.68814600067,
+      "gen_latency_std": 25833.835999679846,
+      "gpu_eff_mean": 0.01060470583850984
+    }
+  ],
+  "tests": {
+    "C4_dual_vs_gpt_compile": {
+      "chi2": 3.2,
+      "p": 0.07363827012030295,
+      "phi": 2.23606797749979,
+      "table": [
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "n_discordant": 5,
+      "p_holm": 0.1472765402406059
+    },
+    "C7_dual_vs_llama_compile": {
+      "chi2": Infinity,
+      "p": 0.0,
+      "phi": 0.0,
+      "table": [
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "n_discordant": 0,
+      "p_holm": 0.0
+    },
+    "C8_speedup_dual_vs_gpt": {
+      "stat": 0.0,
+      "p": 1.0,
+      "r": 1.0,
+      "median_diff": -0.3737437817107658,
+      "p_holm": 1.0
+    }
+  },
+  "holm": {
+    "C7_dual_vs_llama_compile": 0.0,
+    "C4_dual_vs_gpt_compile": 0.1472765402406059,
+    "C8_speedup_dual_vs_gpt": 1.0
+  },
+  "n_rows": 50,
+  "n_tasks": 10
+}

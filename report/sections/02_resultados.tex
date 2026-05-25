@@ -1,90 +1,102 @@
 \section{Resultados descriptivos (2.1)}
 
-Se evaluaron $N=\Nkernels$ kernels (39 \texttt{safe}, 31 \texttt{unsafe}) en \textbf{6} configuraciones, totalizando \Neval\ evaluaciones (\texttt{VERIFIER\_MODE=ollama}, mayo 2026, Apple M4 / Metal). De ellas, el resumen global registra la tasa de JSON válido agregada en \texttt{stats\_summary.json} (proxy de éxito operativo del verificador SLM). La validación léxica del \emph{corpus} fija (no por modelo generador) contextualiza compilabilidad sintáctica del benchmark.
+\subsection{Generación de kernels}
+Se ejecutaron \Ntasks\ tareas de generación $\times$ 5 configuraciones activas (R1-14B excluido por timeout) = \Ngen\ inferencias (mayo 2026, Apple M4). La tasa de compilación usa criterios L1--L3 (AST, léxico, superficie Triton); ver \texttt{results/generation.csv}.
+
+\input{tables/generation_descriptive.tex}
+
+\textbf{Totales.} Ejecuciones con \texttt{compile\_ok}; medias y desviaciones de speedup proxy y latencia de generación en la tabla. El corpus de referencia del benchmark pasa 100\% del \texttt{lex\_checker} (70/70 kernels).
+
+\subsection{Verificación pre-compilación}
+Se evaluaron \Nkernels\ kernels (39 \texttt{safe}, 31 \texttt{unsafe}) en 6 configuraciones; con 3 réplicas: hasta 1260 evaluaciones de verificación.
 
 \input{tables/descriptive.tex}
 
 \input{tables/descriptive_extended.tex}
 
-\textbf{Narrativa.} \textbf{Llama-8B} (local): MSR 64.5\%, JSON 100\%, latencia media $\approx$4.8\,s (desv.\ $\approx$2\,s). \textbf{R1-Distill-14B} (local): JSON 14.3\%, MSR 12.9\% ---inferencias frecuentemente sin JSON estructurado (timeout). \textbf{Coder-V2} (frontera): MSR 87.1\%, JSON 100\%, mediana $\approx$2.0\,s. \textbf{Claude/GPT} (heurístico): MSR $\approx$83.9\%, latencia $\approx$80\,ms. \textbf{Dual} (Llama + veto Coder-V2): MSR 80.6\%, F1 0.86, FNR 19.4\%.
+\input{tables/robustness.tex}
 
 \section{Visualización (2.2)}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.95\linewidth]{fig_msr_f1.png}
-  \caption{MSR (\%) y F1 por configuración. Eje horizontal: configuración del sistema; barras izquierdas = MSR en kernels \texttt{unsafe}; barras/derecha = F1 global. Unidades: porcentaje y coeficiente F1 adimensional. Leyenda en figura.}
-  \label{fig:msr_f1}
+  \includegraphics[width=0.95\linewidth]{fig_compile_rate.png}
+  \caption{Tasa de éxito de compilación (\%) por configuración en kernels \textbf{generados} por cada SLM/baseline. Eje $Y$: porcentaje; eje $X$: configuración. Métrica alineada a la rúbrica del curso (niveles L1--L3 en M4).}
+  \label{fig:compile_rate}
 \end{figure}
 
-La Figura~\ref{fig:msr_f1} muestra la separación entre Coder-V2 (frontera, MSR alto) y R1-14B (local con bajo JSON válido).
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\linewidth]{fig_speedup_proxy.png}
+  \caption{Speedup proxy (boxplot): ratio $t_{\mathrm{baseline}}/t_{\mathrm{pipeline}}$ en tareas con compilación exitosa. Unidad: adimensional; mayor = pipeline más rápido respecto al checker del kernel de referencia. Limitación M4: sin medición CUDA.}
+  \label{fig:speedup}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\linewidth]{fig_msr_f1.png}
+  \caption{MSR (\%) y F1 en verificación del benchmark fijo.}
+  \label{fig:msr_f1}
+\end{figure}
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.95\linewidth]{fig_valid_json.png}
-  \caption{Tasa de éxito operativo: \% de respuestas con JSON válido por configuración (análogo a ``tasa de compilación'' del componente verificador SLM; no mide kernels generados). Unidad: \%.}
+  \caption{JSON válido (\%): éxito operativo del verificador SLM.}
   \label{fig:valid_json}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.95\linewidth]{fig_latency.png}
-  \caption{Distribución de latencia de inferencia (ms, escala logarítmica). Eje $Y$: milisegundos hasta respuesta parseable; comparación within-subjects.}
-  \label{fig:latency}
-\end{figure}
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.95\linewidth]{fig_msr_category.png}
-  \caption{MSR (\%) en kernels \texttt{unsafe} estratificado por categoría de error del benchmark (memoria, tiling, tipos, etc.).}
-  \label{fig:category}
-\end{figure}
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.65\linewidth]{fig_fnr_dual.png}
-  \caption{FNR (\%) en \texttt{unsafe}: Triton Heal dual vs.\ solo Llama (barras comparativas; unidad: \%).}
-  \label{fig:fnr}
+  \includegraphics[width=0.95\linewidth]{fig_robustness_compile.png}
+  \caption{Robustez: tasa de compilación por \texttt{run\_id} (réplicas).}
+  \label{fig:robustness}
 \end{figure}
 
 \section{Inferencia estadística (2.3)}
 
+\subsection{Generación}
+\input{tables/generation_inference.tex}
+
+\textbf{¿Se rechazó $H_0$ en C4 (dual vs GPT compilación)?} Ver tabla y $p_{\mathrm{Holm}}$. Se aplica umbral de relevancia práctica $\Delta$compile $\geq 5$ pp además de $\alpha$ ajustado.
+
+\subsection{Verificación}
 \input{tables/inference.tex}
 
-\textbf{¿Se rechazó $H_0$?} Tras Holm, C1, C2, C3 y C5 \textbf{no} alcanzan $p_{\text{Holm}}<0.05$. C6 (Friedman sobre F1) sí rechaza igualdad global ($p_{\text{Holm}}<0.001$).
-
-\textbf{Tamaño del efecto.} En C1 y C2, $\phi$ se reporta como pequeño/mediano en la tabla; C3 muestra dirección esperada (menor FNR en dual) sin significación tras corrección.
-
-\textbf{Significancia vs.\ relevancia práctica.} Aunque Coder-V2 supera a Llama en $\approx$22 pp de MSR descriptivamente, la regla pre-registrada exige $p_{\text{Holm}}<0.05$ \textbf{y} $\Delta$MSR $\geq 5$ pp para afirmar superioridad confirmatoria en C1/C2; la diferencia descriptiva cumple el umbral práctico pero no la inferencia pareada tras Holm.
-
-\textbf{IC.} Los intervalos Wilson para MSR aparecen en Tabla~\ref{tab:desc_ext} (columnas IC lo/hi).
+\textbf{Resumen.} Contrastes C1--C3, C5: ver tabla. Friedman C6 evalúa F1 global. IC Wilson para MSR en Tabla~\ref{tab:desc_ext}.
 
 \section{Comparación crítica (2.4)}
 
-\textbf{Frontera Ollama (Coder-V2)} lidera MSR con latencia mediana baja ($\sim$2\,s) y JSON 100\%. \textbf{Llama-8B} es el SLM local operativamente viable. \textbf{R1-Distill-14B} no es comparable en igualdad de condiciones sin ajustar timeout o cuantización. \textbf{Dual} equilibra detección (MSR 80.6\%) y F1 (0.86) frente a veto excesivo. \textbf{APIs heurísticas} igualan MSR entre sí pero no reflejan latencia ni razonamiento real de frontera comercial.
+\textbf{Generación.} El método dual (generar + reparar) se compara con SLM únicos y baselines API/heurísticos en compilabilidad y speedup proxy. DeepSeek-R1-14B puede degradar compilación por timeouts.
+
+\textbf{Verificación.} Coder-V2 lidera MSR descriptivo; dual equilibra FNR y F1.
+
+\subsection{Robustez}
+Con 3 réplicas (\texttt{run\_id}), la Tabla~\ref{tab:robustness} y la Figura~\ref{fig:robustness} muestran variabilidad de MSR/latencia (verificación) y compilación (generación). No se variaron seeds del benchmark entre réplicas (mismas 20 tareas); la robustez refleja variabilidad del modelo y del runtime Ollama.
 
 \section{Amenazas a la validez observadas (2.5)}
 
-\textbf{Validez interna.} ¿Se controlaron semillas y versiones? Sí para benchmark (seed 42) y tags Ollama fijos; no para APIs (heurístico). ¿Hardware uniforme? Un solo M4 24\,GB. ¿Timeouts? R1-14B con 14.3\% JSON válido sesga MSR hacia cero.
+\textbf{Interna.} ¿Hardware uniforme? Sí (un M4). ¿Seeds? Benchmark fijo; réplicas \texttt{run\_id}. ¿Configuraciones inconsistentes? Documentadas en apéndice. Timeouts en R1-14B.
 
-\textbf{Validez externa.} ¿Generaliza a otros GPUs? No probado (Metal vs.\ CUDA). ¿Otros dominios? Benchmark de seguridad Triton, no cargas de producción.
+\textbf{Externa.} ¿Benchmark real? Parcialmente sintético; 20 tareas de generación derivadas de categorías reales del benchmark.
 
-\textbf{Validez de constructo.} ¿MSR engaña? Sí si se confunde con seguridad en ejecución GPU. ¿JSON válido engaña? Sí como ``compilación''; solo indica parseo del verificador. ¿Heurísticos de API? Sí: inflan acuerdo con ground truth sin costo de inferencia real.
-
-\textbf{Mitigaciones aplicadas.} Reclasificación DeepSeek, reporte de JSON válido y timeouts, mapeo rúbrica (1.5), matriz de cumplimiento (apéndice).
+\textbf{Constructo.} ¿Compilación refleja calidad SLM? Solo sintaxis/estructura en M4. ¿Speedup refleja GPU? No --- es proxy de pipeline. ¿MSR refleja seguridad GPU? No.
 
 \section{Discusión (2.6)}
 
-\textbf{¿Evidencia para hipótesis?} Descriptivamente PRI-1 favorece Coder-V2; PRI-2 favorece dual en FNR; inferencia confirmatoria individual es conservadora tras Holm. \textbf{Limitaciones:} sin generación ni speedup medidos. \textbf{Qué haríamos distinto:} APIs reales, segundo hardware NVIDIA, timeout adaptativo para R1-14B, corrida de generación+compilación por configuración. \textbf{Amenazas abiertas:} constructo MSR vs.\ GPU; heurísticos. \textbf{Escala:} Coder-V2 en Ollama compite con SLM 8B en este host.
+\textbf{¿Evidencia para hipótesis?} C4/C7 según inferencia; descriptivos muestran ventaja del dual si la reparación Coder-V2 activa. \textbf{Limitaciones:} sin CUDA; APIs heurísticas. \textbf{Qué haríamos distinto:} APIs reales, GPU NVIDIA, más tareas. \textbf{Amenazas abiertas:} constructo compilación vs ejecución.
 
 \section{Conclusión (2.7)}
 
-\begin{enumerate}[noitemsep]
-  \item \textbf{Objetivo:} Se evaluó el pipeline generativo-verificativo vía verificador SLM; proxies alineados a rúbrica con limitaciones documentadas.
-  \item \textbf{$H_0$ confirmatorios:} No rechazados en C1--C3 y C5 tras Holm; Friedman global sí rechaza igualdad de F1.
-  \item \textbf{Efecto práctico:} Coder-V2 $\approx$87\% MSR; dual $\approx$81\% con F1 0.86; Llama local $\approx$65\%.
-  \item \textbf{Reproducibilidad:} Repo \texttt{G4ndhiV/TRITONHEAL}, commit \texttt{2c027b5}, \texttt{make stats figures pdf}.
-  \item \textbf{Métricas engañosas:} JSON válido $\neq$ compilación de kernel generado; MSR $\neq$ seguridad en GPU.
-  \item \textbf{Debilidad principal:} R1-14B local inoperante en esta corrida y APIs no reales.
-  \item \textbf{Taxonomía:} Coder-V2 = frontera; R1-Distill-14B = SLM local.
+\begin{enumerate}
+  \item \textbf{¿Se rechazó $H_0$?} Reportar por contraste C4/C7 (generación) y C1--C5 (verificación) según Tablas~\ref{tab:gen_infer} y \ref{tab:infer}.
+  \item \textbf{¿Evidencia estadística suficiente?} Solo si $p_{\mathrm{Holm}}<0.05$ y umbral práctico; de lo contrario evidencia descriptiva con limitaciones.
+  \item \textbf{¿Diferencia consistente?} Revisar Figura~\ref{fig:robustness} y Tabla~\ref{tab:robustness}.
+  \item \textbf{¿Tamaño del efecto relevante?} Ver $\phi$ y $\Delta$compile/MSR en tablas de inferencia.
+  \item \textbf{¿Justifica usar el método?} Si dual mejora compilación sin invalidar latencia operativa.
+  \item \textbf{Limitaciones:} M4 sin speedup CUDA real; heurísticos API.
+  \item \textbf{Métricas engañosas:} compile\_ok $\neq$ kernel correcto en GPU; speedup proxy $\neq$ speedup NVIDIA.
+  \item \textbf{Debilidad principal:} R1-14B local y dependencia de reparación frontera.
+  \item \textbf{¿Reproducible?} Sí: \texttt{G4ndhiV/TRITONHEAL}, \texttt{make generation experiments stats-all figures pdf}.
+  \item \textbf{¿Escala de modelos explica diferencias?} Parcialmente: frontera vs 8B local; documentado en 1.9.
 \end{enumerate}

@@ -475,6 +475,51 @@ def benchmark_lex_pass_rate() -> dict:
     return {"n_kernels": n, "n_lex_ok": ok, "pct_lex_ok": 100 * ok / n if n else 0}
 
 
+def write_robustness_tex(df: pd.DataFrame, path: Path) -> None:
+    """MSR and latency mean ± std across run_id per config."""
+    rows = []
+    for config in CONFIGS:
+        sub = df[df["config"] == config]
+        if sub.empty:
+            continue
+        by_run = []
+        for rid in sorted(sub["run_id"].unique()):
+            r0 = sub[sub["run_id"] == rid].drop_duplicates("kernel_id")
+            by_run.append(msr_from_df(r0) * 100)
+        msr_mean = float(np.mean(by_run)) if by_run else float("nan")
+        msr_std = float(np.std(by_run)) if len(by_run) > 1 else 0.0
+        lat_mean = sub.groupby("run_id")["latency_ms"].median().mean()
+        lat_std = sub.groupby("run_id")["latency_ms"].median().std()
+        if np.isnan(lat_std):
+            lat_std = 0.0
+        rows.append({
+            "label": CONFIG_LABELS[config],
+            "n_runs": len(by_run),
+            "msr_mean": msr_mean,
+            "msr_std": msr_std,
+            "lat_mean": lat_mean,
+            "lat_std": lat_std,
+        })
+    lines = [
+        "\\begin{table}[ht]",
+        "\\centering",
+        "\\caption{Robustez verificación: MSR y latencia mediana por réplica (\\texttt{run\\_id}).}",
+        "\\label{tab:robustness}",
+        "\\footnotesize",
+        "\\begin{tabular}{@{}lrrrr@{}}",
+        "\\toprule",
+        "Config. & Réplicas & MSR media (\\%) & MSR desv. & Lat. med. (ms) $\\pm$ desv. \\\\",
+        "\\midrule",
+    ]
+    for r in rows:
+        lines.append(
+            f"{r['label']} & {r['n_runs']} & {r['msr_mean']:.1f} & {r['msr_std']:.1f} & "
+            f"{r['lat_mean']:.0f} $\\pm$ {r['lat_std']:.0f} \\\\"
+        )
+    lines.extend(["\\bottomrule", "\\end{tabular}", "\\end{table}"])
+    path.write_text("\n".join(lines), encoding="utf-8")
+
+
 def main():
     pred_path = RESULTS_DIR / "predictions.csv"
     if not pred_path.exists():
@@ -512,6 +557,8 @@ def main():
     to_latex_table(desc, REPORT_TABLES / "descriptive.tex", "Resultados descriptivos por configuración.", "tab:desc")
     write_descriptive_extended_tex(desc_ext, REPORT_TABLES / "descriptive_extended.tex")
     write_inference_tex(inf_display, REPORT_TABLES / "inference.tex")
+    if "run_id" in df.columns:
+        write_robustness_tex(df, REPORT_TABLES / "robustness.tex")
 
     run_meta_path = RESULTS_DIR / "run_meta.json"
     run_meta = {}

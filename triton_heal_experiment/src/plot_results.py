@@ -141,6 +141,11 @@ def main():
     fig_latency_box(df)
     fig_msr_by_category(df)
     fig_fnr_dual(df)
+    try:
+        from src.plot_generation import main as plot_gen
+        plot_gen()
+    except Exception as e:
+        print("Generation figures skipped:", e)
     print("Figures saved to", FIGURES_DIR, "and", REPORT_FIGURES_DIR)
 
 

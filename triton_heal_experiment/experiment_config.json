@@ -5,8 +5,10 @@
   "temperature": 0.0,
   "max_tokens": 512,
   "timeout_seconds": 120,
-  "latency_repeats_local": 1,
-  "latency_repeats_api": 1,
+  "latency_repeats_local": 3,
+  "latency_repeats_api": 3,
+  "generation_repeats": 3,
+  "robustness_seeds": [42, 43, 44],
   "ollama_host": "http://127.0.0.1:11434",
   "models": {
     "llama_local": "llama3.1:8b",
@@ -17,5 +19,6 @@
   },
   "verifier_mode": "hybrid",
   "practical_threshold_msr_pp": 5.0,
+  "practical_threshold_compile_pp": 5.0,
   "alpha": 0.05
 }

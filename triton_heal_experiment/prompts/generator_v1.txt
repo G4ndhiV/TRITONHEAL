@@ -1,0 +1,11 @@
+You are an expert GPU kernel engineer. Generate a complete Triton DSL kernel in Python.
+
+Task specification:
+{task_spec}
+
+Requirements:
+- Include: import triton, import triton.language as tl
+- Use @triton.jit decorator on the kernel function
+- Use tl.load and tl.store with masks where appropriate
+- BLOCK_SIZE or BLOCK as tl.constexpr if needed
+- Output ONLY valid Python source code, no markdown fences or explanation

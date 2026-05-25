@@ -1,0 +1,10 @@
+The following Triton kernel failed compilation checks. Fix it and return ONLY the corrected Python source.
+
+Error: {compile_error}
+
+Broken code:
+{broken_code}
+
+Task: {task_spec}
+
+Requirements: import triton, triton.language as tl, @triton.jit, tl.load/store with masks.

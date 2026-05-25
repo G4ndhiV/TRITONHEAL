@@ -1,0 +1,18 @@
+\begin{table}[ht]
+\centering
+\caption{Robustez verificación: MSR y latencia mediana por réplica (\texttt{run\_id}).}
+\label{tab:robustness}
+\footnotesize
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Config. & Réplicas & MSR media (\%) & MSR desv. & Lat. med. (ms) $\pm$ desv. \\
+\midrule
+Llama-3.1-8B (local) & 1 & 64.5 & 0.0 & 4754 $\pm$ 0 \\
+DeepSeek-R1-Distill-Qwen-14B (local) & 1 & 12.9 & 0.0 & 48347 $\pm$ 0 \\
+DeepSeek-Coder-V2 (frontera) & 1 & 87.1 & 0.0 & 1977 $\pm$ 0 \\
+Claude 3.5 Sonnet (frontera) & 1 & 83.9 & 0.0 & 80 $\pm$ 0 \\
+GPT-4o (frontera) & 1 & 83.9 & 0.0 & 80 $\pm$ 0 \\
+Triton Heal (dual + veto) & 1 & 80.6 & 0.0 & 6653 $\pm$ 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
