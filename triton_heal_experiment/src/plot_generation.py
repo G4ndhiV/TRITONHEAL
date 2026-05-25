@@ -4,7 +4,9 @@ import shutil
 import sys
 from pathlib import Path
 
+import matplotlib.colors as mcolors
 import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
 import seaborn as sns
 
@@ -62,55 +64,42 @@ def fig_speedup_box(df: pd.DataFrame):
 
 
 def fig_robustness_compile(df: pd.DataFrame):
-    """Variación entre réplicas si existen; si no, entre tareas del benchmark."""
-    df = df[df["config"].isin(CONFIGS)].copy()
-    n_runs = df["run_id"].nunique() if "run_id" in df.columns else 1
+    """Mapa por tarea: verde = compiló, rojo = no (evita líneas binarias superpuestas)."""
+    sub = df[df["config"].isin(CONFIGS)].copy()
+    sub["ok"] = sub["compile_ok"].astype(bool).astype(int)
+    sub["task_num"] = sub["task_id"].astype(str).str.extract(r"(\d+)", expand=False).astype(int)
 
-    if n_runs > 1:
-        sub = (
-            df.groupby(["config", "run_id"])
-            .agg(compile_pct=("compile_ok", lambda x: 100 * x.astype(bool).mean()))
-            .reset_index()
-        )
-        x_col, x_label, title = "run_id", "Réplica (run_id)", "Tasa de compilación por réplica"
-    else:
-        sub = df.copy()
-        sub["compile_pct"] = 100 * sub["compile_ok"].astype(bool)
-        sub["task_num"] = (
-            sub["task_id"].astype(str).str.extract(r"(\d+)", expand=False).astype(int)
-        )
-        x_col, x_label, title = "task_num", "Tarea (índice)", "Tasa de compilación por tarea"
-        sub = sub.groupby(["config", "task_num"], as_index=False)["compile_pct"].max()
+    pivot = sub.pivot_table(index="config", columns="task_num", values="ok", aggfunc="max")
+    order = [c for c in CONFIGS if c in pivot.index]
+    pivot = pivot.reindex(order)
+    row_labels = [CONFIG_LABELS[c].split("(")[0].strip() for c in pivot.index]
 
-    sub["label"] = sub["config"].map(CONFIG_LABELS)
-    sub = sub.sort_values(["config", x_col])
+    fig, ax = plt.subplots(figsize=(10, 3.2))
+    cmap = mcolors.ListedColormap(["#e57373", "#66bb6a"])
+    sns.heatmap(
+        pivot,
+        ax=ax,
+        cmap=cmap,
+        vmin=0,
+        vmax=1,
+        cbar_kws={
+            "label": "Compilación",
+            "ticks": [0.25, 0.75],
+            "format": "%.0f",
+        },
+        linewidths=0.8,
+        linecolor="white",
+        annot=np.where(pivot.values.astype(int) == 1, "Sí", "No"),
+        fmt="",
+        annot_kws={"size": 8, "weight": "bold"},
+    )
+    cbar = ax.collections[0].colorbar
+    cbar.ax.set_yticklabels(["No", "Sí"], fontsize=9)
 
-    palette = sns.color_palette("tab10", n_colors=sub["config"].nunique())
-    fig, ax = plt.subplots(figsize=(9, 4.5))
-
-    for i, (config, grp) in enumerate(sub.groupby("config")):
-        short = CONFIG_LABELS[config].split("(")[0].strip()
-        ax.plot(
-            grp[x_col],
-            grp["compile_pct"],
-            marker="o",
-            linewidth=1.8,
-            markersize=7,
-            label=short,
-            color=palette[i],
-            alpha=0.9,
-        )
-
-    ax.set_xlabel(x_label)
-    ax.set_ylabel("Tasa de compilación (%)")
-    ax.set_title(title)
-    ax.set_ylim(-5, 105)
-    if n_runs <= 1:
-        ax.set_xticks(sorted(sub["task_num"].unique()))
-    else:
-        ax.set_xticks(sorted(sub["run_id"].unique()))
-    ax.legend(loc="upper right", fontsize=8, framealpha=0.9)
-    ax.grid(True, alpha=0.3)
+    ax.set_yticklabels(row_labels, rotation=0, fontsize=9)
+    ax.set_xlabel("Tarea (índice)")
+    ax.set_ylabel("")
+    ax.set_title("Compilación por tarea y configuración (1 = éxito L1--L3)")
     fig.tight_layout()
     _save(fig, "fig_robustness_compile")
 
