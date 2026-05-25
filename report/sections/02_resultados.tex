@@ -22,7 +22,7 @@ Coder-V2 alcanzó el MSR más alto (87.1\% con IC aproximado 71--95\% en la tabl
 
 \section{Visualización (2.2)}
 
-La Figura~\ref{fig:compile_rate} resume la tasa de compilación por configuración. En la Figura~\ref{fig:speedup} se muestra el speedup proxy solo en tareas donde hubo compilación exitosa; conviene leerla junto con la nota de que no hay medición CUDA en este hardware.
+La Figura~\ref{fig:compile_rate} resume la tasa de compilación por configuración. La Figura~\ref{fig:speedup} usa escala logarítmica porque los modelos Ollama (latencia de generación en segundos) y los baselines heurísticos (plantillas en milisegundos) comparten la misma fórmula pero en rangos muy distintos.
 
 \begin{figure}[H]
   \centering
@@ -34,7 +34,7 @@ La Figura~\ref{fig:compile_rate} resume la tasa de compilación por configuraci�
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.95\linewidth]{fig_speedup_proxy.png}
-  \caption{Speedup proxy (boxplot): $t_{\mathrm{baseline}}/t_{\mathrm{pipeline}}$ en tareas con \texttt{compile\_ok}.}
+  \caption{Speedup proxy ($t_{\mathrm{baseline}}/t_{\mathrm{pipeline}}$) en tareas con compilación exitosa; eje $Y$ en escala logarítmica. Claude y GPT usan modo heurístico en esta corrida.}
   \label{fig:speedup}
 \end{figure}
 

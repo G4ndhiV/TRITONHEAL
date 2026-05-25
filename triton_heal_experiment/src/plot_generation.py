@@ -48,17 +48,47 @@ def fig_compile_rate(df: pd.DataFrame):
     _save(fig, "fig_compile_rate")
 
 
+def _short_label(config: str) -> str:
+    short = {
+        "solo_llama": "Llama-8B",
+        "solo_deepseek": "R1-14B",
+        "solo_deepseek_coder": "Coder-V2",
+        "solo_claude": "Claude (heur.)",
+        "solo_gpt4o": "GPT-4o (heur.)",
+        "triton_heal_dual": "Triton Heal",
+    }
+    return short.get(config, CONFIG_LABELS.get(config, config))
+
+
 def fig_speedup_box(df: pd.DataFrame):
     sub = df[df["compile_ok"].astype(bool) & df["speedup_proxy"].notna()].copy()
-    sub["label"] = sub["config"].map(CONFIG_LABELS)
     if sub.empty:
         return
-    fig, ax = plt.subplots(figsize=(9, 5))
-    sns.boxplot(data=sub, x="label", y="speedup_proxy", ax=ax)
-    ax.set_ylabel("Speedup proxy (baseline_ms / pipeline_ms)")
-    ax.set_xlabel("Configuración")
-    ax.set_title("Speedup proxy por configuración (M4, sin CUDA)")
-    ax.tick_params(axis="x", rotation=20)
+    sub = sub[sub["speedup_proxy"] > 0]
+    sub["label"] = sub["config"].map(_short_label)
+    order = [_short_label(c) for c in CONFIGS if c in sub["config"].values]
+
+    fig, ax = plt.subplots(figsize=(9, 4.8))
+    sns.boxplot(
+        data=sub,
+        x="label",
+        y="speedup_proxy",
+        order=order,
+        ax=ax,
+        color="#5c6bc0",
+        linewidth=1.2,
+        fliersize=4,
+    )
+    ax.set_yscale("log")
+    ax.set_ylim(sub["speedup_proxy"].min() * 0.7, sub["speedup_proxy"].max() * 1.3)
+    ax.set_ylabel("Speedup proxy (baseline / pipeline), escala log")
+    ax.set_xlabel("")
+    ax.set_title("Speedup proxy en tareas con compilación exitosa (M4)")
+    ax.tick_params(axis="x", rotation=25, labelsize=9)
+    for t in ax.get_xticklabels():
+        t.set_ha("right")
+    ax.yaxis.grid(True, which="both", linestyle="--", alpha=0.35)
+    ax.set_axisbelow(True)
     fig.tight_layout()
     _save(fig, "fig_speedup_proxy")
 
