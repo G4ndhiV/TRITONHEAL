@@ -1,20 +1,16 @@
 \section{Objetivo experimental (1.1)}
 
-\textbf{Problema.} Evaluar si un método de \textbf{generación de kernels Triton DSL} basado en SLM, con verificación y reparación pre-compilación, produce kernels compilables y un pipeline más eficiente que baselines comerciales o abiertos.
+El experimento compara métodos de generación de kernels en Triton DSL usando SLM locales y modelos de frontera, con un pipeline de verificación antes de compilar en GPU. El sistema del equipo, Triton Heal en modo dual, genera con Llama-3.1-8B y, si el código no pasa las validaciones, intenta repararlo con DeepSeek-Coder-V2 (hasta dos reintentos).
 
-\textbf{Qué se demuestra.} (1) Tasa de compilación por configuración; (2) speedup proxy del pipeline en M4; (3) calidad del filtrado (MSR/FNR) en verificación del benchmark fijo.
-
-\textbf{Método propuesto.} \textbf{Triton Heal dual}: generación con Llama-3.1-8B + reparación con DeepSeek-Coder-V2 (hasta 2 reintentos) + verificación/veto del pipeline completo.
-
-\textbf{Baselines ($\geq$2).} Llama-8B, DeepSeek-R1-14B, DeepSeek-Coder-V2, Claude 3.5 Sonnet, GPT-4o (6 configuraciones incluyendo dual).
-
-\textbf{Preguntas.} PRI-G1: ¿El dual supera a GPT-4o en tasa de compilación? PRI-G2: ¿El dual supera a solo Llama? PRI-V1--V3: verificación MSR/FNR/latencia (Parte II).
+Se contrastan seis configuraciones: solo Llama-8B, solo DeepSeek-R1-Distill-Qwen-14B, solo DeepSeek-Coder-V2, Claude 3.5 Sonnet, GPT-4o y el dual propuesto. Las preguntas centrales son si el dual mejora la tasa de compilación frente a GPT-4o y frente a Llama solo, y si el filtrado por verificación (MSR, FNR, latencia) aporta frente a usar un único SLM.
 
 \section{Hipótesis (1.2)}
 
+Todas las pruebas usan $\alpha = 0.05$ antes de corrección; los $p$-valores ajustados siguen Holm-Bonferroni (sección 1.8).
+
 \begin{table}[ht]
 \centering
-\caption{Hipótesis pre-registradas (generación y verificación).}
+\caption{Hipótesis por contraste y métrica.}
 \label{tab:hipotesis}
 \footnotesize
 \begin{adjustbox}{max width=\linewidth,center}
@@ -22,13 +18,13 @@
 \toprule
 Contraste & $H_0$ & $H_1$ \\
 \midrule
-\textbf{C4} Dual vs GPT-4o (compilación) & Tasas iguales & Dual $>$ GPT \\
-\textbf{C7} Dual vs Llama (compilación) & Tasas iguales & Dual $>$ Llama \\
-C1: Claude vs Llama (MSR) & MSR igual & Claude $>$ Llama \\
-C2: GPT vs Coder-V2 (MSR) & MSR igual & GPT $>$ Coder-V2 \\
-C3: Dual vs Llama (FNR) & FNR igual & Dual $<$ Llama \\
-C5: Latencia Claude vs Llama & Medianas iguales & Frontera $>$ local \\
-C8: Speedup proxy dual vs GPT & Igual & Dual $>$ GPT \\
+C4: dual vs GPT-4o (compilación) & Misma tasa de compilación & Dual con mayor tasa \\
+C7: dual vs Llama (compilación) & Misma tasa & Dual con mayor tasa \\
+C1: Claude vs Llama (MSR) & Mismo MSR & Claude con mayor MSR \\
+C2: GPT vs Coder-V2 (MSR) & Mismo MSR & GPT con mayor MSR \\
+C3: dual vs Llama (FNR) & Mismo FNR & Dual con menor FNR \\
+C5: latencia Claude vs Llama & Misma mediana & Frontera más lenta \\
+C8: speedup proxy dual vs GPT & Igual & Dual mayor \\
 \bottomrule
 \end{tabularx}
 \end{adjustbox}
@@ -37,69 +33,78 @@ C8: Speedup proxy dual vs GPT & Igual & Dual $>$ GPT \\
 \section{Variables experimentales (1.3)}
 
 \subsection{Variables independientes}
-Configuración (6), modelo SLM/frontera, prompt de generación (\texttt{generator\_v1.txt}) / reparación (\texttt{generator\_repair\_v1.txt}), temperatura $T{=}0$, modo \texttt{VERIFIER\_MODE}.
+
+La configuración del sistema (seis modos), el modelo concreto (SLM local vs frontera), el prompt (\texttt{generator\_v1.txt} o \texttt{generator\_repair\_v1.txt} en reparación), la temperatura ($T = 0$) y el modo de ejecución (\texttt{VERIFIER\_MODE}, típicamente Ollama en nuestro entorno).
 
 \subsection{Variables dependientes}
-\textbf{Generación:} \texttt{compile\_ok}, tasa de compilación (\%), \texttt{speedup\_proxy}, \texttt{gpu\_efficiency\_proxy}, latencia de generación (ms). \textbf{Verificación:} MSR, FNR, F1, JSON válido, latencia (ms).
+
+En generación: si el código compila bajo nuestro checker (\texttt{compile\_ok}), la tasa de compilación en porcentaje, el speedup proxy y un indicador de eficiencia operativa del pipeline. En verificación del benchmark fijo: MSR, FNR, F1, porcentaje de JSON válido y latencia en milisegundos.
 
 \subsection{Variables controladas}
-Benchmark 70 kernels + 20 tareas de generación; GPU Apple M4 24\,GB; seed 42; timeout 120\,s; mismas tareas para todas las configuraciones (within-subjects).
+
+Mismo benchmark de 70 kernels y el mismo conjunto de tareas de generación para todas las configuraciones; hardware Apple M4 con 24\,GB; \texttt{seed} 42; \texttt{timeout} 120\,s por inferencia. El diseño es within-subjects: cada tarea o kernel se evalúa en todos los métodos.
 
 \section{Diseño experimental (1.4)}
 
-\textbf{Tipo:} within-subjects. \textbf{Generación:} 20 tareas $\times$ 6 configs $\times$ 3 réplicas = 360 ejecuciones. \textbf{Verificación:} 70 kernels $\times$ 6 configs $\times$ 3 réplicas = 1260 evaluaciones. \textbf{Justificación:} McNemar/Wilcoxon pareados; control de variabilidad inter-tarea.
+Cada tarea de generación se asigna a las seis configuraciones (en la corrida archivada, R1-14B se omitió por timeouts). El plan de diseño contempla 20 tareas con tres réplicas (360 ejecuciones de generación) y 70 kernels con tres réplicas en verificación (1260 evaluaciones). Se eligió within-subjects para poder aplicar McNemar y Wilcoxon pareados y reducir la varianza entre tareas de distinta dificultad.
 
 \section{Métricas de evaluación (1.5)}
 
 \subsection{Tasa de compilación}
-\textbf{Definición:} proporción de generaciones con \texttt{compile\_ok}. \textbf{Cálculo:} L1 AST + L2 léxico + L3 superficie Triton (@triton.jit, tl.load/store). \textbf{Interpretación:} éxito sintáctico/estructural pre-GPU. \textbf{Limitación M4:} no implica ejecución CUDA.
+
+Proporción de salidas con \texttt{compile\_ok}. En esta entrega el criterio exige pasar tres niveles en Mac M4: sintaxis Python (AST), reglas léxicas del checker del equipo, y presencia de \texttt{@triton.jit} con operaciones \texttt{tl.load}/\texttt{tl.store}. No equivale a compilar en CUDA ni a ejecutar en GPU.
 
 \subsection{Speedup proxy}
-\textbf{Definición:} $s = t_{\mathrm{baseline}} / t_{\mathrm{pipeline}}$. \textbf{Cálculo:} $t_{\mathrm{baseline}}$ = tiempo checker en kernel de referencia; $t_{\mathrm{pipeline}} = t_{\mathrm{gen}} + t_{\mathrm{check}}$. \textbf{Limitación:} proxy operativo en M4, no speedup GPU real.
 
-\subsection{GPU efficiency proxy}
-\textbf{Definición:} compilaciones exitosas por segundo de generación. \textbf{Limitación:} no mide ocupación SM ni memoria GPU.
+Se define $s = t_{\mathrm{baseline}} / t_{\mathrm{pipeline}}$, donde $t_{\mathrm{baseline}}$ es el tiempo del checker sobre el kernel de referencia del benchmark y $t_{\mathrm{pipeline}}$ suma la latencia de generación más la del checker sobre el código generado. Sirve como indicador operativo en M4; el informe no reporta speedup medido en GPU NVIDIA.
 
-\subsection{MSR, FNR, F1, latencia, JSON válido}
-Ver corrida de verificación; MSR = sensibilidad en \texttt{unsafe}; JSON válido = éxito operativo del verificador SLM.
+\subsection{Eficiencia operativa (proxy)}
+
+Relación entre compilaciones exitosas y tiempo de generación. No sustituye métricas de ocupación de SM o ancho de banda de memoria.
+
+\subsection{Verificación (MSR, FNR, F1, JSON válido, latencia)}
+
+MSR es la fracción de kernels \texttt{unsafe} correctamente marcados como inseguros; FNR es la fracción de \texttt{unsafe} pasados por alto. F1 resume precisión y recall en la clasificación safe/unsafe. El porcentaje de JSON válido indica si el verificador devolvió una respuesta parseable.
 
 \section{Tamaño del efecto esperado (1.6)}
 
-Compilación: $\phi \approx 0.4$ (McNemar); $\Delta$compile $\geq 5$ pp (relevancia práctica). Verificación: $\phi \approx 0.4$ MSR; reducción FNR $\geq 8$ pp.
+En contrastes pareados de compilación y MSR se anticipa un efecto mediano ($\phi \approx 0.4$ en McNemar). Además de la significación estadística, se exige una diferencia práctica de al menos 5 puntos porcentuales en compilación o MSR, y alrededor de 8 pp de reducción de FNR para considerar relevante la mejora del dual.
 
 \section{Análisis de poder (1.7)}
 
-$\alpha=0.05$, poder $1-\beta=0.80$. Generación: $N=20$ tareas. Verificación: 31 kernels \texttt{unsafe}.
+Nivel de significación $\alpha = 0.05$ y poder objetivo $1 - \beta = 0.80$. La muestra de generación tiene 20 tareas; en verificación hay 31 kernels \texttt{unsafe}, cantidad suficiente para detectar efectos medianos en McNemar según el diseño del curso.
 
 \section{Plan estadístico (1.8)}
 
 \begin{table}[ht]
 \centering
-\caption{Contrastes y pruebas.}
+\caption{Contrastes confirmatorios y prueba asociada.}
 \label{tab:plan_stats}
 \footnotesize
 \begin{tabularx}{\linewidth}{@{}llX@{}}
 \toprule
 ID & Prueba & Comparación \\
 \midrule
-C4 & McNemar & Compilación dual vs GPT-4o \\
-C7 & McNemar & Compilación dual vs Llama \\
-C8 & Wilcoxon & Speedup proxy dual vs GPT \\
-C1--C3, C5--C6 & McNemar/Wilcoxon/Friedman & Verificación (benchmark) \\
+C4 & McNemar & Compilación: dual vs GPT-4o \\
+C7 & McNemar & Compilación: dual vs Llama \\
+C8 & Wilcoxon & Speedup proxy: dual vs GPT \\
+C1--C3, C5 & McNemar / Wilcoxon & Verificación en benchmark \\
+C6 & Friedman + Holm & F1 entre configuraciones \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-\textbf{Regla:} rechazar $H_0$ si $p_{\mathrm{Holm}}<0.05$ y $\Delta$compile $\geq 5$ pp (o $\Delta$MSR $\geq 5$ pp). \textbf{IC:} Wilson 95\% (MSR y compilación). \textbf{Holm} sobre familia de contrastes.
+Se rechaza $H_0$ cuando $p_{\mathrm{Holm}} < 0.05$ y se cumple el umbral de relevancia práctica acordado. Para proporciones se reportan intervalos de confianza Wilson al 95\% (MSR en la tabla extendida de la Parte II). La familia de contrastes se corrige con Holm-Bonferroni.
 
-\subsection{Desviaciones registradas}
-Taxonomía DeepSeek corregida; APIs heurísticas (plantillas) para Claude/GPT sin API; compilación L4 opcional en M4; corrida de generación con 10 tareas y exclusión de \texttt{solo\_deepseek} por timeout; réplicas de verificación con \texttt{run\_id=0} en la corrida archivada (config actualizado a 3 réplicas).
+\subsection{Desviaciones respecto al plan inicial}
+
+Durante la ejecución se corrigió la taxonomía de DeepSeek (Coder-V2 como frontera, R1-14B como SLM local). Claude y GPT corrieron con verificador heurístico al no disponer de API en el entorno de prueba. La generación archivada usa 10 tareas y excluye \texttt{solo\_deepseek} por timeout; la verificación quedó con una réplica por kernel (\texttt{run\_id = 0}), aunque \texttt{experiment\_config.json} ya deja configuradas tres réplicas para corridas futuras.
 
 \section{Reproducibilidad experimental (1.9)}
 
 \begin{table}[ht]
 \centering
-\caption{Entorno, modelos y artefactos.}
+\caption{Entorno y artefactos.}
 \label{tab:repro}
 \footnotesize
 \begin{adjustbox}{max width=\linewidth,center}
@@ -107,38 +112,37 @@ Taxonomía DeepSeek corregida; APIs heurísticas (plantillas) para Claude/GPT si
 \toprule
 Componente & Especificación \\
 \midrule
-Repositorio & \url{https://github.com/G4ndhiV/TRITONHEAL} (commit \texttt{d066ca1}) \\
-Hardware & macOS 15.x; Apple M4 10 GPU; 24\,GB RAM unificada \\
-Ollama & 0.24.x \\
-Llama-3.1-8B & \texttt{llama3.1:8b} ($\sim$8B parámetros) \\
-DeepSeek-R1-Distill-Qwen-14B & \texttt{deepseek-r1:14b} ($\sim$14B) \\
-DeepSeek-Coder-V2 & \texttt{deepseek-coder-v2} (frontera, MoE $\sim$16B activos) \\
-Claude / GPT & Sonnet 3.5 / GPT-4o (API o heurístico) \\
-Python & 3.10+; \texttt{requirements.txt} \\
-Benchmark & 70 kernels + \texttt{generation\_tasks.jsonl} (20 tareas) \\
-Comandos & \texttt{make benchmark generation experiments stats-all figures pdf} \\
+Repositorio & \url{https://github.com/G4ndhiV/TRITONHEAL} (commit \texttt{c05f82a}) \\
+Hardware & macOS 15.x; Apple M4; 24\,GB memoria unificada \\
+Ollama & 0.24.x (\texttt{llama3.1:8b}, \texttt{deepseek-r1:14b}, \texttt{deepseek-coder-v2}) \\
+Modelos API & Claude 3.5 Sonnet; GPT-4o (heurístico si no hay clave) \\
+Python & 3.10+; dependencias en \texttt{requirements.txt} \\
+Benchmark & 70 kernels; \texttt{generation\_tasks.jsonl} \\
+Prompts & \texttt{prompts/generator\_v1.txt}, \texttt{generator\_repair\_v1.txt} \\
+Reproducción & \texttt{make benchmark generation experiments stats-all figures pdf} \\
 \bottomrule
 \end{tabularx}}
 \end{adjustbox}
 \end{table}
 
-\section{Amenazas a la validez --- pre-registro (1.10)}
+\section{Amenazas a la validez (pre-registro, 1.10)}
 
 \begin{table}[ht]
 \centering
-\caption{Amenazas y mitigaciones.}
+\caption{Amenazas anticipadas y mitigación.}
 \label{tab:amenazas_pre}
 \footnotesize
 \begin{adjustbox}{max width=\linewidth,center}
 \begin{tabularx}{\linewidth}{@{}lXX@{}}
 \toprule
-Tipo & Amenaza & Mitigación \\
+Tipo & Riesgo & Mitigación \\
 \midrule
-Interna & Heurísticos API & Tabla planeada vs real \\
-Interna & Timeout R1-14B & Reportar latencia y compile \\
-Externa & Solo M4 Metal & No generalizar a NVIDIA \\
-Constructo & Compile $\neq$ GPU correcto & Niveles L1--L3 explícitos \\
-Constructo & Speedup proxy & Etiquetar en figuras y 2.5 \\
+Interna & Mezcla API real y heurístico & Tabla planeada vs ejecutado en apéndice \\
+Interna & Timeouts en modelos grandes & Fijar timeout; reportar JSON válido \\
+Externa & Solo Mac M4 (Metal) & No extrapolar a clusters NVIDIA \\
+Externa & Benchmark sintético & Etiquetar categorías de error \\
+Constructo & Compilación $\neq$ corrección GPU & Definir niveles L1--L3 \\
+Constructo & Speedup proxy & Declarar limitación en figuras \\
 \bottomrule
 \end{tabularx}
 \end{adjustbox}

@@ -1,14 +1,16 @@
 \section{Resultados descriptivos (2.1)}
 
 \subsection{Generación de kernels}
-Se ejecutaron \Ntasks\ tareas de generación $\times$ 5 configuraciones activas (R1-14B excluido por timeout) = \Ngen\ inferencias (mayo 2026, Apple M4). La tasa de compilación usa criterios L1--L3 (AST, léxico, superficie Triton); ver \texttt{results/generation.csv}.
+
+La corrida de generación cubrió \Ntasks\ tareas con cinco configuraciones activas (se excluyó \texttt{solo\_deepseek} por timeout), totalizando \Ngen\ inferencias en un Mac M4 con Ollama. La compilación exitosa sigue los criterios L1--L3 descritos en el pre-registro; los datos completos están en \texttt{results/generation.csv}.
 
 \input{tables/generation_descriptive.tex}
 
-\textbf{Totales.} Ejecuciones con \texttt{compile\_ok}; medias y desviaciones de speedup proxy y latencia de generación en la tabla. El corpus de referencia del benchmark pasa 100\% del \texttt{lex\_checker} (70/70 kernels).
+DeepSeek-Coder-V2 obtuvo 100\% de compilación en la muestra; Llama y el dual alcanzaron 50\%; Claude y GPT (modo heurístico sin API) aparecen al 100\% con latencias de unos 50\,ms, coherente con el uso de plantillas en lugar de llamadas reales a la API. Las latencias de generación con Ollama real rondan 18\,s (Coder-V2) a 60--72\,s (Llama y dual). El benchmark de referencia (70 kernels) pasó el \texttt{lex\_checker} en su totalidad.
 
 \subsection{Verificación pre-compilación}
-Se evaluaron \Nkernels\ kernels (39 \texttt{safe}, 31 \texttt{unsafe}) en 6 configuraciones = \Neval\ evaluaciones de verificación (\texttt{predictions.csv}).
+
+Sobre \Nkernels\ kernels (39 \texttt{safe}, 31 \texttt{unsafe}) se registraron \Neval\ evaluaciones, una por kernel y configuración en la corrida archivada.
 
 \input{tables/descriptive.tex}
 
@@ -16,86 +18,99 @@ Se evaluaron \Nkernels\ kernels (39 \texttt{safe}, 31 \texttt{unsafe}) en 6 conf
 
 \input{tables/robustness.tex}
 
+Coder-V2 alcanzó el MSR más alto (87.1\% con IC aproximado 71--95\% en la tabla extendida). Llama local quedó en 64.5\% con JSON siempre válido. R1-14B distilado fue el caso problemático: 14.3\% de JSON válido y MSR 12.9\%. El dual logró MSR 80.6\% y F1 0.86, por encima de Llama solo en detección sin igualar a Coder-V2.
+
 \section{Visualización (2.2)}
+
+La Figura~\ref{fig:compile_rate} resume la tasa de compilación por configuración. En la Figura~\ref{fig:speedup} se muestra el speedup proxy solo en tareas donde hubo compilación exitosa; conviene leerla junto con la nota de que no hay medición CUDA en este hardware.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.95\linewidth]{fig_compile_rate.png}
-  \caption{Tasa de éxito de compilación (\%) por configuración en kernels \textbf{generados} por cada SLM/baseline. Eje $Y$: porcentaje; eje $X$: configuración. Métrica alineada a la rúbrica del curso (niveles L1--L3 en M4).}
+  \caption{Tasa de compilación (\%) por configuración en kernels generados (criterios L1--L3, M4).}
   \label{fig:compile_rate}
 \end{figure}
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.95\linewidth]{fig_speedup_proxy.png}
-  \caption{Speedup proxy (boxplot): ratio $t_{\mathrm{baseline}}/t_{\mathrm{pipeline}}$ en tareas con compilación exitosa. Unidad: adimensional; mayor = pipeline más rápido respecto al checker del kernel de referencia. Limitación M4: sin medición CUDA.}
+  \caption{Speedup proxy (boxplot): $t_{\mathrm{baseline}}/t_{\mathrm{pipeline}}$ en tareas con \texttt{compile\_ok}.}
   \label{fig:speedup}
 \end{figure}
+
+Las figuras siguientes corresponden al componente de verificación sobre el benchmark fijo.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.95\linewidth]{fig_msr_f1.png}
-  \caption{MSR (\%) y F1 en verificación del benchmark fijo.}
+  \caption{MSR (\%) y F1 por configuración en verificación.}
   \label{fig:msr_f1}
 \end{figure}
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.95\linewidth]{fig_valid_json.png}
-  \caption{JSON válido (\%): éxito operativo del verificador SLM.}
+  \caption{Porcentaje de respuestas con JSON válido del verificador.}
   \label{fig:valid_json}
 \end{figure}
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.95\linewidth]{fig_robustness_compile.png}
-  \caption{Robustez: tasa de compilación por \texttt{run\_id} (réplicas).}
+  \caption{Compilación por réplica (\texttt{run\_id}) en generación.}
   \label{fig:robustness}
 \end{figure}
 
 \section{Inferencia estadística (2.3)}
 
 \subsection{Generación}
+
 \input{tables/generation_inference.tex}
 
-\textbf{¿Se rechazó $H_0$ en C4 (dual vs GPT compilación)?} Ver tabla y $p_{\mathrm{Holm}}$. Se aplica umbral de relevancia práctica $\Delta$compile $\geq 5$ pp además de $\alpha$ ajustado.
+En el contraste C4 (dual vs GPT-4o en compilación) no se rechaza $H_0$ tras Holm ($p_{\mathrm{Holm}} \approx 0.15$): con los datos actuales no hay evidencia estadística de que el dual supere al baseline GPT en tasa de compilación, aunque la diferencia descriptiva (50\% vs 100\%) supera el umbral de 5 pp que habíamos fijado como relevancia práctica. Ese 100\% de GPT debe interpretarse con cuidado porque en esta corrida GPT operó en modo heurístico.
 
 \subsection{Verificación}
+
 \input{tables/inference.tex}
 
-\textbf{Resumen.} Contrastes C1--C3, C5: ver tabla. Friedman C6 evalúa F1 global. IC Wilson para MSR en Tabla~\ref{tab:desc_ext}.
+Los contrastes C1, C2, C3 y C5 no rechazan $H_0$ después de la corrección. La prueba de Friedman (C6) sí indica diferencias globales en F1 ($p_{\mathrm{Holm}} < 0.001$), lo que coincide con la dispersión visible entre configuraciones, pero no identifica por sí sola un ganador único. Los intervalos de confianza para MSR están en la Tabla~\ref{tab:desc_ext}.
 
 \section{Comparación crítica (2.4)}
 
-\textbf{Generación.} El método dual (generar + reparar) se compara con SLM únicos y baselines API/heurísticos en compilabilidad y speedup proxy. DeepSeek-R1-14B puede degradar compilación por timeouts.
+En generación, Coder-V2 fue el modelo Ollama más confiable: compilación completa y tiempos menores que Llama o el dual. El esquema dual (generar y reparar) no mejoró la tasa respecto a Llama solo en esta muestra de 10 tareas, aunque la reparación sí se activó en varios fallos. Los baselines Claude/GPT no son comparables en latencia ni en “esfuerzo” de generación porque no invocaron APIs reales.
 
-\textbf{Verificación.} Coder-V2 lidera MSR descriptivo; dual equilibra FNR y F1.
+En verificación, Coder-V2 lidera en MSR; el dual ofrece un compromiso razonable entre sensibilidad y F1, útil si el producto prioriza un SLM local con veto de frontera. R1-14B no es viable en el M4 probado sin cambiar timeout o cuantización.
 
 \subsection{Robustez}
-La Tabla~\ref{tab:robustness} resume MSR y latencia por configuración (corrida archivada con una réplica por kernel). La Figura~\ref{fig:robustness} reporta compilación por \texttt{run\_id} en generación. El diseño pre-registra 3 réplicas (\texttt{experiment\_config.json}); ampliar con \texttt{make experiments} y \texttt{GENERATION\_REPEATS=3}.
 
-\section{Amenazas a la validez observadas (2.5)}
+La Tabla~\ref{tab:robustness} y la Figura~\ref{fig:robustness} reflejan principalmente una réplica en verificación y la réplica disponible en generación. El diseño prevé tres \texttt{run\_id}; repetir \texttt{make experiments} y \texttt{make generation} con \texttt{GENERATION\_REPEATS=3} permitiría discutir variabilidad entre ejecuciones con más sustento. No se cambió la semilla del benchmark entre réplicas: la variación observada proviene del modelo y del runtime, no de kernels distintos.
 
-\textbf{Interna.} ¿Hardware uniforme? Sí (un M4). ¿Seeds? Benchmark fijo; réplicas \texttt{run\_id}. ¿Configuraciones inconsistentes? Documentadas en apéndice. Timeouts en R1-14B.
+\section{Amenazas observadas (2.5)}
 
-\textbf{Externa.} ¿Benchmark real? Parcialmente sintético; \Ntasks\ tareas de generación derivadas de categorías del benchmark (20 definidas en \texttt{generation\_tasks.jsonl}).
+En validez interna, todo corrió en el mismo M4 con versiones de modelo fijadas en Ollama; la principal inconsistencia fue correr Claude/GPT sin API. Los timeouts de R1-14B dominaron su bajo porcentaje de JSON válido.
 
-\textbf{Constructo.} ¿Compilación refleja calidad SLM? Solo sintaxis/estructura en M4. ¿Speedup refleja GPU? No --- es proxy de pipeline. ¿MSR refleja seguridad GPU? No.
+En validez externa, el benchmark mezcla kernels generados y mutados; las 10 tareas de generación cubren cinco categorías pero no representan cargas de producción completas.
+
+En validez de constructo, la compilación medida es sintáctica y el speedup es un proxy de tiempos de pipeline; MSR mide detección en etiquetas del benchmark, no fallos reales en ejecución GPU. Las métricas son útiles para comparar métodos bajo las mismas reglas, pero no deben leerse como seguridad demostrada en hardware.
 
 \section{Discusión (2.6)}
 
-\textbf{¿Evidencia para hipótesis?} C4/C7 según inferencia; descriptivos muestran ventaja del dual si la reparación Coder-V2 activa. \textbf{Limitaciones:} sin CUDA; APIs heurísticas. \textbf{Qué haríamos distinto:} APIs reales, GPU NVIDIA, más tareas. \textbf{Amenazas abiertas:} constructo compilación vs ejecución.
+Los resultados no respaldan la hipótesis de que el dual supere a GPT-4o en compilación en esta corrida. Sí hay indicios de que combinar Llama con reparación Coder-V2 puede recuperar casos que Llama solo deja fuera, pero hace falta más tareas y réplicas para afirmarlo con confianza.
+
+La evidencia de verificación favorece modelos de frontera (Coder-V2) en MSR; el dual mejora respecto a Llama aislado pero no reemplaza al mejor frontera. La limitación más seria del estudio sigue siendo el entorno M4 sin CUDA y la dependencia de heurísticos para dos baselines comerciales.
+
+Si repitiéramos el trabajo, usaríamos APIs reales para Claude y GPT, ampliaríamos a las 20 tareas con tres réplicas, y probaríamos en GPU NVIDIA para separar compilación real de proxies.
 
 \section{Conclusión (2.7)}
 
-\begin{enumerate}
-  \item \textbf{¿Se rechazó $H_0$?} C4 (dual vs GPT compilación): \textbf{no} ($p_{\mathrm{Holm}}\approx 0.15$). Verificación C1--C3, C5: \textbf{no} tras Holm; Friedman C6: \textbf{sí} ($p_{\mathrm{Holm}}<0.001$).
-  \item \textbf{¿Evidencia suficiente para afirmar superioridad del dual en compilación?} \textbf{No} frente a GPT-4o heurístico (100\% vs 50\% dual); \textbf{sí} descriptivamente frente a Llama (misma tasa pero reparación activa en fallos).
-  \item \textbf{¿Diferencia grande o pequeña?} Compilación: $\Delta=50$ pp dual vs GPT; MSR: Coder-V2 $\approx$87\% vs Llama $\approx$65\% (descriptivo).
-  \item \textbf{¿Justifica el método?} \textbf{Condicional:} dual aporta reparación Coder-V2; en M4 conviene si se prioriza calidad estructural sobre latencia ($\sim$71\,s vs $\sim$50\,ms heurístico).
-  \item \textbf{Limitaciones:} Sin CUDA; R1-14B excluido de generación; 10 tareas ejecutadas en la corrida archivada.
-  \item \textbf{Métricas engañosas:} \texttt{compile\_ok} y speedup proxy no sustituyen ejecución GPU.
-  \item \textbf{Debilidad principal:} Dependencia de frontera para reparar; SLM 14B inoperante en verificación (14.3\% JSON válido).
-  \item \textbf{¿Reproducible?} Sí: \url{https://github.com/G4ndhiV/TRITONHEAL}, commit \texttt{d066ca1}.
-  \item \textbf{¿Escala explica resultados?} Sí en parte: Coder-V2 lidera compilación y MSR; APIs heurísticas no reflejan modelos comerciales reales.
-\end{enumerate}
+En compilación (C4), no se rechazó $H_0$: el dual no demostró superioridad estadística frente a GPT-4o. En verificación, los McNemar individuales tampoco rechazan $H_0$ tras Holm; solo el Friedman global señala que las configuraciones no tienen el mismo F1.
+
+La magnitud descriptiva sí importa: hay ~22 puntos porcentuales de MSR entre Coder-V2 y Llama, y 50 puntos entre GPT heurístico y dual en compilación, pero la inferencia pareada es conservadora con esta $N$.
+
+No consideramos que el dual, tal como está hoy, justifique por sí solo sustituir a Coder-V2: aporta la idea de reparación local + frontera, pero en números queda por debajo del mejor frontera y no gana en compilación al baseline GPT de la corrida.
+
+Las limitaciones principales son el hardware sin CUDA, la muestra reducida de generación, R1-14B inestable y los heurísticos de API. Las métricas más engañosas son el 100\% de compilación de GPT/Claude heurístico y el speedup proxy, que no reflejan rendimiento en GPU.
+
+Otro equipo puede reproducir el experimento con el repositorio citado y los comandos del apéndice; lo que más dificulta reproducir es el tiempo de inferencia en Ollama y la necesidad de descargar los mismos pesos. Parte de las diferencias entre configuraciones se explica por escala de modelo (8B vs frontera), no solo por el diseño Triton Heal.
+
+En conjunto, el estudio cumple su función de comparar métodos con diseño y estadística, pero las conclusiones deben ser prudentes: el mejor desempeño global en nuestros datos lo obtuvo DeepSeek-Coder-V2, y el método dual es prometedor como arquitectura, no como ganador absoluto en esta corrida.

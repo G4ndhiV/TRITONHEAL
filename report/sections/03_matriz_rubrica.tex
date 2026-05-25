@@ -1,34 +1,31 @@
-\section{Matriz de cumplimiento de la rúbrica}
+\section{Referencia rápida (rúbrica del curso)}
+
+La siguiente tabla enlaza cada criterio de la rúbrica con la sección y el artefacto donde se documenta. Sirve como índice de revisión antes de la entrega.
 
 \begin{table}[ht]
 \centering
-\caption{Criterio $\rightarrow$ sección $\rightarrow$ evidencia (post-generación).}
+\caption{Criterio, sección y evidencia.}
 \label{tab:matriz_rubrica}
 \scriptsize
 \begin{adjustbox}{max width=\linewidth,center}
-\begin{tabularx}{\linewidth}{@{}p{0.22\linewidth}p{0.12\linewidth}X@{}}
+\begin{tabularx}{\linewidth}{@{}p{0.24\linewidth}p{0.1\linewidth}X@{}}
 \toprule
-Criterio & Sec. & Evidencia \\
+Criterio & Sec. & Dónde verlo \\
 \midrule
-Generación SLM vs baselines & 1.1, 2.1 & \texttt{run\_generation.py}, Tabla~\ref{tab:gen_desc} \\
-Tasa de compilación & 1.5, 2.2 & Figura~\ref{fig:compile_rate} \\
-Speedup & 1.5, 2.2 & Figura~\ref{fig:speedup} (proxy M4) \\
-Hipótesis H0/H1 compilación & 1.2, 2.3 & C4, C7; Tabla~\ref{tab:gen_infer} \\
-Robustez & 2.4 & Tabla~\ref{tab:robustness}, Fig.~\ref{fig:robustness} \\
-Reproducibilidad & 1.9 & Tabla~\ref{tab:repro}, repo GitHub \\
-Amenazas & 1.10, 2.5 & Tablas + narrativa guía \\
-Conclusiones checklist & 2.7 & Enumeración completa \\
+Objetivo e hipótesis & 1.1--1.2 & Texto y Tabla~\ref{tab:hipotesis} \\
+Variables y diseño & 1.3--1.4 & Sección 1.3--1.4 \\
+Métricas & 1.5 & Subsecciones por métrica \\
+Plan estadístico & 1.8 & Tabla~\ref{tab:plan_stats}, Parte II \\
+Descriptivos & 2.1 & Tablas~\ref{tab:gen_desc}, \ref{tab:desc}, \ref{tab:desc_ext} \\
+Gráficas & 2.2 & Figuras~\ref{fig:compile_rate}--\ref{fig:robustness} \\
+Inferencia & 2.3 & Tablas~\ref{tab:gen_infer}, \ref{tab:infer} \\
+Amenazas & 1.10, 2.5 & Tablas y sección 2.5 \\
+Conclusiones & 2.7 & Sección 2.7 \\
 \bottomrule
 \end{tabularx}
 \end{adjustbox}
 \end{table}
 
-\section{Checklist de completitud}
+\section{Comprobación antes de entregar}
 
-\begin{itemize}[noitemsep]
-  \item[$\checkmark$] Parte I 1.1--1.10 y Parte II 2.1--2.7.
-  \item[$\checkmark$] Generación medida: \texttt{generation.csv} (\Ngen\ filas, \Ntasks\ tareas).
-  \item[$\checkmark$] Figuras compilación + speedup proxy.
-  \item[$\checkmark$] Verificación: 6 configs, tablas MSR/FNR.
-  \item[$\checkmark$] Limitación CUDA declarada en 1.5 y 2.5.
-\end{itemize}
+Parte I (1.1 a 1.10) y Parte II (2.1 a 2.7) están en el índice. Los datos de generación están en \texttt{generation.csv} (\Ngen\ filas); los de verificación en \texttt{predictions.csv}. Las figuras de compilación y speedup están en \texttt{report/figures/}. Las limitaciones de M4 sin CUDA están declaradas en 1.5 y 2.5.
