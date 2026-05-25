@@ -24,7 +24,7 @@ stats:
 figures:
 	cd triton_heal_experiment && $(PY) -m src.plot_results
 
-pdf:
+pdf: figures
 	cd report && /opt/homebrew/bin/tectonic main.tex
 	@test -f report/main.pdf && echo "PDF: report/main.pdf"
 

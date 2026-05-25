@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Generate figures for LaTeX report."""
+import shutil
 import sys
 from pathlib import Path
 
@@ -10,11 +11,22 @@ import seaborn as sns
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from src.metrics import msr_from_df
-from src.paths import FIGURES_DIR, RESULTS_DIR
+from src.paths import FIGURES_DIR, REPORT_FIGURES_DIR, RESULTS_DIR
 from src.verify import CONFIG_LABELS, CONFIGS
 
 sns.set_theme(style="whitegrid", font_scale=1.05)
 FIGURES_DIR.mkdir(parents=True, exist_ok=True)
+REPORT_FIGURES_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def _save_fig(fig, stem: str) -> None:
+    """Save PDF+PNG for LaTeX (PNG embeds reliably in Tectonic/XeTeX)."""
+    pdf_path = FIGURES_DIR / f"{stem}.pdf"
+    png_path = FIGURES_DIR / f"{stem}.png"
+    fig.savefig(pdf_path, bbox_inches="tight")
+    fig.savefig(png_path, dpi=200, bbox_inches="tight")
+    shutil.copy2(pdf_path, REPORT_FIGURES_DIR / pdf_path.name)
+    shutil.copy2(png_path, REPORT_FIGURES_DIR / png_path.name)
 
 
 def fig_msr_f1(df: pd.DataFrame):
@@ -38,7 +50,7 @@ def fig_msr_f1(df: pd.DataFrame):
     ax.legend()
     ax.set_ylim(0, 105)
     fig.tight_layout()
-    fig.savefig(FIGURES_DIR / "fig_msr_f1.pdf")
+    _save_fig(fig, "fig_msr_f1")
     plt.close(fig)
 
 
@@ -52,7 +64,7 @@ def fig_latency_box(df: pd.DataFrame):
     ax.set_ylabel("Latencia (ms, escala log)")
     ax.set_title("Distribución de latencia de inferencia")
     fig.tight_layout()
-    fig.savefig(FIGURES_DIR / "fig_latency.pdf")
+    _save_fig(fig, "fig_latency")
     plt.close(fig)
 
 
@@ -78,7 +90,7 @@ def fig_msr_by_category(df: pd.DataFrame):
     ax.set_title("Detección por categoría de kernel (solo unsafe)")
     ax.legend(bbox_to_anchor=(1.02, 1), loc="upper left")
     fig.tight_layout()
-    fig.savefig(FIGURES_DIR / "fig_msr_category.pdf")
+    _save_fig(fig, "fig_msr_category")
     plt.close(fig)
 
 
@@ -99,7 +111,7 @@ def fig_valid_json(df: pd.DataFrame):
     ax.set_ylim(0, 105)
     ax.tick_params(axis="x", rotation=15)
     fig.tight_layout()
-    fig.savefig(FIGURES_DIR / "fig_valid_json.pdf")
+    _save_fig(fig, "fig_valid_json")
     plt.close(fig)
 
 
@@ -117,7 +129,7 @@ def fig_fnr_dual(df: pd.DataFrame):
     ax.set_ylabel("FNR (%)")
     ax.set_title("Falsos negativos: dual vs solo local (PRI-2)")
     fig.tight_layout()
-    fig.savefig(FIGURES_DIR / "fig_fnr_dual.pdf")
+    _save_fig(fig, "fig_fnr_dual")
     plt.close(fig)
 
 
@@ -129,7 +141,7 @@ def main():
     fig_latency_box(df)
     fig_msr_by_category(df)
     fig_fnr_dual(df)
-    print("Figures saved to", FIGURES_DIR)
+    print("Figures saved to", FIGURES_DIR, "and", REPORT_FIGURES_DIR)
 
 
 if __name__ == "__main__":
