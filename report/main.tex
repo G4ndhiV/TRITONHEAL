@@ -7,8 +7,8 @@
 \title{%
   \textbf{PROYECTO TRITON HEAL}\\[0.5em]
   Reporte de Evaluación Experimental\\[0.3em]
-  \large TC3002B --- Arquitectura Generativa-Verificativa para\\
-  Detección Predictiva de Errores en Kernels GPU con Triton DSL
+  \large TC3002B --- Evaluación experimental de método basado en SLM\\
+  para kernels GPU con Triton DSL (generativo-verificativo)
 }
 \author{Equipo 11}
 \date{Mayo 2026}
@@ -18,11 +18,14 @@
 
 \begin{abstract}
 \noindent
-Evaluación TC3002B de Triton Heal (verificación pre-compilación de kernels Triton DSL).
-En \Nkernels\ kernels y \Neval\ evaluaciones (Apple M4, 24\,GB), se corrige la taxonomía:
-DeepSeek-Coder-V2 es frontera (MSR 87.1\%); DeepSeek-R1-Distill-Qwen-14B es SLM local
-(JSON válido 14.3\%, MSR 12.9\%). Llama-8B local: MSR 64.5\%. Dual (Llama+veto Coder-V2):
-MSR 80.6\%, F1 0.86. Ningún McNemar/Wilcoxon individual rechaza $H_0$ tras Holm.
+Evaluación TC3002B de Triton Heal como método \textbf{generativo-verificativo}
+(verificación SLM + veto de frontera + filtrado pre-compilación).
+En \Nkernels\ kernels y \Neval\ evaluaciones (6 configuraciones, Apple M4 24\,GB):
+DeepSeek-Coder-V2 (frontera) MSR 87.1\%; Llama-8B local 64.5\%;
+R1-Distill-14B local JSON 14.3\%; dual MSR 80.6\%, F1 0.86.
+Inferencia: McNemar/Wilcoxon individuales no rechazan $H_0$ tras Holm;
+Friedman global sí ($p_{\text{Holm}}<0.001$).
+Speedup y generación kernel-a-kernel no medidos (limitación documentada).
 \end{abstract}
 
 \tableofcontents
@@ -35,6 +38,8 @@ MSR 80.6\%, F1 0.86. Ningún McNemar/Wilcoxon individual rechaza $H_0$ tras Holm
 \input{sections/02_resultados}
 
 \appendix
+\input{sections/03_matriz_rubrica}
+
 \section{Configuración planeada vs.\ corrida real}
 \begin{table}[ht]
 \centering
@@ -58,13 +63,12 @@ triton\_heal\_dual & Llama local + veto frontera & Llama + Coder-V2 \texttt{stri
 
 \section{Reproducibilidad}
 \begin{verbatim}
-cd Estadistica/triton_heal_experiment
-.venv/bin/python -m src.stats_analysis
-.venv/bin/python -m src.plot_results
-cd ../report && tectonic main.tex
+git clone https://github.com/G4ndhiV/TRITONHEAL.git
+cd TRITONHEAL
+make stats figures pdf
 \end{verbatim}
 Archivos: \texttt{results/predictions.csv}, \texttt{results/stats\_summary.json},
-\texttt{report/tables/*.tex}, \texttt{figures/*.pdf}.
+\texttt{report/tables/*.tex}, \texttt{report/figures/*.png}, \texttt{report/main.pdf}.
 
 \section{Referencias}
 \begin{itemize}

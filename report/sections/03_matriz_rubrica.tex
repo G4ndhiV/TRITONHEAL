@@ -1,0 +1,38 @@
+\section{Matriz de cumplimiento de la rúbrica}
+
+\begin{table}[ht]
+\centering
+\caption{Criterio de evaluación $\rightarrow$ sección $\rightarrow$ evidencia.}
+\label{tab:matriz_rubrica}
+\scriptsize
+\begin{adjustbox}{max width=\linewidth,center}
+\begin{tabularx}{\linewidth}{@{}p{0.22\linewidth}p{0.12\linewidth}X@{}}
+\toprule
+Criterio (peso) & Sección & Evidencia \\
+\midrule
+1. Objetivo e hipótesis (8\%) & 1.1--1.2 & Texto + Tabla~\ref{tab:hipotesis} \\
+2. Variables (8\%) & 1.3 & Tres subsecciones VI/VD/VC \\
+3. Diseño y pre-registro (12\%) & 1.4, 1.8 & 6 configs, \Neval\ eval., desviaciones \\
+4. Métricas (8\%) & 1.5 & Tabla~\ref{tab:mapeo_rubrica} \\
+5. Plan estadístico (12\%) & 1.8 & Tabla~\ref{tab:plan_stats}, Holm \\
+6. Descriptivos y gráficas (8\%) & 2.1--2.2 & Tablas~\ref{tab:desc}, \ref{tab:desc_ext}; Fig.~\ref{fig:msr_f1}--\ref{fig:fnr} \\
+7. Inferencia (15\%) & 2.3 & Tabla~\ref{tab:infer}; IC en Tabla~\ref{tab:desc_ext} \\
+8. Reproducibilidad (7\%) & 1.9, apéndice & Tabla~\ref{tab:repro}; repo GitHub \\
+9. Amenazas (10\%) & 1.10, 2.5 & Tablas amenazas + narrativa guía \\
+10. Discusión y conclusiones (12\%) & 2.6--2.7 & Checklist enumerado 2.7 \\
+\bottomrule
+\end{tabularx}
+\end{adjustbox}
+\end{table}
+
+\section{Checklist de completitud (antes de entrega)}
+
+\begin{itemize}[noitemsep]
+  \item[$\checkmark$] Parte I: secciones 1.1--1.10 en índice.
+  \item[$\checkmark$] Parte II: secciones 2.1--2.7 (incl.\ 2.5 amenazas dedicada).
+  \item[$\checkmark$] Coherencia: 6 configuraciones, \Neval\ evaluaciones (no 5/350).
+  \item[$\checkmark$] C2: GPT-4o vs.\ DeepSeek-Coder-V2 (frontera).
+  \item[$\checkmark$] Tablas = \texttt{stats\_summary.json} (regenerar con \texttt{make stats}).
+  \item[$\checkmark$] Figuras PNG en \texttt{report/figures/}.
+  \item[$\checkmark$] Limitación generación/speedup declarada en 1.5 y 2.6.
+\end{itemize}

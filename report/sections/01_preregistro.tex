@@ -2,138 +2,179 @@
 
 \textbf{Problema.} Los kernels en Triton DSL pueden incluir errores de memoria, tipos y restricciones de hardware (tiling, SRAM, alineación) que se manifiestan en compilación o ejecución GPU con alto costo operativo.
 
-\textbf{Encuadre respecto al curso.} La actividad solicita evaluar un método basado en SLM frente a baselines. En Triton Heal el aporte del equipo no es la \emph{generación} de kernels, sino la \textbf{verificación pre-compilación} mediante SLM local y veto de frontera. Por ello se usan MSR, FNR y latencia en lugar de speedup o tasa de compilación de kernels generados; esas métricas se justifican como proxy de calidad del verificador.
+\textbf{Encuadre (curso: método basado en SLM).} Triton Heal se evalúa como \textbf{método generativo-verificativo}: generación/reparación de kernels con SLM, verificación local (SLM) y veto de frontera antes de compilar en GPU. En esta corrida se mide el \textbf{componente verificador} sobre un benchmark fijo de 70 kernels (no generación kernel-a-kernel ni speedup); las métricas se mapean a la rúbrica en la sección~1.5 con limitaciones explícitas.
 
-\textbf{Método propuesto.} Arquitectura \textbf{Triton Heal}: verificador local SLM (Llama-3.1-8B-Instruct) + veto jerárquico (Claude 3.5 Sonnet) + auto-reparación con backoff exponencial.
+\textbf{Método propuesto.} \textbf{Triton Heal dual}: verificador local \texttt{llama3.1:8b} + veto jerárquico con \texttt{deepseek-coder-v2} (\texttt{verifier\_strict\_v1.txt}) + filtrado pre-compilación.
 
-\textbf{Baselines.} (1) Solo Llama-3.1-8B (SLM local); (2) Solo DeepSeek-R1-Distill-Qwen-14B (SLM local); (3) Solo DeepSeek-Coder-V2 (frontera); (4) Solo Claude 3.5 Sonnet; (5) Solo GPT-4o.
+\textbf{Baselines ($\geq$2).} (1) Solo Llama-8B (SLM local); (2) Solo DeepSeek-R1-Distill-Qwen-14B (\texttt{deepseek-r1:14b}, SLM local); (3) Solo DeepSeek-Coder-V2 (frontera Ollama); (4) Solo Claude 3.5 Sonnet; (5) Solo GPT-4o.
 
-\textbf{Preguntas de investigación.} PRI-1: ¿Frontera supera a local en MSR? PRI-2: ¿Dual reduce FNR vs solo Llama? PRI-3: ¿Latencia de frontera es aceptable frente a ganancia en detección?
+\textbf{Preguntas.} PRI-1: ¿La frontera supera a SLM locales en MSR? PRI-2: ¿El dual reduce FNR vs.\ solo Llama? PRI-3: ¿La latencia de frontera es aceptable frente a la ganancia en detección?
+
+\textbf{Éxito del estudio.} Diferencia significativa tras Holm, efecto con relevancia práctica ($\Delta$MSR $\geq 5$ pp) y evidencia de que el dual mejora sensibilidad sin invalidar el pipeline por latencia.
 
 \section{Hipótesis (1.2)}
 
-\textbf{H\textsubscript{01}:} No hay diferencia en MSR entre Claude 3.5 Sonnet y Llama-3.1-8B.\\
-\textbf{H\textsubscript{11}:} Claude tiene mayor MSR (unilateral, $\alpha=0.05$).
-
-\textbf{H\textsubscript{01b}:} No hay diferencia en MSR entre GPT-4o y DeepSeek-Coder-V2 (ambos frontera).\\
-\textbf{H\textsubscript{11b}:} GPT-4o tiene mayor MSR que DeepSeek-Coder-V2.
-
-\textbf{H\textsubscript{02}:} No hay diferencia en FNR entre Triton Heal dual y solo Llama.\\
-\textbf{H\textsubscript{12}:} Triton Heal tiene menor FNR.
-
-\textbf{H\textsubscript{04}:} No hay diferencia en latencia mediana entre verificador de frontera y local.\\
-\textbf{H\textsubscript{14}:} La latencia mediana de frontera es mayor que la del local.
-
-\section{Variables experimentales (1.3)}
-
 \begin{table}[ht]
 \centering
-\caption{Variables del estudio.}
-\label{tab:vars}
+\caption{Hipótesis pre-registradas ($\alpha=0.05$; corrección Holm en 1.8).}
+\label{tab:hipotesis}
+\footnotesize
 \begin{adjustbox}{max width=\linewidth,center}
-{\footnotesize
-\begin{tabularx}{\linewidth}{@{}llX@{}}
+\begin{tabularx}{\linewidth}{@{}lXX@{}}
 \toprule
-Tipo & Variable & Niveles / descripción \\
+Contraste & $H_0$ & $H_1$ (unilateral salvo C6) \\
 \midrule
-Independiente & Configuración & 6: dual, Llama 8B, DeepSeek-R1 14B, DeepSeek-Coder-V2, Claude, GPT \\
-Independiente & Modelo / escala & SLM local ($\sim$8--14B) vs frontera (Coder-V2, APIs) \\
-Independiente & Prompt & \texttt{verifier\_v1.txt} (estándar) y \texttt{verifier\_strict\_v1.txt} (veto) \\
-Controlada & Temperatura & $T=0$ \\
-Controlada & Formato salida & JSON: safe, reason, line\_of\_error \\
-Controlada & Benchmark & 70 kernels (39 safe / 31 unsafe), seed 42 \\
-Controlada & Timeout & 120 s por inferencia (Metal / M4) \\
-Dependiente & MSR, F1, FNR, latencia, DR & Ver sección 1.5 \\
+C1: Claude vs Llama (MSR) & MSR igual & Claude $>$ Llama \\
+C2: GPT-4o vs Coder-V2 (MSR) & MSR igual & GPT-4o $>$ Coder-V2 \\
+C3: Dual vs Llama (FNR) & FNR igual & Dual $<$ Llama \\
+\textbf{Método propuesto} & Dual no mejora MSR vs Llama & Dual $>$ Llama en MSR \\
+C5: Latencia Claude vs Llama & Medianas iguales & Frontera $>$ local \\
+C6: F1 global & F1 igual entre configs & Al menos un par difiere \\
 \bottomrule
-\end{tabularx}}
+\end{tabularx}
 \end{adjustbox}
 \end{table}
 
+\textbf{H\textsubscript{01}/H\textsubscript{11}:} MSR Claude vs.\ Llama. \textbf{H\textsubscript{01b}/H\textsubscript{11b}:} MSR GPT-4o vs.\ DeepSeek-Coder-V2 (frontera). \textbf{H\textsubscript{02}/H\textsubscript{12}:} FNR dual vs.\ solo Llama. \textbf{H\textsubscript{0P}/H\textsubscript{1P}:} MSR dual vs.\ solo Llama (relevancia del método completo). \textbf{H\textsubscript{04}/H\textsubscript{14}:} latencia mediana frontera vs.\ local.
+
+\section{Variables experimentales (1.3)}
+
+\subsection{Variables independientes}
+\textbf{Configuración del sistema} (6 niveles): \texttt{solo\_llama}, \texttt{solo\_deepseek} (R1-14B), \texttt{solo\_deepseek\_coder}, \texttt{solo\_claude}, \texttt{solo\_gpt4o}, \texttt{triton\_heal\_dual}. Justificación: aísla SLM local, frontera Ollama/API y el método propuesto con veto.
+
+\textbf{Modelo y escala.} SLM local ($\sim$8--14B en Ollama) vs.\ frontera (Coder-V2, APIs comerciales). Justificación: PRI-1 contrasta capacidad de detección vs.\ costo de despliegue.
+
+\textbf{Prompt.} \texttt{verifier\_v1.txt} (estándar) y \texttt{verifier\_strict\_v1.txt} (veto dual). Justificación: el veto debe ser más conservador para reducir desacuerdos costosos.
+
+\subsection{Variables dependientes}
+MSR, FNR, F1 (safe/unsafe), latencia (ms), tasa de JSON válido (éxito operativo del verificador), DR (exploratorio). Justificación: alineadas a filtrado pre-compilación y viabilidad en pipeline (sección~1.5).
+
+\subsection{Variables controladas}
+Temperatura $T{=}0$; formato JSON; benchmark 70 kernels (39 safe / 31 unsafe); seed 42; timeout 120\,s; \texttt{VERIFIER\_MODE=ollama}; orden within-subjects por kernel.
+
 \section{Diseño experimental (1.4)}
 
-\textbf{Tipo:} within-subjects (medidas repetidas): cada kernel se evalúa en las 5 configuraciones.
+\textbf{Tipo:} within-subjects (medidas repetidas): cada uno de los \Nkernels\ kernels se evalúa en las \textbf{6} configuraciones $\Rightarrow$ \Neval\ evaluaciones totales.
 
-\textbf{Grupos:} 5 configuraciones; 6 contrastes confirmatorios (C1--C6).
+\textbf{Unidad de análisis:} kernel $\times$ configuración (primera réplica, \texttt{run\_id=0}, para McNemar/Friedman).
 
-\textbf{Justificación.} Controla variabilidad inter-kernel (complejidad, categoría). Permite McNemar y Wilcoxon pareados. Orden de ejecución por kernel aleatorizable.
+\textbf{Contrastes confirmatorios:} C1--C3, C5--C6 (tabla en 1.8); exploratorio por categoría de error en Parte~II.
 
-\textbf{Control de sesgos.} Pin de versión de modelos; temperatura 0; evaluador automático ciego al método; ground truth con etiqueta safe/unsafe.
+\textbf{Control de sesgos.} Pin de modelos Ollama; temperatura 0; evaluador automático ciego al método; ground truth \texttt{safe}/\texttt{unsafe}; registro de desviaciones en 1.8.
 
 \section{Métricas de evaluación (1.5)}
 
 \begin{table}[ht]
 \centering
-\caption{Métricas, fórmulas e interpretación.}
-\label{tab:metricas}
+\caption{Mapeo rúbrica del curso $\rightarrow$ métrica reportada (esta corrida).}
+\label{tab:mapeo_rubrica}
+\footnotesize
 \begin{adjustbox}{max width=\linewidth,center}
-{\footnotesize
-\begin{tabularx}{\linewidth}{@{}p{0.9cm}Xp{2.1cm}X@{}}
+\begin{tabularx}{\linewidth}{@{}lXl@{}}
 \toprule
-Métrica & Fórmula & Interpretación & Limitación \\
+Rúbrica (curso) & Métrica reportada & Limitación \\
 \midrule
-MSR & $TP/(TP{+}FN)$ en unsafe & Sensibilidad de detección & No penaliza FP \\
-FNR & $FN/(FN{+}TP)$ & Riesgo no detectado & Crítico en seguridad \\
-F1 & $2PR/(P{+}R)$ & Balance precisión-recall & Sensible a balance de clases \\
-Latencia & ms hasta JSON válido & Viabilidad en pipeline & Mezcla red y cómputo \\
-DR & \% desacuerdo A vs B & Necesidad de veto & No indica quién acierta \\
-JSON válido & \% respuestas parseables & Proxy de ``ejecución exitosa'' & No implica corrección semántica \\
+Tasa de compilación / éxito ejecución & \% JSON válido & Verificador, no kernel generado \\
+Filtrado pre-GPU & MSR (unsafe) & No mide FP en safe \\
+Calidad global & F1 & Balance 39/31 \\
+Speedup & --- & No medido; trabajo futuro \\
+Compilabilidad sintáctica (contexto) & \% kernels que pasan \texttt{lex\_checker} & Corpus fijo, no por modelo \\
+Latencia despliegue & ms hasta JSON válido & Incluye timeout Ollama \\
 \bottomrule
-\end{tabularx}}
+\end{tabularx}
 \end{adjustbox}
 \end{table}
 
+\textbf{MSR:} $TP/(TP{+}FN)$ en \texttt{unsafe}. \textbf{FNR:} $FN/(FN{+}TP)$. \textbf{F1:} $2PR/(P{+}R)$. \textbf{JSON válido:} proxy de tasa de éxito operativo del SLM en el pipeline. \textbf{Latencia:} ms por inferencia. \textbf{Honestidad:} no se midió generación comparativa ni speedup por configuración en mayo 2026.
+
 \section{Tamaño del efecto esperado (1.6)}
 
-Se espera $\phi \approx 0.4$ (mediano) en McNemar para MSR frontera vs local, y reducción de FNR $\geq 8$ pp con arquitectura dual. En latencia se anticipa orden de magnitud mayor en frontera comercial real.
+McNemar: $\phi \approx 0.4$ (mediano) en MSR frontera vs.\ local; reducción FNR $\geq 8$ pp con dual. Wilcoxon: $r \geq 0.3$ si frontera API real supera 10$\times$ latencia local. Umbral de relevancia práctica: $\Delta$MSR $\geq 5$ pp.
 
 \section{Análisis de poder (1.7)}
 
-$\alpha=0.05$, poder $1-\beta=0.80$, prueba McNemar. Con $N=70$ kernels (31 unsafe) el diseño supera el mínimo de $\sim$52 pares para efecto grande. Balance 39/31 mitiga sesgo en F1.
+$\alpha=0.05$, poder $1-\beta=0.80$, McNemar pareado. Con $N=\Nkernels$ (31 unsafe) el diseño supera el mínimo de $\sim$52 pares discordantes para efecto grande ($\phi \geq 0.5$).
 
 \section{Plan estadístico (1.8)}
 
-\textbf{Comparaciones.} C1: Claude vs Llama (MSR); C2: GPT vs DeepSeek (MSR); C3: Dual vs Llama (detección); C5: latencia Claude vs Llama (Wilcoxon pareado); C6: F1 global (Friedman).
+\begin{table}[ht]
+\centering
+\caption{Contrastes, pruebas y justificación.}
+\label{tab:plan_stats}
+\footnotesize
+\begin{adjustbox}{max width=\linewidth,center}
+\begin{tabularx}{\linewidth}{@{}llX@{}}
+\toprule
+ID & Prueba & Justificación \\
+\midrule
+C1 & McNemar (MSR) & Pareado binario, mismos kernels \\
+C2 & McNemar (MSR) & GPT vs.\ Coder-V2 frontera (corregido) \\
+C3 & McNemar (FNR) & PRI-2: sensibilidad en unsafe \\
+C5 & Wilcoxon signed-rank & Latencia pareada within-subjects \\
+C6 & Friedman + Holm & $>$2 configuraciones en F1 \\
+\bottomrule
+\end{tabularx}
+\end{adjustbox}
+\end{table}
 
-\textbf{Pruebas.} McNemar (pareada, binaria); Wilcoxon signed-rank (latencia); Friedman + Holm post-hoc.
+\textbf{Regla de decisión.} Rechazar $H_0$ si $p_{\text{Holm}} < 0.05$ \textbf{y} relevancia práctica ($\Delta$MSR $\geq 5$ pp o $\Delta$FNR $\geq 5$ pp). \textbf{IC:} Wilson 95\% para MSR (tabla extendida). \textbf{Holm:} familia C1--C6.
 
-\textbf{Regla de decisión.} Rechazar $H_0$ si $p < \alpha_{\text{Holm}}$ y relevancia práctica: $\Delta$MSR $\geq 5$ pp.
-
-\textbf{Intervalos de confianza.} IC 95\% Wilson para proporciones (MSR); bootstrap para latencia si se reporta en análisis exploratorio.
-
-\textbf{Corrección múltiple.} Holm-Bonferroni sobre C1--C6 ($\alpha$ familiar 0.05).
+\subsection{Desviaciones registradas}
+\begin{enumerate}[noitemsep]
+  \item \textbf{Taxonomía DeepSeek (mayo 2026):} Coder-V2 reclasificado como frontera; R1-Distill-14B como SLM local.
+  \item \textbf{C2 actualizado:} de ``GPT vs.\ DeepSeek local'' a \textbf{GPT-4o vs.\ DeepSeek-Coder-V2}.
+  \item \textbf{6 configuraciones} (no 5): se añadió \texttt{solo\_deepseek\_coder} separado de R1-14B.
+  \item \textbf{APIs ausentes:} Claude/GPT con heurístico documentado en 1.9 y 2.5.
+  \item \textbf{Generación/speedup:} no ejecutados; ver 1.5 y 2.6.
+\end{enumerate}
 
 \section{Reproducibilidad experimental (1.9)}
 
 \begin{table}[ht]
 \centering
-\caption{Entorno experimental.}
+\caption{Entorno y artefactos (commit \texttt{2c027b5}).}
 \label{tab:repro}
+\footnotesize
 \begin{adjustbox}{max width=\linewidth,center}
-{\footnotesize
 \begin{tabularx}{\linewidth}{@{}lX@{}}
 \toprule
 Componente & Especificación \\
 \midrule
-SO & macOS 15.x (Apple Silicon) \\
-GPU & Apple M4, 10 núcleos GPU, Metal 4; 24\,GB memoria unificada \\
-Ollama & servicio local (\texttt{brew services start ollama}) \\
-SLM local (Ollama) & \texttt{llama3.1:8b}, \texttt{deepseek-r1:14b} (Distill-Qwen-14B) \\
-Frontera (Ollama/API) & \texttt{deepseek-coder-v2}; Claude 3.5 Sonnet; GPT-4o (API opcional) \\
-Timeout inferencia & 120\,s (ajustado para aceleración Metal en M4) \\
-Python & 3.10+; deps.\ en \texttt{requirements.txt} \\
-Benchmark & Triton Kernel Safety v1.0: 70 kernels; semillas Lex + mutaciones \\
-Config & \texttt{experiment\_config.json}, seed 42 \\
-Repositorio & \texttt{Estadistica/triton\_heal\_experiment} \\
-Comando & \texttt{make all} \\
+Repositorio & \url{https://github.com/G4ndhiV/TRITONHEAL} \\
+Commit & \texttt{2c027b5} \\
+SO / CPU / RAM & macOS 15.x; Apple M4; 24\,GB unificada \\
+GPU & Apple M4, 10 núcleos GPU, Metal 4 \\
+Ollama & 0.24.x; \texttt{llama3.1:8b}, \texttt{deepseek-r1:14b}, \texttt{deepseek-coder-v2} \\
+APIs & Claude 3.5 Sonnet; GPT-4o (opcional; corrida heurística) \\
+Python & 3.10+; \texttt{requirements.txt} \\
+Benchmark & 70 kernels; \texttt{experiment\_config.json}; seed 42 \\
+Prompts & \texttt{prompts/verifier\_v1.txt}, \texttt{verifier\_strict\_v1.txt} \\
+Comando & \texttt{make stats figures pdf} desde raíz del repo \\
+Salidas & \texttt{results/predictions.csv}, \texttt{stats\_summary.json}, \texttt{report/tables/} \\
 \bottomrule
-\end{tabularx}}
+\end{tabularx}
 \end{adjustbox}
 \end{table}
 
-\section{Amenazas a la validez -- pre-registro (1.10)}
+\section{Amenazas a la validez --- pre-registro (1.10)}
 
-\textbf{Validez interna.} Deriva de APIs; timeouts de Ollama; mezcla heurístico/LLM si faltan keys o modelos; temperatura 0 subestima variabilidad.
-
-\textbf{Validez externa.} Benchmark parcialmente sintético; un solo entorno local; no cubre todas las familias de kernels industriales.
-
-\textbf{Validez de constructo.} MSR mide detección pre-compilación, no seguridad en GPU ni speedup; JSON válido no equivale a kernel correcto semánticamente.
+\begin{table}[ht]
+\centering
+\caption{Amenazas y mitigaciones planeadas.}
+\label{tab:amenazas_pre}
+\footnotesize
+\begin{adjustbox}{max width=\linewidth,center}
+\begin{tabularx}{\linewidth}{@{}lXX@{}}
+\toprule
+Tipo & Amenaza & Mitigación \\
+\midrule
+Interna & APIs/heurísticos mezclados & Documentar modo; tabla planeada vs.\ real \\
+Interna & Timeout Ollama (R1-14B) & Timeout 120\,s; reportar \% JSON válido \\
+Externa & Un solo Mac M4 & Reportar hardware; no generalizar a NVIDIA \\
+Externa & Benchmark sintético & 70 kernels etiquetados; categorías \\
+Constructo & MSR $\neq$ seguridad GPU & Mapeo explícito 1.5; no afirmar speedup \\
+Constructo & JSON válido $\neq$ corrección & Validación léxica del corpus como contexto \\
+\bottomrule
+\end{tabularx}
+\end{adjustbox}
+\end{table}

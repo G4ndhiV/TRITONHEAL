@@ -1,6 +1,8 @@
 {
   "n_kernels": 70,
   "n_evaluations_total": 420,
+  "n_valid_json_total": 360,
+  "valid_json_pct_global": 85.71428571428571,
   "n_safe": 39,
   "n_unsafe": 31,
   "verifier_mode": "ollama",
@@ -11,8 +13,106 @@
     "solo_deepseek_coder": "Ollama deepseek-coder-v2 (Metal / M4)",
     "solo_claude": "Heur\u00edstico (sin API)",
     "solo_gpt4o": "Heur\u00edstico (sin API)",
-    "triton_heal_dual": "Ollama llama3.1:8b (Metal / M4) + prompt estricto (veto local)"
+    "triton_heal_dual": "Ollama llama3.1:8b (Metal / M4) + veto Ollama deepseek-coder-v2 (Metal / M4)"
   },
+  "descriptive": [
+    {
+      "config": "solo_llama",
+      "label": "Llama-3.1-8B (local)",
+      "n": 70,
+      "valid_json_pct": 100.0,
+      "msr_pct": 64.51612903225806,
+      "fnr_pct": 35.483870967741936,
+      "f1": 0.7843137254901961,
+      "latency_mean": 4527.441111285642,
+      "latency_std": 2200.155964344266,
+      "latency_median": 4753.582354001992,
+      "latency_min": 1621.982874999958,
+      "latency_max": 11854.896374999951,
+      "tp": 20,
+      "fn": 11
+    },
+    {
+      "config": "solo_deepseek",
+      "label": "DeepSeek-R1-Distill-Qwen-14B (local)",
+      "n": 70,
+      "valid_json_pct": 14.285714285714286,
+      "msr_pct": 12.903225806451612,
+      "fnr_pct": 87.09677419354838,
+      "f1": 0.2222222222222222,
+      "latency_mean": 48000.536432614485,
+      "latency_std": 3076.8545565498894,
+      "latency_median": 48346.67312500096,
+      "latency_min": 32108.620750001137,
+      "latency_max": 57134.72316699699,
+      "tp": 4,
+      "fn": 27
+    },
+    {
+      "config": "solo_deepseek_coder",
+      "label": "DeepSeek-Coder-V2 (frontera)",
+      "n": 70,
+      "valid_json_pct": 100.0,
+      "msr_pct": 87.09677419354838,
+      "fnr_pct": 12.903225806451612,
+      "f1": 0.7941176470588235,
+      "latency_mean": 2153.8808577282907,
+      "latency_std": 1181.2542272142794,
+      "latency_median": 1977.0504165007878,
+      "latency_min": 1451.9782499992289,
+      "latency_max": 11247.522583998943,
+      "tp": 27,
+      "fn": 4
+    },
+    {
+      "config": "solo_claude",
+      "label": "Claude 3.5 Sonnet (frontera)",
+      "n": 70,
+      "valid_json_pct": 100.0,
+      "msr_pct": 83.87096774193549,
+      "fnr_pct": 16.129032258064516,
+      "f1": 0.9122807017543859,
+      "latency_mean": 80.0230452714147,
+      "latency_std": 0.056443326919410605,
+      "latency_median": 80.01552049798192,
+      "latency_min": 80.00775000080466,
+      "latency_max": 80.48545800018474,
+      "tp": 26,
+      "fn": 5
+    },
+    {
+      "config": "solo_gpt4o",
+      "label": "GPT-4o (frontera)",
+      "n": 70,
+      "valid_json_pct": 100.0,
+      "msr_pct": 83.87096774193549,
+      "fnr_pct": 16.129032258064516,
+      "f1": 0.9122807017543859,
+      "latency_mean": 80.01458151418774,
+      "latency_std": 0.007110329273046259,
+      "latency_median": 80.01137499930337,
+      "latency_min": 80.00387500040233,
+      "latency_max": 80.0330410002789,
+      "tp": 26,
+      "fn": 5
+    },
+    {
+      "config": "triton_heal_dual",
+      "label": "Triton Heal (dual + veto)",
+      "n": 70,
+      "valid_json_pct": 100.0,
+      "msr_pct": 80.64516129032258,
+      "fnr_pct": 19.35483870967742,
+      "f1": 0.8620689655172414,
+      "latency_mean": 6854.072061942757,
+      "latency_std": 2179.62357925558,
+      "latency_median": 6653.2702914973925,
+      "latency_min": 3803.6157919996185,
+      "latency_max": 14059.929250997811,
+      "tp": 25,
+      "fn": 6
+    }
+  ],
   "descriptive_extended": [
     {
       "config": "solo_llama",
@@ -141,6 +241,11 @@
       "fn": 6
     }
   ],
+  "benchmark_lex": {
+    "n_kernels": 70,
+    "n_lex_ok": 70,
+    "pct_lex_ok": 100.0
+  },
   "inference": [
     {
       "test": "C1_claude_vs_llama",
@@ -262,5 +367,6 @@
     "C1_claude_vs_llama": 0.2945530804812118,
     "C5_latency": 1.0,
     "C2_gpt_vs_deepseek_coder": 1.0
-  }
+  },
+  "git_commit": "2c027b5"
 }

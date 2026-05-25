@@ -4,16 +4,16 @@
 \label{tab:desc}
 \begin{adjustbox}{max width=\linewidth,center}
 {\footnotesize\setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.28\linewidth}rrrrr@{}}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.28\linewidth}rrrrrrrr@{}}
 \toprule
-Configuración & N & MSR (\%) & F1 & FNR (\%) & Lat. med. (ms) \\
+Configuración & N & JSON vál. (\%) & MSR (\%) & F1 & FNR (\%) & Lat. media (ms) & Lat. desv. (ms) & Lat. med. (ms) \\
 \midrule
-Llama-3.1-8B (local) & 70 & 64.5 & 0.8 & 35.5 & 4753.6 \\
-DeepSeek-R1-Distill-Qwen-14B (local) & 70 & 12.9 & 0.2 & 87.1 & 48346.7 \\
-DeepSeek-Coder-V2 (frontera) & 70 & 87.1 & 0.8 & 12.9 & 1977.1 \\
-Claude 3.5 Sonnet (frontera) & 70 & 83.9 & 0.9 & 16.1 & 80.0 \\
-GPT-4o (frontera) & 70 & 83.9 & 0.9 & 16.1 & 80.0 \\
-Triton Heal (dual + veto) & 70 & 80.6 & 0.9 & 19.4 & 6653.3 \\
+Llama-3.1-8B (local) & 70 & 100.0 & 64.5 & 0.8 & 35.5 & 4527.4 & 2200.2 & 4753.6 \\
+DeepSeek-R1-Distill-Qwen-14B (local) & 70 & 14.3 & 12.9 & 0.2 & 87.1 & 48000.5 & 3076.9 & 48346.7 \\
+DeepSeek-Coder-V2 (frontera) & 70 & 100.0 & 87.1 & 0.8 & 12.9 & 2153.9 & 1181.3 & 1977.1 \\
+Claude 3.5 Sonnet (frontera) & 70 & 100.0 & 83.9 & 0.9 & 16.1 & 80.0 & 0.1 & 80.0 \\
+GPT-4o (frontera) & 70 & 100.0 & 83.9 & 0.9 & 16.1 & 80.0 & 0.0 & 80.0 \\
+Triton Heal (dual + veto) & 70 & 100.0 & 80.6 & 0.9 & 19.4 & 6854.1 & 2179.6 & 6653.3 \\
 \bottomrule
 \end{tabular}
 }

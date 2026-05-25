@@ -116,19 +116,23 @@ def friedman_f1(df: pd.DataFrame) -> dict:
     return {"chi2": float(stat), "p": float(p), "w": float(w)}
 
 
-def descriptive_table(df: pd.DataFrame) -> pd.DataFrame:
+def descriptive_table(df: pd.DataFrame, df_all: pd.DataFrame | None = None) -> pd.DataFrame:
     rows = []
     for config in CONFIGS:
         sub = df[df["config"] == config].drop_duplicates("kernel_id")
+        all_c = df_all[df_all["config"] == config] if df_all is not None else sub
         gt_unsafe = sub["label"] == "unsafe"
         pred_unsafe = ~sub["pred_safe"].astype(bool)
         tp = int((gt_unsafe & pred_unsafe).sum())
         fn = int((gt_unsafe & ~pred_unsafe).sum())
-        lat = df[df["config"] == config]["latency_ms"]
+        lat = all_c["latency_ms"]
+        n_valid = int(all_c["valid_json"].astype(bool).sum()) if "valid_json" in all_c.columns else len(sub)
+        n_total = len(all_c)
         rows.append({
             "config": config,
             "label": CONFIG_LABELS[config],
             "n": len(sub),
+            "valid_json_pct": 100 * n_valid / n_total if n_total else 0,
             "msr_pct": msr_from_df(sub) * 100,
             "fnr_pct": fnr_from_df(sub) * 100,
             "f1": f1_from_df(sub),
@@ -206,6 +210,8 @@ def write_descriptive_extended_tex(df: pd.DataFrame, path: Path) -> None:
         ("msr_ci_hi", "IC hi", "c"),
         ("f1", "F1", "c"),
         ("fnr_pct", "FNR (\\%)", "c"),
+        ("latency_mean", "Lat. media", "c"),
+        ("latency_std", "Lat. desv.", "c"),
         ("latency_median", "Lat. med.", "c"),
         ("latency_min", "Lat. min", "c"),
         ("latency_max", "Lat. max", "c"),
@@ -376,9 +382,12 @@ def to_latex_table(df: pd.DataFrame, path: Path, caption: str, label: str) -> No
     cols = [
         ("label", "Configuración"),
         ("n", "N"),
+        ("valid_json_pct", "JSON vál. (\\%)"),
         ("msr_pct", "MSR (\\%)"),
         ("f1", "F1"),
         ("fnr_pct", "FNR (\\%)"),
+        ("latency_mean", "Lat. media (ms)"),
+        ("latency_std", "Lat. desv. (ms)"),
         ("latency_median", "Lat. med. (ms)"),
     ]
     ncol = len(cols)
@@ -446,8 +455,24 @@ def _detect_configs_backend(run_meta: dict) -> dict:
             if run_meta.get("openai_available")
             else "Heurístico (sin API)"
         ),
-        "triton_heal_dual": ollama_label("llama_local", "Dual") + " + prompt estricto (veto local)",
+        "triton_heal_dual": (
+            ollama_label("llama_local", "Llama")
+            + " + veto "
+            + ollama_label("deepseek_frontier", "DeepSeek-Coder-V2")
+        ),
     }
+
+
+def benchmark_lex_pass_rate() -> dict:
+    from .lex_checker import is_lexically_valid
+    from .paths import KERNELS_DIR
+
+    paths = sorted(KERNELS_DIR.glob("*.tri"))
+    n = len(paths)
+    ok = sum(
+        1 for p in paths if is_lexically_valid(p.read_text(encoding="utf-8"), p)
+    )
+    return {"n_kernels": n, "n_lex_ok": ok, "pct_lex_ok": 100 * ok / n if n else 0}
 
 
 def main():
@@ -458,8 +483,9 @@ def main():
     df["valid_json"] = df["valid_json"].astype(bool)
     df_run0 = df[df["run_id"] == 0] if "run_id" in df.columns else df
 
-    desc = descriptive_table(df_run0)
+    desc = descriptive_table(df_run0, df)
     desc_ext = descriptive_extended(df, df_run0)
+    lex_stats = benchmark_lex_pass_rate()
     desc.to_csv(RESULTS_DIR / "descriptive.csv", index=False)
     desc_ext.to_csv(RESULTS_DIR / "descriptive_extended.csv", index=False)
 
@@ -492,18 +518,24 @@ def main():
     if run_meta_path.exists():
         run_meta = json.loads(run_meta_path.read_text(encoding="utf-8"))
 
+    n_valid_json = int(df["valid_json"].astype(bool).sum())
     run_summary = {
         "n_kernels": int(df_run0["kernel_id"].nunique()),
         "n_evaluations_total": len(df),
+        "n_valid_json_total": n_valid_json,
+        "valid_json_pct_global": 100 * n_valid_json / len(df) if len(df) else 0,
         "n_safe": int((df_run0.drop_duplicates("kernel_id")["label"] == "safe").sum()),
         "n_unsafe": int((df_run0.drop_duplicates("kernel_id")["label"] == "unsafe").sum()),
         "verifier_mode": run_meta.get("verifier_mode", "unknown"),
         "ollama_available": run_meta.get("ollama_available", False),
         "configs_backend": _detect_configs_backend(run_meta),
+        "descriptive": desc.to_dict(orient="records"),
         "descriptive_extended": desc_ext.to_dict(orient="records"),
+        "benchmark_lex": lex_stats,
         "inference": inf_rows_raw,
         "inference_display": inf_display,
         "holm": holm,
+        "git_commit": "2c027b5",
     }
     (RESULTS_DIR / "run_summary.json").write_text(
         json.dumps(run_summary, indent=2, default=float), encoding="utf-8"
