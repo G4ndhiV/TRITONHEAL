@@ -57,7 +57,7 @@ Las figuras siguientes corresponden al componente de verificación sobre el benc
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.95\linewidth]{fig_robustness_compile.png}
-  \caption{Compilación por réplica (\texttt{run\_id}) en generación.}
+  \caption{Variación de la tasa de compilación entre tareas de generación (cada punto es una tarea; la corrida archivada usa una réplica por tarea).}
   \label{fig:robustness}
 \end{figure}
 
@@ -83,7 +83,7 @@ En verificación, Coder-V2 lidera en MSR; el dual ofrece un compromiso razonable
 
 \subsection{Robustez}
 
-La Tabla~\ref{tab:robustness} y la Figura~\ref{fig:robustness} reflejan principalmente una réplica en verificación y la réplica disponible en generación. El diseño prevé tres \texttt{run\_id}; repetir \texttt{make experiments} y \texttt{make generation} con \texttt{GENERATION\_REPEATS=3} permitiría discutir variabilidad entre ejecuciones con más sustento. No se cambió la semilla del benchmark entre réplicas: la variación observada proviene del modelo y del runtime, no de kernels distintos.
+La Tabla~\ref{tab:robustness} resume verificación con una réplica por kernel. La Figura~\ref{fig:robustness} muestra cómo cambia la compilación entre las diez tareas de generación (no entre réplicas, porque en la corrida archivada solo hay \texttt{run\_id=0}). El diseño prevé tres \texttt{run\_id}; repetir \texttt{make experiments} y \texttt{make generation} con \texttt{GENERATION\_REPEATS=3} permitiría discutir variabilidad entre ejecuciones con más sustento. No se cambió la semilla del benchmark entre réplicas: la variación observada proviene del modelo y del runtime, no de kernels distintos.
 
 \section{Amenazas observadas (2.5)}
 

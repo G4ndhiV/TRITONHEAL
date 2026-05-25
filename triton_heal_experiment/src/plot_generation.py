@@ -62,16 +62,55 @@ def fig_speedup_box(df: pd.DataFrame):
 
 
 def fig_robustness_compile(df: pd.DataFrame):
-    sub = df.groupby(["config", "run_id"]).agg(
-        compile_pct=("compile_ok", lambda x: 100 * x.astype(bool).mean())
-    ).reset_index()
+    """Variación entre réplicas si existen; si no, entre tareas del benchmark."""
+    df = df[df["config"].isin(CONFIGS)].copy()
+    n_runs = df["run_id"].nunique() if "run_id" in df.columns else 1
+
+    if n_runs > 1:
+        sub = (
+            df.groupby(["config", "run_id"])
+            .agg(compile_pct=("compile_ok", lambda x: 100 * x.astype(bool).mean()))
+            .reset_index()
+        )
+        x_col, x_label, title = "run_id", "Réplica (run_id)", "Tasa de compilación por réplica"
+    else:
+        sub = df.copy()
+        sub["compile_pct"] = 100 * sub["compile_ok"].astype(bool)
+        sub["task_num"] = (
+            sub["task_id"].astype(str).str.extract(r"(\d+)", expand=False).astype(int)
+        )
+        x_col, x_label, title = "task_num", "Tarea (índice)", "Tasa de compilación por tarea"
+        sub = sub.groupby(["config", "task_num"], as_index=False)["compile_pct"].max()
+
     sub["label"] = sub["config"].map(CONFIG_LABELS)
-    fig, ax = plt.subplots(figsize=(8, 4))
-    sns.lineplot(data=sub, x="run_id", y="compile_pct", hue="label", marker="o", ax=ax)
-    ax.set_xlabel("Réplica (run_id)")
-    ax.set_ylabel("Tasa compilación (%)")
-    ax.set_title("Robustez: variación de tasa de compilación entre réplicas")
-    ax.legend(bbox_to_anchor=(1.02, 1), loc="upper left", fontsize=8)
+    sub = sub.sort_values(["config", x_col])
+
+    palette = sns.color_palette("tab10", n_colors=sub["config"].nunique())
+    fig, ax = plt.subplots(figsize=(9, 4.5))
+
+    for i, (config, grp) in enumerate(sub.groupby("config")):
+        short = CONFIG_LABELS[config].split("(")[0].strip()
+        ax.plot(
+            grp[x_col],
+            grp["compile_pct"],
+            marker="o",
+            linewidth=1.8,
+            markersize=7,
+            label=short,
+            color=palette[i],
+            alpha=0.9,
+        )
+
+    ax.set_xlabel(x_label)
+    ax.set_ylabel("Tasa de compilación (%)")
+    ax.set_title(title)
+    ax.set_ylim(-5, 105)
+    if n_runs <= 1:
+        ax.set_xticks(sorted(sub["task_num"].unique()))
+    else:
+        ax.set_xticks(sorted(sub["run_id"].unique()))
+    ax.legend(loc="upper right", fontsize=8, framealpha=0.9)
+    ax.grid(True, alpha=0.3)
     fig.tight_layout()
     _save(fig, "fig_robustness_compile")
 
