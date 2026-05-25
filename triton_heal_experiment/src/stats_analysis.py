@@ -582,7 +582,7 @@ def main():
         "inference": inf_rows_raw,
         "inference_display": inf_display,
         "holm": holm,
-        "git_commit": "2c027b5",
+        "git_commit": "d066ca1",
     }
     (RESULTS_DIR / "run_summary.json").write_text(
         json.dumps(run_summary, indent=2, default=float), encoding="utf-8"

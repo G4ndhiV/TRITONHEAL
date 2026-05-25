@@ -8,7 +8,7 @@ Se ejecutaron \Ntasks\ tareas de generación $\times$ 5 configuraciones activas 
 \textbf{Totales.} Ejecuciones con \texttt{compile\_ok}; medias y desviaciones de speedup proxy y latencia de generación en la tabla. El corpus de referencia del benchmark pasa 100\% del \texttt{lex\_checker} (70/70 kernels).
 
 \subsection{Verificación pre-compilación}
-Se evaluaron \Nkernels\ kernels (39 \texttt{safe}, 31 \texttt{unsafe}) en 6 configuraciones; con 3 réplicas: hasta 1260 evaluaciones de verificación.
+Se evaluaron \Nkernels\ kernels (39 \texttt{safe}, 31 \texttt{unsafe}) en 6 configuraciones = \Neval\ evaluaciones de verificación (\texttt{predictions.csv}).
 
 \input{tables/descriptive.tex}
 
@@ -72,13 +72,13 @@ Se evaluaron \Nkernels\ kernels (39 \texttt{safe}, 31 \texttt{unsafe}) en 6 conf
 \textbf{Verificación.} Coder-V2 lidera MSR descriptivo; dual equilibra FNR y F1.
 
 \subsection{Robustez}
-Con 3 réplicas (\texttt{run\_id}), la Tabla~\ref{tab:robustness} y la Figura~\ref{fig:robustness} muestran variabilidad de MSR/latencia (verificación) y compilación (generación). No se variaron seeds del benchmark entre réplicas (mismas 20 tareas); la robustez refleja variabilidad del modelo y del runtime Ollama.
+La Tabla~\ref{tab:robustness} resume MSR y latencia por configuración (corrida archivada con una réplica por kernel). La Figura~\ref{fig:robustness} reporta compilación por \texttt{run\_id} en generación. El diseño pre-registra 3 réplicas (\texttt{experiment\_config.json}); ampliar con \texttt{make experiments} y \texttt{GENERATION\_REPEATS=3}.
 
 \section{Amenazas a la validez observadas (2.5)}
 
 \textbf{Interna.} ¿Hardware uniforme? Sí (un M4). ¿Seeds? Benchmark fijo; réplicas \texttt{run\_id}. ¿Configuraciones inconsistentes? Documentadas en apéndice. Timeouts en R1-14B.
 
-\textbf{Externa.} ¿Benchmark real? Parcialmente sintético; 20 tareas de generación derivadas de categorías reales del benchmark.
+\textbf{Externa.} ¿Benchmark real? Parcialmente sintético; \Ntasks\ tareas de generación derivadas de categorías del benchmark (20 definidas en \texttt{generation\_tasks.jsonl}).
 
 \textbf{Constructo.} ¿Compilación refleja calidad SLM? Solo sintaxis/estructura en M4. ¿Speedup refleja GPU? No --- es proxy de pipeline. ¿MSR refleja seguridad GPU? No.
 
@@ -89,14 +89,13 @@ Con 3 réplicas (\texttt{run\_id}), la Tabla~\ref{tab:robustness} y la Figura~\r
 \section{Conclusión (2.7)}
 
 \begin{enumerate}
-  \item \textbf{¿Se rechazó $H_0$?} Reportar por contraste C4/C7 (generación) y C1--C5 (verificación) según Tablas~\ref{tab:gen_infer} y \ref{tab:infer}.
-  \item \textbf{¿Evidencia estadística suficiente?} Solo si $p_{\mathrm{Holm}}<0.05$ y umbral práctico; de lo contrario evidencia descriptiva con limitaciones.
-  \item \textbf{¿Diferencia consistente?} Revisar Figura~\ref{fig:robustness} y Tabla~\ref{tab:robustness}.
-  \item \textbf{¿Tamaño del efecto relevante?} Ver $\phi$ y $\Delta$compile/MSR en tablas de inferencia.
-  \item \textbf{¿Justifica usar el método?} Si dual mejora compilación sin invalidar latencia operativa.
-  \item \textbf{Limitaciones:} M4 sin speedup CUDA real; heurísticos API.
-  \item \textbf{Métricas engañosas:} compile\_ok $\neq$ kernel correcto en GPU; speedup proxy $\neq$ speedup NVIDIA.
-  \item \textbf{Debilidad principal:} R1-14B local y dependencia de reparación frontera.
-  \item \textbf{¿Reproducible?} Sí: \texttt{G4ndhiV/TRITONHEAL}, \texttt{make generation experiments stats-all figures pdf}.
-  \item \textbf{¿Escala de modelos explica diferencias?} Parcialmente: frontera vs 8B local; documentado en 1.9.
+  \item \textbf{¿Se rechazó $H_0$?} C4 (dual vs GPT compilación): \textbf{no} ($p_{\mathrm{Holm}}\approx 0.15$). Verificación C1--C3, C5: \textbf{no} tras Holm; Friedman C6: \textbf{sí} ($p_{\mathrm{Holm}}<0.001$).
+  \item \textbf{¿Evidencia suficiente para afirmar superioridad del dual en compilación?} \textbf{No} frente a GPT-4o heurístico (100\% vs 50\% dual); \textbf{sí} descriptivamente frente a Llama (misma tasa pero reparación activa en fallos).
+  \item \textbf{¿Diferencia grande o pequeña?} Compilación: $\Delta=50$ pp dual vs GPT; MSR: Coder-V2 $\approx$87\% vs Llama $\approx$65\% (descriptivo).
+  \item \textbf{¿Justifica el método?} \textbf{Condicional:} dual aporta reparación Coder-V2; en M4 conviene si se prioriza calidad estructural sobre latencia ($\sim$71\,s vs $\sim$50\,ms heurístico).
+  \item \textbf{Limitaciones:} Sin CUDA; R1-14B excluido de generación; 10 tareas ejecutadas en la corrida archivada.
+  \item \textbf{Métricas engañosas:} \texttt{compile\_ok} y speedup proxy no sustituyen ejecución GPU.
+  \item \textbf{Debilidad principal:} Dependencia de frontera para reparar; SLM 14B inoperante en verificación (14.3\% JSON válido).
+  \item \textbf{¿Reproducible?} Sí: \url{https://github.com/G4ndhiV/TRITONHEAL}, commit \texttt{d066ca1}.
+  \item \textbf{¿Escala explica resultados?} Sí en parte: Coder-V2 lidera compilación y MSR; APIs heurísticas no reflejan modelos comerciales reales.
 \end{enumerate}
