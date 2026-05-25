@@ -85,7 +85,13 @@ def wilcoxon_latency(df: pd.DataFrame, config_local: str, config_frontier: str) 
 
 
 def friedman_f1(df: pd.DataFrame) -> dict:
-    configs = ["solo_llama", "solo_deepseek", "solo_claude", "solo_gpt4o"]
+    configs = [
+        "solo_llama",
+        "solo_deepseek",
+        "solo_deepseek_coder",
+        "solo_claude",
+        "solo_gpt4o",
+    ]
     per_kernel = []
     for kid in df["kernel_id"].unique():
         row = []
@@ -300,17 +306,17 @@ def build_inference_rows(tests: dict, holm: dict, desc_ext: pd.DataFrame) -> lis
         "interp": c1_interp,
     })
 
-    c2 = tests["C2_gpt_vs_deepseek"]
-    p2 = holm["C2_gpt_vs_deepseek"]
+    c2 = tests["C2_gpt_vs_deepseek_coder"]
+    p2 = holm["C2_gpt_vs_deepseek_coder"]
     msr_gpt = desc_ext.loc[desc_ext["config"] == "solo_gpt4o", "msr_pct"].iloc[0]
-    msr_ds = desc_ext.loc[desc_ext["config"] == "solo_deepseek", "msr_pct"].iloc[0]
+    msr_coder = desc_ext.loc[desc_ext["config"] == "solo_deepseek_coder", "msr_pct"].iloc[0]
     c2_interp = (
-        f"No rechaza $H_0$; GPT heur.\\ ({msr_gpt:.1f}\\%) vs.\\ DeepSeek Ollama ({msr_ds:.1f}\\%)."
+        f"No rechaza $H_0$; GPT ({msr_gpt:.1f}\\%) vs.\\ DeepSeek-Coder-V2 frontera ({msr_coder:.1f}\\%)."
         if not _reject_h0(p2)
-        else f"Rechaza $H_0$; $\\Delta$MSR={msr_gpt - msr_ds:.1f} pp."
+        else f"Rechaza $H_0$; $\\Delta$MSR={msr_gpt - msr_coder:.1f} pp."
     )
     rows.append({
-        "nombre": "GPT-4o vs DeepSeek",
+        "nombre": "GPT-4o vs DeepSeek-Coder",
         "prueba": "McNemar",
         "stat": f"$\\chi^2={c2['chi2']:.2f}$",
         "p_holm": fmt_p(p2),
@@ -352,7 +358,7 @@ def build_inference_rows(tests: dict, holm: dict, desc_ext: pd.DataFrame) -> lis
     c6 = tests["C6_friedman"]
     p6 = holm["C6_friedman"]
     rows.append({
-        "nombre": "F1 global (4 cfg.)",
+        "nombre": "F1 global (5 cfg.)",
         "prueba": "Friedman",
         "stat": f"$\\chi^2={c6['chi2']:.1f}$",
         "p_holm": fmt_p(p6),
@@ -426,7 +432,10 @@ def _detect_configs_backend(run_meta: dict) -> dict:
 
     return {
         "solo_llama": ollama_label("llama_local", "Heurístico (Llama)"),
-        "solo_deepseek": ollama_label("deepseek_local", "Heurístico (DeepSeek)"),
+        "solo_deepseek": ollama_label("deepseek_local", "Heurístico (DeepSeek-R1 14B)"),
+        "solo_deepseek_coder": ollama_label(
+            "deepseek_frontier", "Heurístico (DeepSeek-Coder-V2)"
+        ),
         "solo_claude": (
             "API Claude"
             if run_meta.get("anthropic_available")
@@ -456,7 +465,9 @@ def main():
 
     tests = {
         "C1_claude_vs_llama": mcnemar_test(df_run0, "solo_claude", "solo_llama"),
-        "C2_gpt_vs_deepseek": mcnemar_test(df_run0, "solo_gpt4o", "solo_deepseek"),
+        "C2_gpt_vs_deepseek_coder": mcnemar_test(
+            df_run0, "solo_gpt4o", "solo_deepseek_coder"
+        ),
         "C3_dual_vs_llama_fnr": mcnemar_test(df_run0, "triton_heal_dual", "solo_llama"),
         "C5_latency": wilcoxon_latency(df, "solo_llama", "solo_claude"),
         "C6_friedman": friedman_f1(df_run0),

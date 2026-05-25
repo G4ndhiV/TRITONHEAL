@@ -10,7 +10,8 @@
   "ollama_host": "http://127.0.0.1:11434",
   "models": {
     "llama_local": "llama3.1:8b",
-    "deepseek_local": "deepseek-coder-v2",
+    "deepseek_local": "deepseek-r1:14b",
+    "deepseek_frontier": "deepseek-coder-v2",
     "claude_frontier": "claude-3-5-sonnet-20241022",
     "gpt_frontier": "gpt-4o-2024-05-13"
   },

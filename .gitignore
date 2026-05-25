@@ -11,5 +11,7 @@ report/*.fls
 report/*.fdb_latexmk
 report/main.log
 report/main.synctex.gz
+report/main.toc
+report/test_fig.pdf
 results/*_pull.log
 results/experiment_run.log

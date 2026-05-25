@@ -17,7 +17,7 @@ Evaluación experimental TC3002B: verificación pre-compilación de kernels Trit
 make venv benchmark experiments stats figures pdf
 ```
 
-Corrida documentada: `VERIFIER_MODE=ollama` en **Apple M4 (Metal, 24 GB)** con `llama3.1:8b` y `deepseek-coder-v2` (ver `results/run_meta.json` y `results/stats_summary.json`).
+Corrida documentada: `VERIFIER_MODE=ollama` en **Apple M4 (24 GB)**. SLM locales: `llama3.1:8b`, `deepseek-r1:14b` (Distill-Qwen-14B). Frontera Ollama: `deepseek-coder-v2`. Ver `results/stats_summary.json`.
 
 Repositorio: [github.com/G4ndhiV/TRITONHEAL](https://github.com/G4ndhiV/TRITONHEAL)
 

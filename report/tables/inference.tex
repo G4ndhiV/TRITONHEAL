@@ -9,11 +9,11 @@
 \toprule
 Contraste & Prueba & Estad. & $p$ Holm & Efecto & Interpretación \\
 \midrule
-Claude vs Llama (MSR) & McNemar & $\chi^2=3.12$ & 0.2313 & $\phi=-2.12$ (grande) & No rechaza $H_0$; $\Delta$MSR=19.4 pp (Claude heur.\ vs.\ Llama Ollama/M4). \\
-GPT-4o vs DeepSeek & McNemar & $\chi^2=0.00$ & 1.0000 & $\phi=0.33$ (mediano) & No rechaza $H_0$; GPT heur.\ (83.9\%) vs.\ DeepSeek Ollama (87.1\%). \\
-Dual vs Llama & McNemar & $\chi^2=9.09$ & 0.0128 & $\phi=-3.32$ (grande) & Rechaza $H_0$; dual reduce FNR (más detecciones en unsafe). \\
-Lat. Claude vs Llama & Wilcoxon & $W=0$ & 1.0000 & $r=1.00$ & No rechaza $H_4$; med. $\Delta$=-4861 ms (Claude heur.\ más rápido). \\
-F1 global (4 cfg.) & Friedman & $\chi^2=10.3$ & 0.0657 & $W=0.05$ & No rechaza igualdad global de F1 tras Holm. \\
+Claude vs Llama (MSR) & McNemar & $\chi^2=3.12$ & 0.2946 & $\phi=-2.12$ (grande) & No rechaza $H_0$; $\Delta$MSR=19.4 pp (Claude heur.\ vs.\ Llama Ollama/M4). \\
+GPT-4o vs DeepSeek-Coder & McNemar & $\chi^2=0.00$ & 1.0000 & $\phi=0.33$ (mediano) & No rechaza $H_0$; GPT (83.9\%) vs.\ DeepSeek-Coder-V2 frontera (87.1\%). \\
+Dual vs Llama & McNemar & $\chi^2=3.20$ & 0.2946 & $\phi=-2.24$ (grande) & No rechaza $H_0$ en FNR pareado. \\
+Lat. Claude vs Llama & Wilcoxon & $W=0$ & 1.0000 & $r=1.00$ & No rechaza $H_4$; med. $\Delta$=-4673 ms (Claude heur.\ más rápido). \\
+F1 global (5 cfg.) & Friedman & $\chi^2=41.1$ & $<0.001$ & $W=0.15$ & Diferencias globales entre configuraciones (Holm). \\
 \bottomrule
 \end{tabularx}
 \end{adjustbox}

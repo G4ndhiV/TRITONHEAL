@@ -3,6 +3,7 @@
   "configs": [
     "solo_llama",
     "solo_deepseek",
+    "solo_deepseek_coder",
     "solo_claude",
     "solo_gpt4o",
     "triton_heal_dual"

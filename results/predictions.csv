@@ -1,351 +1,421 @@
 kernel_id,config,config_label,model,pred_safe,local_safe,frontier_safe,disagreement,veto_applied,reason,latency_ms,valid_json,run_id,label,category,error_type
-k_0000,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,21869.84349999966,True,0,safe,matmul,none
-k_0001,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,7587.022083999727,True,0,safe,flash_attention,none
-k_0002,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,5513.164750000215,True,0,safe,reduction,none
-k_0003,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,5460.651291999966,True,0,safe,softmax,none
-k_0004,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,1623.7028750001627,True,0,safe,elementwise,none
-k_0005,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,5573.474792000525,True,0,safe,flash_attention,none
-k_0006,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,5524.791542000457,True,0,safe,reduction,none
-k_0007,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,6312.7324999995835,True,0,safe,reduction,none
-k_0008,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,5505.0716249998,True,0,safe,reduction,none
-k_0009,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,2369.6043340005417,True,0,safe,matmul,none
-k_0010,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,5543.942000000243,True,0,safe,reduction,none
-k_0011,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,2353.0680000003485,True,0,safe,matmul,none
-k_0012,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,6469.360833000792,True,0,safe,softmax,none
-k_0013,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,1628.899958999682,True,0,safe,elementwise,none
-k_0014,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,1625.6848329994682,True,0,safe,elementwise,none
-k_0015,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,4077.424167000572,True,0,safe,flash_attention,none
-k_0016,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,2352.7109169999676,True,0,safe,matmul,none
-k_0017,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,6316.005333000248,True,0,safe,reduction,none
-k_0018,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,2353.049166999881,True,0,safe,matmul,none
-k_0019,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,6317.67095899977,True,0,safe,reduction,none
-k_0020,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,7496.191332999842,True,0,safe,flash_attention,none
-k_0021,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,5529.389207999884,True,0,safe,reduction,none
-k_0022,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,2356.5239999998084,True,0,safe,matmul,none
-k_0023,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,6503.972792000241,True,0,safe,softmax,none
-k_0024,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,5878.743958000086,True,0,safe,flash_attention,none
-k_0025,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,11837.734707999516,True,0,safe,flash_attention,none
-k_0026,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,2247.5025830008235,True,0,safe,matmul,none
-k_0027,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,5223.484166000162,True,0,safe,elementwise,none
-k_0028,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,7662.082499999997,True,0,safe,flash_attention,none
-k_0029,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,6553.255916000126,True,0,safe,softmax,none
-k_0030,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,2437.6345829996353,True,0,safe,matmul,none
-k_0031,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,1661.8098330000066,True,0,safe,elementwise,none
-k_0032,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,1660.8920409998973,True,0,safe,elementwise,none
-k_0033,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,1655.5008750001434,True,0,safe,elementwise,none
-k_0034,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,6575.515042000006,True,0,safe,softmax,none
-k_0035,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,6587.5031669993405,True,0,safe,softmax,none
-k_0036,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,5714.2778750003345,True,0,safe,softmax,none
-k_0037,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,1820.3196659997047,True,0,safe,reduction,none
-k_0038,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,1664.1712909995476,True,0,safe,elementwise,none
-k_0039,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,out-of-bounds memory access: loading from q_ptr with offset offs+999999,4926.1317500004225,True,0,unsafe,flash_attention,memory_oob
-k_0040,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,out-of-bounds memory access in load operation,2798.706167000091,True,0,unsafe,matmul,memory_unmasked_store
-k_0041,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,Mixed FP16/FP32 load without explicit cast,4966.889291999905,True,0,unsafe,elementwise,mixed_precision
-k_0042,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,excessive tile accumulation for SRAM,2535.068209000201,True,0,unsafe,reduction,sram_overflow
-k_0043,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,excessive tile accumulation for SRAM,2540.1947079999445,True,0,unsafe,softmax,sram_overflow
-k_0044,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,6404.786959000376,True,0,unsafe,softmax,memory_oob
-k_0045,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,5271.004332999837,True,0,unsafe,elementwise,memory_unmasked_store
-k_0046,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,7176.636000000144,True,0,unsafe,flash_attention,missing_decorator
-k_0047,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,excessive tile accumulation for SRAM,2389.310665999801,True,0,unsafe,elementwise,sram_overflow
-k_0048,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,out-of-bounds memory access,2803.0716250004843,True,0,unsafe,matmul,memory_oob
-k_0049,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,out-of-bounds memory access,4551.609290999295,True,0,unsafe,reduction,lex_seed_unsafe
-k_0050,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,4357.713916000648,True,0,unsafe,reduction,memory_unmasked_store
-k_0051,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,BLOCK_SIZE is not a power-of-two,2990.9368339995126,True,0,unsafe,matmul,sram_tiling_misaligned
-k_0052,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,1813.9112919998297,True,0,unsafe,reduction,missing_decorator
-k_0053,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,excessive tile accumulation for SRAM,3165.864292000151,True,0,unsafe,matmul,sram_overflow
-k_0054,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,excessive tile accumulation for SRAM,2547.596249999515,True,0,unsafe,flash_attention,sram_overflow
-k_0055,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,BLOCK_SIZE is not a power-of-two,4070.0420409993967,True,0,unsafe,softmax,sram_tiling_misaligned
-k_0056,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,BLOCK_SIZE is not a power-of-two,4058.4623330005343,True,0,unsafe,reduction,sram_tiling_misaligned
-k_0057,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,10192.487332999917,True,0,unsafe,elementwise,missing_decorator
-k_0058,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,4955.20795900029,True,0,unsafe,softmax,memory_unmasked_store
-k_0059,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,7169.422209000004,True,0,unsafe,flash_attention,memory_unmasked_store
-k_0060,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,Mixed FP16/FP32 load without cast,5786.222333999831,True,0,unsafe,matmul,mixed_precision
-k_0061,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,2453.104708000865,True,0,unsafe,matmul,missing_decorator
-k_0062,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,Mixed FP16/FP32 load without explicit cast,5901.744457999484,True,0,unsafe,reduction,mixed_precision
-k_0063,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,out-of-bounds memory access: load with offset + 999999,2431.8678340005135,True,0,unsafe,elementwise,memory_oob
-k_0064,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,4125.382042000638,True,0,unsafe,softmax,missing_decorator
-k_0065,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,6562.171708000278,True,0,unsafe,reduction,memory_oob
-k_0066,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,Mixed FP16/FP32 load without explicit cast,6816.528499999549,True,0,unsafe,flash_attention,mixed_precision
-k_0067,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,BLOCK_SIZE is not a power-of-two,3906.8684160001794,True,0,unsafe,flash_attention,sram_tiling_misaligned
-k_0068,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,Mixed FP16/FP32 load without explicit cast,4985.883040999397,True,0,unsafe,softmax,mixed_precision
-k_0069,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,BLOCK_SIZE is not a power-of-two,2270.886000000246,True,0,unsafe,elementwise,sram_tiling_misaligned
-k_0000,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,The kernel uses Triton DSL to perform matrix multiplication with appropriate bounds checking and masking for out-of-bounds access. It ensures that loads and stores are only performed within valid memory ranges by using masks based on the program IDs and block sizes.,18549.613332999797,True,0,safe,matmul,none
-k_0001,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,The kernel uses triton.language for memory access and indexing operations which ensures out-of-bounds access is prevented by the use of masks. It also follows Triton's programming model correctly with tl.arange generating indices within bounds.,2080.6727500003035,True,0,safe,flash_attention,none
-k_0002,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,"The kernel does not check for BLOCK_SIZE being a power of two, which is necessary to ensure proper indexing with tl.arange().",1578.89087500007,True,0,safe,reduction,none
-k_0003,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,"The kernel correctly handles memory safety by using a mask to ensure that only valid indices are accessed from the input and output pointers. It also respects hardware constraints such as BLOCK_SIZE being a power of two, which is typical for efficient parallelization in Triton.",2098.563250000552,True,0,safe,softmax,none
-k_0004,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,"The kernel uses Triton DSL to load and store data within bounds as indicated by the mask condition (offs < n), ensuring no out-of-bounds access. The BLOCK_SIZE is a constexpr, which means it's determined at compile time and used to define the size of the thread block, preventing any illegal shared memory access beyond allocated space.",2366.6808340003627,True,0,safe,elementwise,none
-k_0005,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,The kernel does not check for BLOCK being a power-of-two which is required by triton.language.arange function.,1646.1612089997288,True,0,safe,flash_attention,none
-k_0006,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,"The kernel does not check for BLOCK_SIZE being a power of two, which is necessary for tl.arange to generate valid indices.",1565.2234159997533,True,0,safe,reduction,none
-k_0007,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,"The kernel does not check for BLOCK_SIZE being a power of two, which is necessary for tl.arange to generate valid indices.",1560.943084000428,True,0,safe,reduction,none
-k_0008,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,The kernel uses triton.language for memory access and reduction operations which ensures type compatibility and bounds checking. BLOCK_SIZE is a constexpr so it's fixed at compile time ensuring no out-of-bounds accesses. The kernel does not directly interact with shared memory or have explicit instructions that would violate hardware constraints.,2251.3826250005877,True,0,safe,reduction,none
-k_0009,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,The kernel uses Triton DSL to perform matrix multiplication with bounds checking and proper masking for memory safety. It ensures that loads and stores do not exceed array boundaries by using masks based on the program IDs and block indices.,2122.8081669996754,True,0,safe,matmul,none
-k_0010,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,"The kernel does not check for BLOCK_SIZE being a power of two, which is necessary for tl.arange to generate valid indices.",1562.1607909997692,True,0,safe,reduction,none
-k_0011,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,"The kernel uses Triton DSL to perform matrix multiplication with bounds checking and proper masking for out-of-bounds access. It ensures that only valid indices are accessed from the global memory pointers a_ptr, b_ptr, and c_ptr. The use of tl.load and tl.store functions includes mask parameters which prevent illegal shared memory access beyond defined boundaries. Additionally, it adheres to hardware constraints by using BLOCK size which is a power-of-two and does not exceed typical SRAM limits for GPU kernels.",3362.366000000293,True,0,safe,matmul,none
-k_0012,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,The kernel correctly handles memory safety by using a mask to ensure that only valid indices are accessed from shared memory. It also ensures type compatibility by loading and storing floating-point numbers as required.,1836.3371250006821,True,0,safe,softmax,none
-k_0013,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,The kernel uses triton.language for memory access and indexing operations which ensures out-of-bounds access is prevented by the use of masks. The BLOCK_SIZE is a constexpr so it's fixed at compile time ensuring no hardware constraints are violated.,1979.1606669996327,True,0,safe,elementwise,none
-k_0014,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,"The kernel uses Triton DSL to load and store data within bounds as indicated by the mask condition (offs < n), ensuring no out-of-bounds access. The BLOCK_SIZE is defined using tl.constexpr, which ensures it's a compile-time constant, avoiding hardware constraints related to non-power-of-two sizes or SRAM limits. There are no illegal shared memory accesses mentioned in the code.",2638.928166000369,True,0,safe,elementwise,none
-k_0015,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,The kernel uses triton.language for memory access and indexing operations which ensures out-of-bounds access is prevented by the use of masks. It also follows Triton's programming model correctly with tl.arange generating indices within bounds.,2080.2307500007373,True,0,safe,flash_attention,none
-k_0016,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,The kernel uses Triton DSL to perform matrix multiplication with bounds checking and proper masking for memory safety. It ensures that loads and stores do not exceed array boundaries by using masks based on the program IDs and block indices.,2116.9142079997982,True,0,safe,matmul,none
-k_0017,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,"The kernel does not check for BLOCK_SIZE being a power of two, which is necessary for tl.arange to generate valid indices.",1572.3843750001834,True,0,safe,reduction,none
-k_0018,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,The kernel uses Triton DSL to perform matrix multiplication with bounds checking and proper masking for memory safety. It ensures that loads and stores do not exceed array boundaries by using masks based on the program IDs and block indices.,2122.2043329998996,True,0,safe,matmul,none
-k_0019,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,"The kernel does not check for BLOCK_SIZE being a power of two, which is necessary for tl.arange to generate valid indices.",1569.840166999711,True,0,safe,reduction,none
-k_0020,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,"The kernel uses triton.language for memory access and indexing operations which ensures out-of-bounds access is prevented by the use of masks. The BLOCK size is defined as a constant using tl.constexpr, ensuring it's within hardware constraints. There are no illegal shared memory accesses or type incompatibilities mentioned.",2401.695916999415,True,0,safe,flash_attention,none
-k_0021,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,"The kernel does not check for BLOCK_SIZE being a power of two, which is necessary for tl.arange to generate valid indices.",1573.89187499939,True,0,safe,reduction,none
-k_0022,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,The kernel uses Triton DSL to perform matrix multiplication with appropriate bounds checking and masking for out-of-bounds access. It ensures that loads and stores are only performed within valid memory ranges by using masks based on the program IDs and block sizes.,2253.6583329992936,True,0,safe,matmul,none
-k_0023,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,The kernel does not specify a BLOCK_SIZE and the function signature lacks an explicit declaration for it.,1485.2751250000438,True,0,safe,softmax,none
-k_0024,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,"The kernel uses triton.language for memory access and indexing operations which ensures out-of-bounds access is prevented by the use of masks. The BLOCK size is defined as a constant using tl.constexpr, ensuring it's within hardware constraints. There are no illegal shared memory accesses or type incompatibilities mentioned.",2399.856749999344,True,0,safe,flash_attention,none
-k_0025,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,The kernel uses triton.language for memory access and indexing operations which ensures out-of-bounds access is prevented by the use of masks. It also follows Triton's programming model correctly with load and store operations constrained within the bounds defined by BLOCK and seq_len.,2227.807959000529,True,0,safe,flash_attention,none
-k_0026,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,"The kernel uses triton.language for memory access and operations, ensuring type compatibility and avoiding out-of-bounds errors or illegal shared memory accesses. It also adheres to hardware constraints by using BLOCK_SIZE as a power of two and managing SRAM limits through tiling.",2303.465958000743,True,0,safe,matmul,none
-k_0027,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,"The kernel uses triton.language for memory access and indexing, ensuring that all accesses are within bounds since BLOCK_SIZE is a constant and the program ID ensures that indices do not exceed n.",1851.0289169998941,True,0,safe,elementwise,none
-k_0028,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,"The kernel uses TLAs (Triton Load/Store operations) to ensure that all accesses are within bounds and does not access illegal shared memory. The BLOCK size is a power of two, which is compliant with hardware constraints.",2035.5250000002343,True,0,safe,flash_attention,none
-k_0029,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,The kernel does not specify a BLOCK_SIZE and the function signature lacks an explicit declaration for BLOCK_SIZE which is required by Triton's @triton.jit decorator.,1799.898375000339,True,0,safe,softmax,none
-k_0030,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,"The kernel uses Triton DSL to perform matrix multiplication with bounds checking and proper masking for out-of-bounds access. It ensures that loads are only performed within the valid range of 'a_ptr' and 'b_ptr'. The use of tl.arange(0, BLOCK) generates indices within the block size, ensuring no illegal shared memory access. Additionally, the mask in tl.load and tl.store operations prevents out-of-bounds writes to 'c_ptr'. However, it is recommended to double-check for any potential edge cases or misalignments that might not be covered by this check.",3815.2077499998995,True,0,safe,matmul,none
-k_0031,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,"The kernel uses triton.language for memory access and indexing operations which ensures out-of-bounds access is prevented by the use of masks. The BLOCK_SIZE is defined as a constexpr, ensuring it's a compile-time constant and does not violate hardware constraints related to power-of-two or SRAM limits.",2266.2340410006436,True,0,safe,elementwise,none
-k_0032,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,"The kernel correctly bounds checks the indices used to access memory with `offs < n`, ensuring no out-of-bounds access. It also uses a constexpr for BLOCK_SIZE which is a power of two and appropriate for hardware constraints.",1912.4659579993022,True,0,safe,elementwise,none
-k_0033,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,"The kernel uses triton.language for memory access and indexing operations which ensures out-of-bounds access is prevented by the use of a mask that only allows indices within bounds. The BLOCK_SIZE is defined as a constexpr, ensuring it's a compile-time constant known at runtime, but this does not affect safety since the mask already prevents illegal accesses.",2421.443000000181,True,0,safe,elementwise,none
-k_0034,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,The kernel uses triton.language for memory access and operations which ensures type compatibility and bounds checking within the BLOCK_SIZE.,1585.4644169994572,True,0,safe,softmax,none
-k_0035,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,The kernel uses triton.language for memory access and operations which ensures type compatibility and bounds checking within the BLOCK_SIZE.,1584.2444169993541,True,0,safe,softmax,none
-k_0036,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,The kernel uses triton.language for memory access and operations which ensures type compatibility and bounds checking within the BLOCK_SIZE.,1587.910125000235,True,0,safe,softmax,none
-k_0037,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,The kernel uses triton.language for memory access and operations which ensures type compatibility and bounds checking within the BLOCK_SIZE.,1580.052959000568,True,0,safe,reduction,none
-k_0038,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,The kernel correctly bounds checks the access to `x_ptr` using a mask based on BLOCK_SIZE and ensures that no illegal shared memory accesses occur by only accessing within the declared bounds. The type compatibility is also ensured as it loads and stores float values which are compatible with each other.,2143.074374999742,True,0,safe,elementwise,none
-k_0039,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,The kernel contains an illegal memory access in the load operations where a constant value is added to the pointer offset without checking its validity. This can lead to out-of-bounds access and potential undefined behavior.,1950.2954580002552,True,0,unsafe,flash_attention,memory_oob
-k_0040,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,The kernel does not correctly handle the bounds checking for accessing elements in 'a' and 'b'. The mask used in tl.load is incorrect; it should be applied to both dimensions of rm and rn respectively.,2124.254375000419,True,0,unsafe,matmul,memory_unmasked_store
-k_0041,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,"The kernel attempts to load and store data using TLAS (Tensor Core Load/Store), which does not support mixed FP16 and FP32 types without explicit casting. Triton currently requires all loads and stores to be of the same type.",2023.4702080006173,True,0,unsafe,elementwise,mixed_precision
-k_0042,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,"The kernel attempts to accumulate results in a fixed-size tile (128x128) which is excessive for typical SRAM sizes and can lead to out-of-bounds memory access if BLOCK_SIZE exceeds the available data size. Additionally, this practice does not scale well with larger problems.",2235.908166000627,True,0,unsafe,reduction,sram_overflow
-k_0043,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,"The kernel uses excessive tile accumulation for SRAM without clear necessity, which can lead to out-of-bounds access or illegal shared memory usage.",1614.1200829997615,True,0,unsafe,softmax,sram_overflow
-k_0044,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,"The kernel contains an illegal memory access in the load operation where a constant value (999999) is used as a mask instead of tl.arange(0, BLOCK_SIZE). This can lead to out-of-bounds access and potential undefined behavior.",2205.2709580002556,True,0,unsafe,softmax,memory_oob
-k_0045,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,The kernel does not correctly handle the output store operation and lacks proper masking for out-of-bounds access.,1473.109999999906,True,0,unsafe,elementwise,memory_unmasked_store
-k_0046,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,"The kernel does not check if the indices are within bounds of the provided pointers (q_ptr, k_ptr, v_ptr). It also does not handle shared memory access constraints or hardware tiling limitations.",1964.741208000305,True,0,unsafe,flash_attention,missing_decorator
-k_0047,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,The kernel has multiple unnecessary accumulator allocations which can lead to excessive memory usage and potential out-of-bounds access if BLOCK_SIZE is not properly handled.,1663.327209000272,True,0,unsafe,elementwise,sram_overflow
-k_0048,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,"The kernel contains an out-of-bounds access in the tl.load call for 'a'. The expression rm[:, None] * K + k + tl.arange(0, BLOCK + 999999) can lead to indices that exceed the bounds of array 'a_ptr' if not properly constrained by M.",2693.7934999996287,True,0,unsafe,matmul,memory_oob
-k_0049,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,The kernel attempts to load from an address that is far beyond the bounds of the provided pointer due to the addition of a large constant (999999) to the index `offs` which results in out-of-bounds access.,1907.2678330003328,True,0,unsafe,reduction,lex_seed_unsafe
-k_0050,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,"The kernel does not correctly handle the memory safety by using an undefined mask for loading values from inp_ptr. Additionally, it attempts to store results into out_ptr without considering the BLOCK_SIZE or the total size of the output array.",2006.979458999922,True,0,unsafe,reduction,memory_unmasked_store
-k_0051,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,BLOCK_SIZE is set to 48 which is not a power-of-two and exceeds the typical hardware constraints for GPU shared memory allocation.,1932.4914999997418,True,0,unsafe,matmul,sram_tiling_misaligned
-k_0052,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,"The kernel uses triton.language for memory access and reduction operations which ensures type compatibility and bounds checking. BLOCK_SIZE is defined as a constexpr, ensuring it's a compile-time constant known at the start of execution.",1946.3202089991682,True,0,unsafe,reduction,missing_decorator
-k_0053,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,The kernel contains excessive tile accumulation for SRAM which can lead to illegal shared memory access and potential out-of-bounds errors.,1986.7452919997959,True,0,unsafe,matmul,sram_overflow
-k_0054,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,The kernel has an excessive accumulation of tile size in shared memory (128x128 elements for a float32 tensor). This exceeds typical SRAM limits and can lead to hardware constraints being violated.,1919.6826250008598,True,0,unsafe,flash_attention,sram_overflow
-k_0055,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,BLOCK_SIZE is not a power-of-two and Triton does not support non-power-of-two BLOCK_SIZE.,1678.2170419992326,True,0,unsafe,softmax,sram_tiling_misaligned
-k_0056,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,BLOCK_SIZE is set to 48 which is not a power-of-two and Triton does not support non-power-of-two block sizes. This will lead to undefined behavior due to illegal shared memory access.,1972.7794170003108,True,0,unsafe,reduction,sram_tiling_misaligned
-k_0057,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,"The kernel uses triton.language for memory access and indexing operations which ensures out-of-bounds access is prevented by the use of a mask that filters indices greater than or equal to n. The BLOCK_SIZE is defined as a constexpr, ensuring it's known at compile time and used consistently across all threads in a block.",2320.698333999644,True,0,unsafe,elementwise,missing_decorator
-k_0058,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,"The kernel does not correctly handle the bounds checking for accessing memory in shared memory or global memory. The `offs` variable is defined without considering the size of the input array `n`, which can lead to out-of-bounds access when `BLOCK_SIZE` exceeds `n`. Additionally, there are syntax errors in the store operation where a comma is missing after `out_ptr + offs`.",2717.2722079994855,True,0,unsafe,softmax,memory_unmasked_store
-k_0059,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,The kernel does not correctly handle the output storage in shared memory or global memory. The `tl.store` call at line 8 is missing an argument for the value to store and lacks a mask parameter which would be necessary to ensure safe access within bounds.,2139.186375000463,True,0,unsafe,flash_attention,memory_unmasked_store
-k_0060,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,"The kernel contains a load operation with an uncasted mixed FP16 and FP32 type, which is not allowed in Triton DSL.",1947.503708000113,True,0,unsafe,matmul,mixed_precision
-k_0061,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,"The kernel uses Triton DSL to perform matrix multiplication with bounds checking and proper masking for memory safety. It ensures that loads and stores do not exceed the array boundaries by using masks based on program IDs and block indices. The use of tl.arange(0, BLOCK) within the loop range is safe as long as BLOCK is a power of two, which is typically enforced in hardware constraints.",2865.5604169998696,True,0,unsafe,matmul,missing_decorator
-k_0062,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,"The kernel attempts to load and sum elements of different types (FP16 and FP32) without any type casting or conversion, which is not supported by Triton's current implementation. This will lead to undefined behavior.",1999.2568330007998,True,0,unsafe,reduction,mixed_precision
-k_0063,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,"The kernel attempts to load data from 'x_ptr' with an illegal offset (offs + 999999), which is out of bounds for the given size 'n'. This operation does not respect memory safety and can lead to undefined behavior.",2064.742584000669,True,0,unsafe,elementwise,memory_oob
-k_0064,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,True,,,,,The kernel uses TLAS (Triton Language Array Subscripting) to safely access memory within bounds and applies a mask to ensure that only valid indices are accessed. It also correctly computes the exponential and normalization factors without exceeding array limits.,2058.656332999817,True,0,unsafe,softmax,missing_decorator
-k_0065,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,"The kernel does not check for BLOCK_SIZE being a power of two, which is necessary for tl.arange to generate valid indices.",1607.9801249998127,True,0,unsafe,reduction,memory_oob
-k_0066,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,"The kernel does not explicitly check for out-of-bounds access to shared memory or illegal accesses. Additionally, it lacks explicit checks for BLOCK_SIZE being a power of two and hardware constraints related to SRAM limits or tiling.",2080.252792000465,True,0,unsafe,flash_attention,mixed_precision
-k_0067,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,BLOCK_SIZE is set to 48 which is not a power-of-two and Triton does not support non-power-of-two block sizes. This will lead to undefined behavior.,1973.3043750002253,True,0,unsafe,flash_attention,sram_tiling_misaligned
-k_0068,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,"The kernel attempts to load and store data using Triton's `tl.load` and `tl.store` functions without specifying a mask for the memory access, which can lead to out-of-bounds accesses if BLOCK_SIZE is not properly aligned with the array size 'n'. Additionally, there are no checks or casts between different data types (FP16 and FP32) being handled correctly.",2828.649375000168,True,0,unsafe,softmax,mixed_precision
-k_0069,solo_deepseek,DeepSeek-Coder-V2 (local),ollama,False,,,,,BLOCK_SIZE is set to 48 which is not a power-of-two and Triton does not support non-power-of-two block sizes.,1709.7560419997535,True,0,unsafe,elementwise,sram_tiling_misaligned
-k_0000,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.3416660001676,True,0,safe,matmul,none
-k_0001,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.031042000046,True,0,safe,flash_attention,none
-k_0002,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.02266699993925,True,0,safe,reduction,none
-k_0003,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.02770799983409,True,0,safe,softmax,none
-k_0004,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01762499960023,True,0,safe,elementwise,none
-k_0005,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01504100055172,True,0,safe,flash_attention,none
-k_0006,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01154100027634,True,0,safe,reduction,none
-k_0007,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01108400010708,True,0,safe,reduction,none
-k_0008,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01049999991665,True,0,safe,reduction,none
-k_0009,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01799999972718,True,0,safe,matmul,none
-k_0010,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01350000002276,True,0,safe,reduction,none
-k_0011,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01799999972718,True,0,safe,matmul,none
-k_0012,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01158299983217,True,0,safe,softmax,none
-k_0013,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01024999983201,True,0,safe,elementwise,none
-k_0014,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00995800019155,True,0,safe,elementwise,none
-k_0015,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01220800004376,True,0,safe,flash_attention,none
-k_0016,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01608399998076,True,0,safe,matmul,none
-k_0017,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01516700012871,True,0,safe,reduction,none
-k_0018,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.02037499962171,True,0,safe,matmul,none
-k_0019,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01262499972654,True,0,safe,reduction,none
-k_0020,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01483300002292,True,0,safe,flash_attention,none
-k_0021,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01145800069935,True,0,safe,reduction,none
-k_0022,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01670900019235,True,0,safe,matmul,none
-k_0023,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.0110830005724,True,0,safe,softmax,none
-k_0024,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.0121670000226,True,0,safe,flash_attention,none
-k_0025,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01170800078398,True,0,safe,flash_attention,none
-k_0026,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01562499983265,True,0,safe,matmul,none
-k_0027,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01062499995896,True,0,safe,elementwise,none
-k_0028,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01116699968406,True,0,safe,flash_attention,none
-k_0029,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01045899989549,True,0,safe,softmax,none
-k_0030,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01570800031914,True,0,safe,matmul,none
-k_0031,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.0093749995358,True,0,safe,elementwise,none
-k_0032,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00925000040297,True,0,safe,elementwise,none
-k_0033,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00941700000112,True,0,safe,elementwise,none
-k_0034,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01041700033966,True,0,safe,softmax,none
-k_0035,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01016699934553,True,0,safe,softmax,none
-k_0036,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01037499987433,True,0,safe,softmax,none
-k_0037,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01095799962059,True,0,safe,reduction,none
-k_0038,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01704199985397,True,0,safe,elementwise,none
-k_0039,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,memory_oob,80.04012499994133,True,0,unsafe,flash_attention,memory_oob
-k_0040,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.02308300008735,True,0,unsafe,matmul,memory_unmasked_store
-k_0041,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,mixed_precision,80.02766600027826,True,0,unsafe,elementwise,mixed_precision
-k_0042,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_overflow,80.02966699958051,True,0,unsafe,reduction,sram_overflow
-k_0043,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_overflow,80.02795799991873,True,0,unsafe,softmax,sram_overflow
-k_0044,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,memory_oob,80.02066700017167,True,0,unsafe,softmax,memory_oob
-k_0045,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00962500052992,True,0,unsafe,elementwise,memory_unmasked_store
-k_0046,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.02933399991889,True,0,unsafe,flash_attention,missing_decorator
-k_0047,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_overflow,80.02691600002436,True,0,unsafe,elementwise,sram_overflow
-k_0048,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,memory_oob,80.02512499941076,True,0,unsafe,matmul,memory_oob
-k_0049,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; memory_oob; missing_jit_decorator,80.01520900059404,True,0,unsafe,reduction,lex_seed_unsafe
-k_0050,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00995800019155,True,0,unsafe,reduction,memory_unmasked_store
-k_0051,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.02500000027794,True,0,unsafe,matmul,sram_tiling_misaligned
-k_0052,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.02137499996024,True,0,unsafe,reduction,missing_decorator
-k_0053,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_overflow,80.02883300021495,True,0,unsafe,matmul,sram_overflow
-k_0054,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_overflow,80.02908300029958,True,0,unsafe,flash_attention,sram_overflow
-k_0055,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.0215419995584,True,0,unsafe,softmax,sram_tiling_misaligned
-k_0056,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.02145799953723,True,0,unsafe,reduction,sram_tiling_misaligned
-k_0057,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.0186670004041,True,0,unsafe,elementwise,missing_decorator
-k_0058,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.0095000004876,True,0,unsafe,softmax,memory_unmasked_store
-k_0059,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.0339170001098,True,0,unsafe,flash_attention,memory_unmasked_store
-k_0060,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,mixed_precision,80.04474999968807,True,0,unsafe,matmul,mixed_precision
-k_0061,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.05395900006988,True,0,unsafe,matmul,missing_decorator
-k_0062,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,mixed_precision,80.03987499985669,True,0,unsafe,reduction,mixed_precision
-k_0063,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,memory_oob,80.0276250002571,True,0,unsafe,elementwise,memory_oob
-k_0064,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.02887500068027,True,0,unsafe,softmax,missing_decorator
-k_0065,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,memory_oob,80.0222919998123,True,0,unsafe,reduction,memory_oob
-k_0066,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,mixed_precision,80.03370800004632,True,0,unsafe,flash_attention,mixed_precision
-k_0067,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.02916699941125,True,0,unsafe,flash_attention,sram_tiling_misaligned
-k_0068,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,mixed_precision,80.02712499917834,True,0,unsafe,softmax,mixed_precision
-k_0069,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.02287500046805,True,0,unsafe,elementwise,sram_tiling_misaligned
-k_0000,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01037499987433,True,0,safe,matmul,none
-k_0001,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00658399949316,True,0,safe,flash_attention,none
+k_0000,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,4583.3859580016,True,0,safe,matmul,none
+k_0001,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,7586.5592080008355,True,0,safe,flash_attention,none
+k_0002,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,5519.838291002088,True,0,safe,reduction,none
+k_0003,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,5465.49691600012,True,0,safe,softmax,none
+k_0004,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,1625.772292001784,True,0,safe,elementwise,none
+k_0005,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,5575.04166599756,True,0,safe,flash_attention,none
+k_0006,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,5517.64537499912,True,0,safe,reduction,none
+k_0007,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,6314.313124999899,True,0,safe,reduction,none
+k_0008,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,5512.705832999927,True,0,safe,reduction,none
+k_0009,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,2350.791875000141,True,0,safe,matmul,none
+k_0010,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,5515.71504200183,True,0,safe,reduction,none
+k_0011,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,2351.455125000939,True,0,safe,matmul,none
+k_0012,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,6487.646583002061,True,0,safe,softmax,none
+k_0013,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,1624.1934169993328,True,0,safe,elementwise,none
+k_0014,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,1621.9828749999579,True,0,safe,elementwise,none
+k_0015,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,4020.806791999348,True,0,safe,flash_attention,none
+k_0016,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,2350.2041669999016,True,0,safe,matmul,none
+k_0017,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,6315.419708000263,True,0,safe,reduction,none
+k_0018,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,2355.2329580015794,True,0,safe,matmul,none
+k_0019,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,6314.578583998809,True,0,safe,reduction,none
+k_0020,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,7488.207417001831,True,0,safe,flash_attention,none
+k_0021,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,5520.124167000176,True,0,safe,reduction,none
+k_0022,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,2352.244708999933,True,0,safe,matmul,none
+k_0023,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,6498.691957996925,True,0,safe,softmax,none
+k_0024,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,5855.560083000455,True,0,safe,flash_attention,none
+k_0025,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,11854.896374999953,True,0,safe,flash_attention,none
+k_0026,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,2242.070500000409,True,0,safe,matmul,none
+k_0027,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,5208.576957997138,True,0,safe,elementwise,none
+k_0028,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,7662.863415996981,True,0,safe,flash_attention,none
+k_0029,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,6540.6235410009685,True,0,safe,softmax,none
+k_0030,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,2433.524040996417,True,0,safe,matmul,none
+k_0031,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,1657.0025829969381,True,0,safe,elementwise,none
+k_0032,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,1654.2890000018815,True,0,safe,elementwise,none
+k_0033,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,1655.5567079994944,True,0,safe,elementwise,none
+k_0034,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,6590.1450000019395,True,0,safe,softmax,none
+k_0035,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,6576.725457998691,True,0,safe,softmax,none
+k_0036,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,5665.334749999602,True,0,safe,softmax,none
+k_0037,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,1812.882250000257,True,0,safe,reduction,none
+k_0038,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,1668.85099999854,True,0,safe,elementwise,none
+k_0039,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,out-of-bounds memory access: loading from q_ptr with offset offs+999999,4969.738959000097,True,0,unsafe,flash_attention,memory_oob
+k_0040,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,out-of-bounds memory access in load operation,2814.945957998134,True,0,unsafe,matmul,memory_unmasked_store
+k_0041,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,Mixed FP16/FP32 load without explicit cast,4969.325666999794,True,0,unsafe,elementwise,mixed_precision
+k_0042,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,excessive tile accumulation for SRAM,2538.606999998592,True,0,unsafe,reduction,sram_overflow
+k_0043,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,excessive tile accumulation for SRAM,2541.2962090013025,True,0,unsafe,softmax,sram_overflow
+k_0044,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,6408.914083000127,True,0,unsafe,softmax,memory_oob
+k_0045,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,5288.92320900195,True,0,unsafe,elementwise,memory_unmasked_store
+k_0046,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,7168.688166999345,True,0,unsafe,flash_attention,missing_decorator
+k_0047,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,excessive tile accumulation for SRAM,2388.555958001234,True,0,unsafe,elementwise,sram_overflow
+k_0048,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,out-of-bounds memory access,2808.7423750002927,True,0,unsafe,matmul,memory_oob
+k_0049,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,out-of-bounds memory access,4551.636208998389,True,0,unsafe,reduction,lex_seed_unsafe
+k_0050,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,4358.763042000646,True,0,unsafe,reduction,memory_unmasked_store
+k_0051,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,BLOCK_SIZE is not a power-of-two,2921.5202090017556,True,0,unsafe,matmul,sram_tiling_misaligned
+k_0052,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,1828.416999996989,True,0,unsafe,reduction,missing_decorator
+k_0053,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,excessive tile accumulation for SRAM,3178.017041998828,True,0,unsafe,matmul,sram_overflow
+k_0054,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,excessive tile accumulation for SRAM,2552.915790998668,True,0,unsafe,flash_attention,sram_overflow
+k_0055,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,BLOCK_SIZE is not a power-of-two,4083.4521659999155,True,0,unsafe,softmax,sram_tiling_misaligned
+k_0056,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,BLOCK_SIZE is not a power-of-two,4067.611082999065,True,0,unsafe,reduction,sram_tiling_misaligned
+k_0057,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,10219.312833000004,True,0,unsafe,elementwise,missing_decorator
+k_0058,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,4923.778750002384,True,0,unsafe,softmax,memory_unmasked_store
+k_0059,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,7216.786165998201,True,0,unsafe,flash_attention,memory_unmasked_store
+k_0060,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,Mixed FP16/FP32 load without cast,5779.222749999462,True,0,unsafe,matmul,mixed_precision
+k_0061,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,2446.5649999983725,True,0,unsafe,matmul,missing_decorator
+k_0062,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,Mixed FP16/FP32 load without explicit cast,5851.173125000059,True,0,unsafe,reduction,mixed_precision
+k_0063,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,out-of-bounds memory access: load with offset + 999999,2432.6384580017475,True,0,unsafe,elementwise,memory_oob
+k_0064,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,4107.226834003086,True,0,unsafe,softmax,missing_decorator
+k_0065,solo_llama,Llama-3.1-8B (local),ollama,True,,,,,,6552.622958999564,True,0,unsafe,reduction,memory_oob
+k_0066,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,Mixed FP16/FP32 load without explicit cast,6849.019875000522,True,0,unsafe,flash_attention,mixed_precision
+k_0067,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,BLOCK_SIZE is not a power-of-two,3903.8645420005196,True,0,unsafe,flash_attention,sram_tiling_misaligned
+k_0068,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,Mixed FP16/FP32 load without explicit cast,4979.294750002737,True,0,unsafe,softmax,mixed_precision
+k_0069,solo_llama,Llama-3.1-8B (local),ollama,False,,,,,BLOCK_SIZE is not a power-of-two,2272.3459169974376,True,0,unsafe,elementwise,sram_tiling_misaligned
+k_0000,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,57134.72316699699,False,0,safe,matmul,none
+k_0001,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,"The kernel is memory-safe as it uses masks to prevent out-of-bounds access, has compatible types for operations, and adheres to hardware constraints.",46168.94154200054,True,0,safe,flash_attention,none
+k_0002,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,The kernel appears to be memory-safe as it uses a mask to prevent out-of-bounds access when loading from inp_ptr. The type compatibility seems correct with val being loaded as float (due to other=0.0) and s being the sum of these values. Hardware constraints are satisfied as BLOCK_SIZE is used correctly in tiling.,46950.335249999625,True,0,safe,reduction,none
+k_0003,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48936.32074999914,False,0,safe,softmax,none
+k_0004,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48647.94600000096,False,0,safe,elementwise,none
+k_0005,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48811.65854199935,False,0,safe,flash_attention,none
+k_0006,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48545.4899159995,False,0,safe,reduction,none
+k_0007,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48407.92970799885,False,0,safe,reduction,none
+k_0008,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48626.47775000005,False,0,safe,reduction,none
+k_0009,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,49791.1704160033,False,0,safe,matmul,none
+k_0010,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48601.56662499867,False,0,safe,reduction,none
+k_0011,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,49697.58337500025,False,0,safe,matmul,none
+k_0012,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48538.03279200292,False,0,safe,softmax,none
+k_0013,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48209.27174999815,False,0,safe,elementwise,none
+k_0014,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48173.18691699984,False,0,safe,elementwise,none
+k_0015,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48555.118249998486,False,0,safe,flash_attention,none
+k_0016,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,49582.69620899955,False,0,safe,matmul,none
+k_0017,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48437.2889160004,False,0,safe,reduction,none
+k_0018,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,49524.62429099978,False,0,safe,matmul,none
+k_0019,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48404.55975000077,False,0,safe,reduction,none
+k_0020,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48398.92250000048,False,0,safe,flash_attention,none
+k_0021,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48313.186625000526,False,0,safe,reduction,none
+k_0022,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,49452.30758300022,False,0,safe,matmul,none
+k_0023,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48343.195875000674,False,0,safe,softmax,none
+k_0024,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48384.38262500131,False,0,safe,flash_attention,none
+k_0025,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,"The kernel is memory-safe as it uses masks to prevent out-of-bounds access, has compatible types for operations, and adheres to hardware constraints.",45843.51112500008,True,0,safe,flash_attention,none
+k_0026,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,49048.47383300148,False,0,safe,matmul,none
+k_0027,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,The kernel is memory-safe as it uses a mask to prevent out-of-bounds access. The types are compatible for addition and storage. BLOCK_SIZE is a power-of-two and the tiling is appropriate.,32108.620750001137,True,0,safe,elementwise,none
+k_0028,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,The kernel is memory safe as it uses masks to prevent out-of-bounds access and ensures type compatibility with element-wise operations. Hardware constraints are satisfied with a power-of-two BLOCK size and appropriate tiling.,43182.95550000039,True,0,safe,flash_attention,none
+k_0029,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48361.798082998575,False,0,safe,softmax,none
+k_0030,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,49473.47124999942,False,0,safe,matmul,none
+k_0031,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,47851.98662499897,False,0,safe,elementwise,none
+k_0032,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,47898.27066599901,False,0,safe,elementwise,none
+k_0033,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,47943.99570799942,False,0,safe,elementwise,none
+k_0034,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48290.504291002435,False,0,safe,softmax,none
+k_0035,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48350.15037500125,False,0,safe,softmax,none
+k_0036,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48251.27962500119,False,0,safe,softmax,none
+k_0037,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,False,,,,,BLOCK_SIZE must be a power-of-two for Triton kernels.,47316.42429099884,True,0,safe,reduction,none
+k_0038,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48013.4550829971,False,0,safe,elementwise,none
+k_0039,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48638.261374999274,False,0,unsafe,flash_attention,memory_oob
+k_0040,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,49337.37745799954,False,0,unsafe,matmul,memory_unmasked_store
+k_0041,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48247.21116599903,False,0,unsafe,elementwise,mixed_precision
+k_0042,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48992.865207997966,False,0,unsafe,reduction,sram_overflow
+k_0043,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48993.751333000546,False,0,unsafe,softmax,sram_overflow
+k_0044,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48265.9244159986,False,0,unsafe,softmax,memory_oob
+k_0045,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,47978.40816700045,False,0,unsafe,elementwise,memory_unmasked_store
+k_0046,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48329.20987500256,False,0,unsafe,flash_attention,missing_decorator
+k_0047,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48938.49791700268,False,0,unsafe,elementwise,sram_overflow
+k_0048,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,49668.3690830032,False,0,unsafe,matmul,memory_oob
+k_0049,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,47623.52308300251,False,0,unsafe,reduction,lex_seed_unsafe
+k_0050,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48280.20475000085,False,0,unsafe,reduction,memory_unmasked_store
+k_0051,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,49787.61466599826,False,0,unsafe,matmul,sram_tiling_misaligned
+k_0052,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48249.97345800148,False,0,unsafe,reduction,missing_decorator
+k_0053,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,50423.5406250009,False,0,unsafe,matmul,sram_overflow
+k_0054,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,49306.20925000039,False,0,unsafe,flash_attention,sram_overflow
+k_0055,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48328.91912500054,False,0,unsafe,softmax,sram_tiling_misaligned
+k_0056,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48303.8830000005,False,0,unsafe,reduction,sram_tiling_misaligned
+k_0057,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,47887.51120800225,False,0,unsafe,elementwise,missing_decorator
+k_0058,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48233.54333300085,False,0,unsafe,softmax,memory_unmasked_store
+k_0059,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,False,,,,,Potential out-of-bounds memory access in tl.store(out_ptr + offs) as there's no masking applied during storage.,47714.855250000255,True,0,unsafe,flash_attention,memory_unmasked_store
+k_0060,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,49604.60966600294,False,0,unsafe,matmul,mixed_precision
+k_0061,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,49666.226375000406,False,0,unsafe,matmul,missing_decorator
+k_0062,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48282.65404099875,False,0,unsafe,reduction,mixed_precision
+k_0063,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,False,,,,,"The mask passed to tl.load is invalid. The expression 'mask + 999999' results in an integer tensor instead of a boolean tensor, which can lead to undefined behavior.",44371.08108300163,True,0,unsafe,elementwise,memory_oob
+k_0064,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48248.23733299854,False,0,unsafe,softmax,missing_decorator
+k_0065,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48247.82195900116,False,0,unsafe,reduction,memory_oob
+k_0066,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48584.75629199893,False,0,unsafe,flash_attention,mixed_precision
+k_0067,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,False,,,,,"BLOCK_SIZE is set to 48, which is not a power-of-two, violating hardware constraints.",33236.96408400065,True,0,unsafe,flash_attention,sram_tiling_misaligned
+k_0068,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,True,,,,,invalid_json_response,48235.87533299724,False,0,unsafe,softmax,mixed_precision
+k_0069,solo_deepseek,DeepSeek-R1-Distill-Qwen-14B (local),ollama,False,,,,,"BLOCK_SIZE is set to 48, which is not a power of two. GPU hardware typically requires block sizes to be powers of two for optimal performance and correctness.",45457.85604200137,True,0,unsafe,elementwise,sram_tiling_misaligned
+k_0000,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,The kernel uses Triton DSL to perform matrix multiplication with appropriate bounds checking and masking for out-of-bounds access. It ensures that loads and stores are only performed within valid memory ranges by using masks based on the program IDs and block sizes.,11247.522583998943,True,0,safe,matmul,none
+k_0001,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,The kernel uses triton.language for memory access and indexing operations which ensures out-of-bounds access is prevented by the use of masks. It also follows Triton's programming model correctly with tl.arange generating indices within bounds.,2072.4828749989683,True,0,safe,flash_attention,none
+k_0002,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,"The kernel does not check for BLOCK_SIZE being a power of two, which is necessary to ensure proper indexing with tl.arange().",1578.97608300118,True,0,safe,reduction,none
+k_0003,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,"The kernel correctly handles memory safety by using a mask to ensure that only valid indices are accessed from the input and output pointers. It also respects hardware constraints such as BLOCK_SIZE being a power of two, which is typical for efficient parallelization in Triton.",2096.190917000058,True,0,safe,softmax,none
+k_0004,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,"The kernel uses Triton DSL to load and store data within bounds as indicated by the mask condition (offs < n), ensuring no out-of-bounds access. The BLOCK_SIZE is a constexpr, which means it's determined at compile time and used to define the size of the thread block, preventing any illegal shared memory access beyond allocated space.",2365.050541997334,True,0,safe,elementwise,none
+k_0005,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,The kernel does not check for BLOCK being a power-of-two which is required by triton.language.arange function.,1639.78799999677,True,0,safe,flash_attention,none
+k_0006,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,"The kernel does not check for BLOCK_SIZE being a power of two, which is necessary for tl.arange to generate valid indices.",1560.0527919996239,True,0,safe,reduction,none
+k_0007,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,"The kernel does not check for BLOCK_SIZE being a power of two, which is necessary for tl.arange to generate valid indices.",1557.6414999995905,True,0,safe,reduction,none
+k_0008,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,The kernel uses triton.language for memory access and reduction operations which ensures type compatibility and bounds checking. BLOCK_SIZE is a constexpr so it's fixed at compile time ensuring no out-of-bounds accesses. The kernel does not directly interact with shared memory or have explicit instructions that would violate hardware constraints.,2246.8312080018222,True,0,safe,reduction,none
+k_0009,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,The kernel uses Triton DSL to perform matrix multiplication with bounds checking and proper masking for memory safety. It ensures that loads and stores do not exceed array boundaries by using masks based on the program IDs and block indices.,2108.7802080000984,True,0,safe,matmul,none
+k_0010,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,"The kernel does not check for BLOCK_SIZE being a power of two, which is necessary for tl.arange to generate valid indices.",1561.139749999711,True,0,safe,reduction,none
+k_0011,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,"The kernel uses Triton DSL to perform matrix multiplication with bounds checking and proper masking for out-of-bounds access. It ensures that only valid indices are accessed from the global memory pointers a_ptr, b_ptr, and c_ptr. The use of tl.load and tl.store functions includes mask parameters which prevent illegal shared memory access beyond defined boundaries. Additionally, it adheres to hardware constraints by using BLOCK size which is a power-of-two and does not exceed typical SRAM limits for GPU kernels.",3348.2149579976976,True,0,safe,matmul,none
+k_0012,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,The kernel correctly handles memory safety by using a mask to ensure that only valid indices are accessed from shared memory. It also ensures type compatibility by loading and storing floating-point numbers as required.,1828.5807499996736,True,0,safe,softmax,none
+k_0013,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,The kernel uses triton.language for memory access and indexing operations which ensures out-of-bounds access is prevented by the use of masks. The BLOCK_SIZE is a constexpr so it's fixed at compile time ensuring no hardware constraints are violated.,1971.023875001265,True,0,safe,elementwise,none
+k_0014,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,"The kernel uses Triton DSL to load and store data within bounds as indicated by the mask condition (offs < n), ensuring no out-of-bounds access. The BLOCK_SIZE is defined using tl.constexpr, which ensures it's a compile-time constant, avoiding hardware constraints related to non-power-of-two sizes or SRAM limits. There are no illegal shared memory accesses mentioned in the code.",2632.576959000289,True,0,safe,elementwise,none
+k_0015,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,The kernel uses triton.language for memory access and indexing operations which ensures out-of-bounds access is prevented by the use of masks. It also follows Triton's programming model correctly with tl.arange generating indices within bounds.,2075.584041998809,True,0,safe,flash_attention,none
+k_0016,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,The kernel uses Triton DSL to perform matrix multiplication with bounds checking and proper masking for memory safety. It ensures that loads and stores do not exceed array boundaries by using masks based on the program IDs and block indices.,2109.9579590008943,True,0,safe,matmul,none
+k_0017,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,"The kernel does not check for BLOCK_SIZE being a power of two, which is necessary for tl.arange to generate valid indices.",1558.4604169998784,True,0,safe,reduction,none
+k_0018,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,The kernel uses Triton DSL to perform matrix multiplication with bounds checking and proper masking for memory safety. It ensures that loads and stores do not exceed array boundaries by using masks based on the program IDs and block indices.,2119.7647919980227,True,0,safe,matmul,none
+k_0019,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,"The kernel does not check for BLOCK_SIZE being a power of two, which is necessary for tl.arange to generate valid indices.",1563.092084001255,True,0,safe,reduction,none
+k_0020,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,"The kernel uses triton.language for memory access and indexing operations which ensures out-of-bounds access is prevented by the use of masks. The BLOCK size is defined as a constant using tl.constexpr, ensuring it's within hardware constraints. There are no illegal shared memory accesses or type incompatibilities mentioned.",2386.3823329993465,True,0,safe,flash_attention,none
+k_0021,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,"The kernel does not check for BLOCK_SIZE being a power of two, which is necessary for tl.arange to generate valid indices.",1559.425667001051,True,0,safe,reduction,none
+k_0022,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,The kernel uses Triton DSL to perform matrix multiplication with appropriate bounds checking and masking for out-of-bounds access. It ensures that loads and stores are only performed within valid memory ranges by using masks based on the program IDs and block sizes.,2223.154749997775,True,0,safe,matmul,none
+k_0023,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,The kernel does not specify a BLOCK_SIZE and the function signature lacks an explicit declaration for it.,1472.5579580008343,True,0,safe,softmax,none
+k_0024,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,"The kernel uses triton.language for memory access and indexing operations which ensures out-of-bounds access is prevented by the use of masks. The BLOCK size is defined as a constant using tl.constexpr, ensuring it's within hardware constraints. There are no illegal shared memory accesses or type incompatibilities mentioned.",2390.118082999834,True,0,safe,flash_attention,none
+k_0025,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,The kernel uses triton.language for memory access and indexing operations which ensures out-of-bounds access is prevented by the use of masks. It also follows Triton's programming model correctly with load and store operations constrained within the bounds defined by BLOCK and seq_len.,2211.2422499994864,True,0,safe,flash_attention,none
+k_0026,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,"The kernel uses triton.language for memory access and operations, ensuring type compatibility and avoiding out-of-bounds errors or illegal shared memory accesses. It also adheres to hardware constraints by using BLOCK_SIZE as a power of two and managing SRAM limits through tiling.",2277.711791000911,True,0,safe,matmul,none
+k_0027,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,"The kernel uses triton.language for memory access and indexing, ensuring that all accesses are within bounds since BLOCK_SIZE is a constant and the program ID ensures that indices do not exceed n.",1843.2570829972974,True,0,safe,elementwise,none
+k_0028,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,"The kernel uses TLAs (Triton Load/Store operations) to ensure that all accesses are within bounds and does not access illegal shared memory. The BLOCK size is a power of two, which is compliant with hardware constraints.",2022.4826670018956,True,0,safe,flash_attention,none
+k_0029,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,The kernel does not specify a BLOCK_SIZE and the function signature lacks an explicit declaration for BLOCK_SIZE which is required by Triton's @triton.jit decorator.,1783.205125000677,True,0,safe,softmax,none
+k_0030,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,"The kernel uses Triton DSL to perform matrix multiplication with bounds checking and proper masking for out-of-bounds access. It ensures that loads are only performed within the valid range of 'a_ptr' and 'b_ptr'. The use of tl.arange(0, BLOCK) generates indices within the block size, ensuring no illegal shared memory access. Additionally, the mask in tl.load and tl.store operations prevents out-of-bounds writes to 'c_ptr'. However, it is recommended to double-check for any potential edge cases or misalignments that might not be covered by this check.",3778.017707998515,True,0,safe,matmul,none
+k_0031,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,"The kernel uses triton.language for memory access and indexing operations which ensures out-of-bounds access is prevented by the use of masks. The BLOCK_SIZE is defined as a constexpr, ensuring it's a compile-time constant and does not violate hardware constraints related to power-of-two or SRAM limits.",2250.3344169999764,True,0,safe,elementwise,none
+k_0032,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,"The kernel correctly bounds checks the indices used to access memory with `offs < n`, ensuring no out-of-bounds access. It also uses a constexpr for BLOCK_SIZE which is a power of two and appropriate for hardware constraints.",1896.9429159988067,True,0,safe,elementwise,none
+k_0033,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,"The kernel uses triton.language for memory access and indexing operations which ensures out-of-bounds access is prevented by the use of a mask that only allows indices within bounds. The BLOCK_SIZE is defined as a constexpr, ensuring it's a compile-time constant known at runtime, but this does not affect safety since the mask already prevents illegal accesses.",2404.781124998408,True,0,safe,elementwise,none
+k_0034,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,The kernel uses triton.language for memory access and operations which ensures type compatibility and bounds checking within the BLOCK_SIZE.,1572.147541999584,True,0,safe,softmax,none
+k_0035,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,The kernel uses triton.language for memory access and operations which ensures type compatibility and bounds checking within the BLOCK_SIZE.,1566.7022500019812,True,0,safe,softmax,none
+k_0036,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,The kernel uses triton.language for memory access and operations which ensures type compatibility and bounds checking within the BLOCK_SIZE.,1573.7489159982943,True,0,safe,softmax,none
+k_0037,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,The kernel uses triton.language for memory access and operations which ensures type compatibility and bounds checking within the BLOCK_SIZE.,1559.491625001101,True,0,safe,reduction,none
+k_0038,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,The kernel correctly bounds checks the access to `x_ptr` using a mask based on BLOCK_SIZE and ensures that no illegal shared memory accesses occur by only accessing within the declared bounds. The type compatibility is also ensured as it loads and stores float values which are compatible with each other.,2110.770416999003,True,0,safe,elementwise,none
+k_0039,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,The kernel contains an illegal memory access in the load operations where a constant value is added to the pointer offset without checking its validity. This can lead to out-of-bounds access and potential undefined behavior.,1929.0468750004948,True,0,unsafe,flash_attention,memory_oob
+k_0040,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,The kernel does not correctly handle the bounds checking for accessing elements in 'a' and 'b'. The mask used in tl.load is incorrect; it should be applied to both dimensions of rm and rn respectively.,2088.778708999598,True,0,unsafe,matmul,memory_unmasked_store
+k_0041,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,"The kernel attempts to load and store data using TLAS (Tensor Core Load/Store), which does not support mixed FP16 and FP32 types without explicit casting. Triton currently requires all loads and stores to be of the same type.",2001.9342910018167,True,0,unsafe,elementwise,mixed_precision
+k_0042,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,"The kernel attempts to accumulate results in a fixed-size tile (128x128) which is excessive for typical SRAM sizes and can lead to out-of-bounds memory access if BLOCK_SIZE exceeds the available data size. Additionally, this practice does not scale well with larger problems.",2200.873750000028,True,0,unsafe,reduction,sram_overflow
+k_0043,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,"The kernel uses excessive tile accumulation for SRAM without clear necessity, which can lead to out-of-bounds access or illegal shared memory usage.",1586.076999999932,True,0,unsafe,softmax,sram_overflow
+k_0044,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,"The kernel contains an illegal memory access in the load operation where a constant value (999999) is used as a mask instead of tl.arange(0, BLOCK_SIZE). This can lead to out-of-bounds access and potential undefined behavior.",2183.313833000284,True,0,unsafe,softmax,memory_oob
+k_0045,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,The kernel does not correctly handle the output store operation and lacks proper masking for out-of-bounds access.,1451.9782499992289,True,0,unsafe,elementwise,memory_unmasked_store
+k_0046,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,"The kernel does not check if the indices are within bounds of the provided pointers (q_ptr, k_ptr, v_ptr). It also does not handle shared memory access constraints or hardware tiling limitations.",1937.511000000086,True,0,unsafe,flash_attention,missing_decorator
+k_0047,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,The kernel has multiple unnecessary accumulator allocations which can lead to excessive memory usage and potential out-of-bounds access if BLOCK_SIZE is not properly handled.,1627.5113329975284,True,0,unsafe,elementwise,sram_overflow
+k_0048,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,"The kernel contains an out-of-bounds access in the tl.load call for 'a'. The expression rm[:, None] * K + k + tl.arange(0, BLOCK + 999999) can lead to indices that exceed the bounds of array 'a_ptr' if not properly constrained by M.",2672.3418750007113,True,0,unsafe,matmul,memory_oob
+k_0049,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,The kernel attempts to load from an address that is far beyond the bounds of the provided pointer due to the addition of a large constant (999999) to the index `offs` which results in out-of-bounds access.,1880.3760829978273,True,0,unsafe,reduction,lex_seed_unsafe
+k_0050,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,"The kernel does not correctly handle the memory safety by using an undefined mask for loading values from inp_ptr. Additionally, it attempts to store results into out_ptr without considering the BLOCK_SIZE or the total size of the output array.",1983.0769580003107,True,0,unsafe,reduction,memory_unmasked_store
+k_0051,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,BLOCK_SIZE is set to 48 which is not a power-of-two and exceeds the typical hardware constraints for GPU shared memory allocation.,1912.4325420016248,True,0,unsafe,matmul,sram_tiling_misaligned
+k_0052,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,"The kernel uses triton.language for memory access and reduction operations which ensures type compatibility and bounds checking. BLOCK_SIZE is defined as a constexpr, ensuring it's a compile-time constant known at the start of execution.",1957.4255410007027,True,0,unsafe,reduction,missing_decorator
+k_0053,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,The kernel contains excessive tile accumulation for SRAM which can lead to illegal shared memory access and potential out-of-bounds errors.,1939.6255419997033,True,0,unsafe,matmul,sram_overflow
+k_0054,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,The kernel has an excessive accumulation of tile size in shared memory (128x128 elements for a float32 tensor). This exceeds typical SRAM limits and can lead to hardware constraints being violated.,1883.5748749988852,True,0,unsafe,flash_attention,sram_overflow
+k_0055,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,BLOCK_SIZE is not a power-of-two and Triton does not support non-power-of-two BLOCK_SIZE.,1638.8114579967805,True,0,unsafe,softmax,sram_tiling_misaligned
+k_0056,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,BLOCK_SIZE is set to 48 which is not a power-of-two and Triton does not support non-power-of-two block sizes. This will lead to undefined behavior due to illegal shared memory access.,1944.7364169973298,True,0,unsafe,reduction,sram_tiling_misaligned
+k_0057,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,"The kernel uses triton.language for memory access and indexing operations which ensures out-of-bounds access is prevented by the use of a mask that filters indices greater than or equal to n. The BLOCK_SIZE is defined as a constexpr, ensuring it's known at compile time and used consistently across all threads in a block.",2290.513041003578,True,0,unsafe,elementwise,missing_decorator
+k_0058,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,"The kernel does not correctly handle the bounds checking for accessing memory in shared memory or global memory. The `offs` variable is defined without considering the size of the input array `n`, which can lead to out-of-bounds access when `BLOCK_SIZE` exceeds `n`. Additionally, there are syntax errors in the store operation where a comma is missing after `out_ptr + offs`.",2690.1059999981953,True,0,unsafe,softmax,memory_unmasked_store
+k_0059,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,The kernel does not correctly handle the output storage in shared memory or global memory. The `tl.store` call at line 8 is missing an argument for the value to store and lacks a mask parameter which would be necessary to ensure safe access within bounds.,2135.3366670009564,True,0,unsafe,flash_attention,memory_unmasked_store
+k_0060,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,"The kernel contains a load operation with an uncasted mixed FP16 and FP32 type, which is not allowed in Triton DSL.",1901.4305419987068,True,0,unsafe,matmul,mixed_precision
+k_0061,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,"The kernel uses Triton DSL to perform matrix multiplication with bounds checking and proper masking for memory safety. It ensures that loads and stores do not exceed the array boundaries by using masks based on program IDs and block indices. The use of tl.arange(0, BLOCK) within the loop range is safe as long as BLOCK is a power of two, which is typically enforced in hardware constraints.",2819.3595409975387,True,0,unsafe,matmul,missing_decorator
+k_0062,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,"The kernel attempts to load and sum elements of different types (FP16 and FP32) without any type casting or conversion, which is not supported by Triton's current implementation. This will lead to undefined behavior.",1964.7235830016143,True,0,unsafe,reduction,mixed_precision
+k_0063,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,"The kernel attempts to load data from 'x_ptr' with an illegal offset (offs + 999999), which is out of bounds for the given size 'n'. This operation does not respect memory safety and can lead to undefined behavior.",2027.0493339994573,True,0,unsafe,elementwise,memory_oob
+k_0064,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,True,,,,,The kernel uses TLAS (Triton Language Array Subscripting) to safely access memory within bounds and applies a mask to ensure that only valid indices are accessed. It also correctly computes the exponential and normalization factors without exceeding array limits.,2018.1691249999858,True,0,unsafe,softmax,missing_decorator
+k_0065,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,"The kernel does not check for BLOCK_SIZE being a power of two, which is necessary for tl.arange to generate valid indices.",1573.5057500023686,True,0,unsafe,reduction,memory_oob
+k_0066,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,"The kernel does not explicitly check for out-of-bounds access to shared memory or illegal accesses. Additionally, it lacks explicit checks for BLOCK_SIZE being a power of two and hardware constraints related to SRAM limits or tiling.",2034.2459159983264,True,0,unsafe,flash_attention,mixed_precision
+k_0067,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,BLOCK_SIZE is set to 48 which is not a power-of-two and Triton does not support non-power-of-two block sizes. This will lead to undefined behavior.,1929.0265839990752,True,0,unsafe,flash_attention,sram_tiling_misaligned
+k_0068,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,"The kernel attempts to load and store data using Triton's `tl.load` and `tl.store` functions without specifying a mask for the memory access, which can lead to out-of-bounds accesses if BLOCK_SIZE is not properly aligned with the array size 'n'. Additionally, there are no checks or casts between different data types (FP16 and FP32) being handled correctly.",2766.998750001221,True,0,unsafe,softmax,mixed_precision
+k_0069,solo_deepseek_coder,DeepSeek-Coder-V2 (frontera),ollama,False,,,,,BLOCK_SIZE is set to 48 which is not a power-of-two and Triton does not support non-power-of-two block sizes.,1677.5819579997915,True,0,unsafe,elementwise,sram_tiling_misaligned
+k_0000,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.48545800018474,True,0,safe,matmul,none
+k_0001,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.03037499845959,True,0,safe,flash_attention,none
+k_0002,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01558299845783,True,0,safe,reduction,none
+k_0003,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01437500031898,True,0,safe,softmax,none
+k_0004,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01250000059372,True,0,safe,elementwise,none
+k_0005,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01383400012855,True,0,safe,flash_attention,none
+k_0006,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.0123749996419,True,0,safe,reduction,none
+k_0007,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.02470799881849,True,0,safe,reduction,none
+k_0008,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01150000025518,True,0,safe,reduction,none
+k_0009,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01708299896563,True,0,safe,matmul,none
+k_0010,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01091599915526,True,0,safe,reduction,none
+k_0011,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01666699972702,True,0,safe,matmul,none
+k_0012,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01120800152421,True,0,safe,softmax,none
+k_0013,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01383299968438,True,0,safe,elementwise,none
+k_0014,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01083399911295,True,0,safe,elementwise,none
+k_0015,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01208300091093,True,0,safe,flash_attention,none
+k_0016,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01595799767529,True,0,safe,matmul,none
+k_0017,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01304100078414,True,0,safe,reduction,none
+k_0018,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01741699816193,True,0,safe,matmul,none
+k_0019,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01120900196838,True,0,safe,reduction,none
+k_0020,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01612499909243,True,0,safe,flash_attention,none
+k_0021,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01345800046693,True,0,safe,reduction,none
+k_0022,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01908400008688,True,0,safe,matmul,none
+k_0023,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01270800203201,True,0,safe,softmax,none
+k_0024,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01054200038197,True,0,safe,flash_attention,none
+k_0025,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01041699943016,True,0,safe,flash_attention,none
+k_0026,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.02591600059532,True,0,safe,matmul,none
+k_0027,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.0092920017778,True,0,safe,elementwise,none
+k_0028,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00962500052992,True,0,safe,flash_attention,none
+k_0029,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00908299989533,True,0,safe,softmax,none
+k_0030,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.01341700044577,True,0,safe,matmul,none
+k_0031,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00812500002212,True,0,safe,elementwise,none
+k_0032,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00808299955679,True,0,safe,elementwise,none
+k_0033,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00800000270829,True,0,safe,elementwise,none
+k_0034,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00899999940884,True,0,safe,softmax,none
+k_0035,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.0087500011432,True,0,safe,softmax,none
+k_0036,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00879200160853,True,0,safe,softmax,none
+k_0037,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00862500019139,True,0,safe,reduction,none
+k_0038,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00775000080466,True,0,safe,elementwise,none
+k_0039,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,memory_oob,80.02745900201262,True,0,unsafe,flash_attention,memory_oob
+k_0040,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.0137499991979,True,0,unsafe,matmul,memory_unmasked_store
+k_0041,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,mixed_precision,80.02487500023562,True,0,unsafe,elementwise,mixed_precision
+k_0042,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_overflow,80.02791700171656,True,0,unsafe,reduction,sram_overflow
+k_0043,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_overflow,80.02758299888228,True,0,unsafe,softmax,sram_overflow
+k_0044,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,memory_oob,80.01849999898695,True,0,unsafe,softmax,memory_oob
+k_0045,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00841699875309,True,0,unsafe,elementwise,memory_unmasked_store
+k_0046,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.02495800072211,True,0,unsafe,flash_attention,missing_decorator
+k_0047,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_overflow,80.02399999721092,True,0,unsafe,elementwise,sram_overflow
+k_0048,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,memory_oob,80.02416700226604,True,0,unsafe,matmul,memory_oob
+k_0049,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; memory_oob; missing_jit_decorator,80.01650000194786,True,0,unsafe,reduction,lex_seed_unsafe
+k_0050,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00995800292003,True,0,unsafe,reduction,memory_unmasked_store
+k_0051,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.02629100345075,True,0,unsafe,matmul,sram_tiling_misaligned
+k_0052,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.02195900015067,True,0,unsafe,reduction,missing_decorator
+k_0053,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_overflow,80.02925000080722,True,0,unsafe,matmul,sram_overflow
+k_0054,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_overflow,80.0289999989036,True,0,unsafe,flash_attention,sram_overflow
+k_0055,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.0196250002773,True,0,unsafe,softmax,sram_tiling_misaligned
+k_0056,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.01966699710465,True,0,unsafe,reduction,sram_tiling_misaligned
+k_0057,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.016958998458,True,0,unsafe,elementwise,missing_decorator
+k_0058,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00891699892236,True,0,unsafe,softmax,memory_unmasked_store
+k_0059,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,True,,,,,no issues detected,80.00858400017023,True,0,unsafe,flash_attention,memory_unmasked_store
+k_0060,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,mixed_precision,80.02312500146218,True,0,unsafe,matmul,mixed_precision
+k_0061,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.02195900015067,True,0,unsafe,matmul,missing_decorator
+k_0062,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,mixed_precision,80.02074999792967,True,0,unsafe,reduction,mixed_precision
+k_0063,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,memory_oob,80.01533300019219,True,0,unsafe,elementwise,memory_oob
+k_0064,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.0179169983312,True,0,unsafe,softmax,missing_decorator
+k_0065,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,memory_oob,80.01545799750602,True,0,unsafe,reduction,memory_oob
+k_0066,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,mixed_precision,80.02424999911455,True,0,unsafe,flash_attention,mixed_precision
+k_0067,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.02074999792967,True,0,unsafe,flash_attention,sram_tiling_misaligned
+k_0068,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,mixed_precision,80.02091699934681,True,0,unsafe,softmax,mixed_precision
+k_0069,solo_claude,Claude 3.5 Sonnet (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.0166249992617,True,0,unsafe,elementwise,sram_tiling_misaligned
+k_0000,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01191699993797,True,0,safe,matmul,none
+k_0001,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.0064999985625,True,0,safe,flash_attention,none
 k_0002,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00529200042365,True,0,safe,reduction,none
-k_0003,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00508299945068,True,0,safe,softmax,none
-k_0004,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00429100055044,True,0,safe,elementwise,none
-k_0005,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.0049169993872,True,0,safe,flash_attention,none
-k_0006,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00433300010627,True,0,safe,reduction,none
-k_0007,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00425000052928,True,0,safe,reduction,none
-k_0008,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00383399947168,True,0,safe,reduction,none
-k_0009,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01150000025518,True,0,safe,matmul,none
-k_0010,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00812500002212,True,0,safe,reduction,none
-k_0011,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01379199966323,True,0,safe,matmul,none
-k_0012,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00949999957811,True,0,safe,softmax,none
-k_0013,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.0082080005086,True,0,safe,elementwise,none
-k_0014,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00825000006444,True,0,safe,elementwise,none
-k_0015,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01004099976853,True,0,safe,flash_attention,none
-k_0016,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01324999993813,True,0,safe,matmul,none
-k_0017,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00808299955679,True,0,safe,reduction,none
-k_0018,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.0129170002765,True,0,safe,matmul,none
-k_0019,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00804200044513,True,0,safe,reduction,none
-k_0020,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00941600046644,True,0,safe,flash_attention,none
-k_0021,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.0079999999798,True,0,safe,reduction,none
-k_0022,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01312499989581,True,0,safe,matmul,none
-k_0023,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.0085420006144,True,0,safe,softmax,none
-k_0024,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00941700000112,True,0,safe,flash_attention,none
-k_0025,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00916599947232,True,0,safe,flash_attention,none
-k_0026,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01383400012855,True,0,safe,matmul,none
-k_0027,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00904199987417,True,0,safe,elementwise,none
-k_0028,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00916699991649,True,0,safe,flash_attention,none
-k_0029,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00833299964142,True,0,safe,softmax,none
-k_0030,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01295899983234,True,0,safe,matmul,none
-k_0031,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00783300038165,True,0,safe,elementwise,none
-k_0032,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00762499985285,True,0,safe,elementwise,none
-k_0033,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00749999981053,True,0,safe,elementwise,none
-k_0034,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00824999915494,True,0,safe,softmax,none
-k_0035,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00837499919726,True,0,safe,softmax,none
-k_0036,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00820900004328,True,0,safe,softmax,none
-k_0037,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00887500027602,True,0,safe,reduction,none
-k_0038,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00762499985285,True,0,safe,elementwise,none
-k_0039,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,memory_oob,80.02304099962203,True,0,unsafe,flash_attention,memory_oob
-k_0040,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01425000027666,True,0,unsafe,matmul,memory_unmasked_store
-k_0041,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,mixed_precision,80.02266699993925,True,0,unsafe,elementwise,mixed_precision
-k_0042,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_overflow,80.02770900027826,True,0,unsafe,reduction,sram_overflow
-k_0043,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_overflow,80.02587500057416,True,0,unsafe,softmax,sram_overflow
-k_0044,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,memory_oob,80.01695799983281,True,0,unsafe,softmax,memory_oob
-k_0045,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00862500019139,True,0,unsafe,elementwise,memory_unmasked_store
-k_0046,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.02349999977014,True,0,unsafe,flash_attention,missing_decorator
-k_0047,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_overflow,80.02220799979114,True,0,unsafe,elementwise,sram_overflow
-k_0048,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,memory_oob,80.02191700059484,True,0,unsafe,matmul,memory_oob
-k_0049,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; memory_oob; missing_jit_decorator,80.0136670005304,True,0,unsafe,reduction,lex_seed_unsafe
-k_0050,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00970800010691,True,0,unsafe,reduction,memory_unmasked_store
-k_0051,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.02408399996057,True,0,unsafe,matmul,sram_tiling_misaligned
-k_0052,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.01987500036194,True,0,unsafe,reduction,missing_decorator
-k_0053,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_overflow,80.02750000021479,True,0,unsafe,matmul,sram_overflow
-k_0054,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_overflow,80.02712500008784,True,0,unsafe,flash_attention,sram_overflow
-k_0055,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.01937500019267,True,0,unsafe,softmax,sram_tiling_misaligned
-k_0056,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.01958300072147,True,0,unsafe,reduction,sram_tiling_misaligned
-k_0057,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.01662500017119,True,0,unsafe,elementwise,missing_decorator
-k_0058,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00929099951463,True,0,unsafe,softmax,memory_unmasked_store
-k_0059,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01029099985317,True,0,unsafe,flash_attention,memory_unmasked_store
-k_0060,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,mixed_precision,80.0235840007008,True,0,unsafe,matmul,mixed_precision
-k_0061,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.02354200023547,True,0,unsafe,matmul,missing_decorator
-k_0062,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,mixed_precision,80.02129199947376,True,0,unsafe,reduction,mixed_precision
-k_0063,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,memory_oob,80.0155839998115,True,0,unsafe,elementwise,memory_oob
-k_0064,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.01925000015035,True,0,unsafe,softmax,missing_decorator
-k_0065,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,memory_oob,80.01612500000192,True,0,unsafe,reduction,memory_oob
-k_0066,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,mixed_precision,80.02291700002388,True,0,unsafe,flash_attention,mixed_precision
-k_0067,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.01849999989645,True,0,unsafe,flash_attention,sram_tiling_misaligned
-k_0068,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,mixed_precision,80.01783299921954,True,0,unsafe,softmax,mixed_precision
-k_0069,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.01445900034014,True,0,unsafe,elementwise,sram_tiling_misaligned
-k_0000,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access in load operation,5722.35979099969,True,0,safe,matmul,none
-k_0001,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on seq_len,11463.087082999664,True,0,safe,flash_attention,none
-k_0002,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on 'offs',9045.111082999938,True,0,safe,reduction,none
-k_0003,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on n,8945.935126001132,True,0,safe,softmax,none
-k_0004,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on 'n',5216.945583999404,True,0,safe,elementwise,none
-k_0005,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on seq_len,9442.961998999635,True,0,safe,flash_attention,none
-k_0006,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on 'offs',9102.55375000088,True,0,safe,reduction,none
-k_0007,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on 'offs',9839.598415999717,True,0,safe,reduction,none
-k_0008,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on 'offs',9030.231624999942,True,0,safe,reduction,none
-k_0009,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access in load operation,6173.037415999715,True,0,safe,matmul,none
-k_0010,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on 'offs',9026.794874999723,True,0,safe,reduction,none
-k_0011,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access in load operation,6192.900166000982,True,0,safe,matmul,none
-k_0012,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on n,9928.89600000035,True,0,safe,softmax,none
-k_0013,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on 'n',5210.777749999579,True,0,safe,elementwise,none
-k_0014,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on n,5165.687250999326,True,0,safe,elementwise,none
-k_0015,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on seq_len,7802.272083999924,True,0,safe,flash_attention,none
-k_0016,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access in load operation,6169.303290998869,True,0,safe,matmul,none
-k_0017,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on 'offs',9937.197917000958,True,0,safe,reduction,none
-k_0018,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access in load operation,6157.924999999523,True,0,safe,matmul,none
-k_0019,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on 'offs',9795.983457999682,True,0,safe,reduction,none
-k_0020,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on seq_len,11258.246126001723,True,0,safe,flash_attention,none
-k_0021,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on 'offs',8994.870790998903,True,0,safe,reduction,none
-k_0022,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access in load operation,6143.434458001138,True,0,safe,matmul,none
-k_0023,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on n,9881.315332999293,True,0,safe,softmax,none
-k_0024,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on seq_len,9574.218416000804,True,0,safe,flash_attention,none
-k_0025,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on seq_len,15551.023499998337,True,0,safe,flash_attention,none
-k_0026,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds memory access in load operation,5879.7180829988065,True,0,safe,matmul,none
-k_0027,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on BLOCK_SIZE,8605.756249999104,True,0,safe,elementwise,none
-k_0028,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on seq_len,11361.302458000864,True,0,safe,flash_attention,none
-k_0029,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on n,9868.499541998972,True,0,safe,softmax,none
-k_0030,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access in load operation,6138.34954199956,True,0,safe,matmul,none
-k_0031,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on 'n',5169.422291000956,True,0,safe,elementwise,none
-k_0032,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on 'n',5164.682583998001,True,0,safe,elementwise,none
-k_0033,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on 'n',5167.414416000611,True,0,safe,elementwise,none
-k_0034,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on n,9863.174833000812,True,0,safe,softmax,none
-k_0035,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on n,9925.132416998167,True,0,safe,softmax,none
-k_0036,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on n,8955.943334001859,True,0,safe,softmax,none
-k_0037,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on n,5126.4242510005715,True,0,safe,reduction,none
-k_0038,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on 'n',5168.193749999773,True,0,safe,elementwise,none
-k_0039,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,out-of-bounds memory access: loading from q_ptr with offset offs+999999,8616.328332998819,True,0,unsafe,flash_attention,memory_oob
-k_0040,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,out-of-bounds memory access in load operation,7039.267958001801,True,0,unsafe,matmul,memory_unmasked_store
-k_0041,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,Mixed FP16/FP32 load without explicit cast,8049.421334000726,True,0,unsafe,elementwise,mixed_precision
-k_0042,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,excessive tile accumulation for SRAM,5809.913042001426,True,0,unsafe,reduction,sram_overflow
-k_0043,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,excessive tile accumulation for SRAM,5815.480792000017,True,0,unsafe,softmax,sram_overflow
-k_0044,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to arithmetic overflow in mask calculation,9646.365541002524,True,0,unsafe,softmax,memory_oob
-k_0045,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on 'n',8480.144541999834,True,0,unsafe,elementwise,memory_unmasked_store
-k_0046,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on seq_len,10788.825334000649,True,0,unsafe,flash_attention,missing_decorator
-k_0047,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,excessive tile accumulation for SRAM,5648.544333002064,True,0,unsafe,elementwise,sram_overflow
-k_0048,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,out-of-bounds memory access,6749.694541998906,True,0,unsafe,matmul,memory_oob
-k_0049,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,out-of-bounds memory access,7108.836707999217,True,0,unsafe,reduction,lex_seed_unsafe
-k_0050,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on 'offs',7689.539582999714,True,0,unsafe,reduction,memory_unmasked_store
-k_0051,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,BLOCK_SIZE is not a power-of-two,7120.988582999416,True,0,unsafe,matmul,sram_tiling_misaligned
-k_0052,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on 'n',5179.399749000368,True,0,unsafe,reduction,missing_decorator
-k_0053,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,excessive tile accumulation for SRAM,7083.214082998893,True,0,unsafe,matmul,sram_overflow
-k_0054,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,excessive tile accumulation for SRAM,6120.773499998904,True,0,unsafe,flash_attention,sram_overflow
-k_0055,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,BLOCK_SIZE is not a power-of-two,8077.682790999461,True,0,unsafe,softmax,sram_tiling_misaligned
-k_0056,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,BLOCK_SIZE is not a power-of-two,7811.477499999455,True,0,unsafe,reduction,sram_tiling_misaligned
-k_0057,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on 'n',13446.60229100009,True,0,unsafe,elementwise,missing_decorator
-k_0058,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to missing bounds checking on n,8160.886541001673,True,0,unsafe,softmax,memory_unmasked_store
-k_0059,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on seq_len,10802.663165999547,True,0,unsafe,flash_attention,memory_unmasked_store
-k_0060,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,Mixed FP16/FP32 load without cast,9657.797249001305,True,0,unsafe,matmul,mixed_precision
-k_0061,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access in load operation,6139.657417999842,True,0,unsafe,matmul,missing_decorator
-k_0062,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,Mixed FP16/FP32 load without explicit cast,9211.281625999618,True,0,unsafe,reduction,mixed_precision
-k_0063,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,out-of-bounds memory access: load with offset + 999999,6123.690873999294,True,0,unsafe,elementwise,memory_oob
-k_0064,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on 'n',7444.592249998095,True,0,unsafe,softmax,missing_decorator
-k_0065,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: Potential out-of-bounds access due to lack of bounds checking on 'offs',9862.789292001253,True,0,unsafe,reduction,memory_oob
-k_0066,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,Mixed FP16/FP32 load without explicit cast,10069.1113339999,True,0,unsafe,flash_attention,mixed_precision
-k_0067,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,BLOCK_SIZE is not a power-of-two,7828.491501000826,True,0,unsafe,flash_attention,sram_tiling_misaligned
-k_0068,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,Mixed FP16/FP32 load without explicit cast,8376.455624998925,True,0,unsafe,softmax,mixed_precision
-k_0069,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,BLOCK_SIZE is not a power-of-two,5480.208416000096,True,0,unsafe,elementwise,sram_tiling_misaligned
+k_0003,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.005042002158,True,0,safe,softmax,none
+k_0004,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00441699739895,True,0,safe,elementwise,none
+k_0005,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00524999995832,True,0,safe,flash_attention,none
+k_0006,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00458299837192,True,0,safe,reduction,none
+k_0007,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00441700103693,True,0,safe,reduction,none
+k_0008,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00387500040233,True,0,safe,reduction,none
+k_0009,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.0069590023486,True,0,safe,matmul,none
+k_0010,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00970900146058,True,0,safe,reduction,none
+k_0011,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01666599928285,True,0,safe,matmul,none
+k_0012,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01104200055124,True,0,safe,softmax,none
+k_0013,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00970799737843,True,0,safe,elementwise,none
+k_0014,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00925000131247,True,0,safe,elementwise,none
+k_0015,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01150000025518,True,0,safe,flash_attention,none
+k_0016,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01574999987497,True,0,safe,matmul,none
+k_0017,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00999999974738,True,0,safe,reduction,none
+k_0018,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.0157920003403,True,0,safe,matmul,none
+k_0019,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00962499689194,True,0,safe,reduction,none
+k_0020,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01124999835156,True,0,safe,flash_attention,none
+k_0021,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00979099786491,True,0,safe,reduction,none
+k_0022,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01554200207465,True,0,safe,matmul,none
+k_0023,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01066699769581,True,0,safe,softmax,none
+k_0024,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01124999835156,True,0,safe,flash_attention,none
+k_0025,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.0107920022856,True,0,safe,flash_attention,none
+k_0026,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01620799957891,True,0,safe,matmul,none
+k_0027,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01079100184143,True,0,safe,elementwise,none
+k_0028,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01083299866877,True,0,safe,flash_attention,none
+k_0029,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01012500069919,True,0,safe,softmax,none
+k_0030,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01504100146121,True,0,safe,matmul,none
+k_0031,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00945799911278,True,0,safe,elementwise,none
+k_0032,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00912500036065,True,0,safe,elementwise,none
+k_0033,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.0088329979917,True,0,safe,elementwise,none
+k_0034,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00995799928205,True,0,safe,softmax,none
+k_0035,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01016700116452,True,0,safe,softmax,none
+k_0036,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.0097080010164,True,0,safe,softmax,none
+k_0037,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.0103329984995,True,0,safe,reduction,none
+k_0038,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00870800067787,True,0,safe,elementwise,none
+k_0039,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,memory_oob,80.02745800156845,True,0,unsafe,flash_attention,memory_oob
+k_0040,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01712500306894,True,0,unsafe,matmul,memory_unmasked_store
+k_0041,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,mixed_precision,80.02799999856506,True,0,unsafe,elementwise,mixed_precision
+k_0042,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_overflow,80.0330410002789,True,0,unsafe,reduction,sram_overflow
+k_0043,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_overflow,80.03099999958067,True,0,unsafe,softmax,sram_overflow
+k_0044,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,memory_oob,80.0201670009119,True,0,unsafe,softmax,memory_oob
+k_0045,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.01029199847835,True,0,unsafe,elementwise,memory_unmasked_store
+k_0046,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.0233329992625,True,0,unsafe,flash_attention,missing_decorator
+k_0047,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_overflow,80.02245900031994,True,0,unsafe,elementwise,sram_overflow
+k_0048,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,memory_oob,80.02191599924117,True,0,unsafe,matmul,memory_oob
+k_0049,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; memory_oob; missing_jit_decorator,80.0137920033012,True,0,unsafe,reduction,lex_seed_unsafe
+k_0050,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00941599864746,True,0,unsafe,reduction,memory_unmasked_store
+k_0051,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.02470799881849,True,0,unsafe,matmul,sram_tiling_misaligned
+k_0052,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.01958400025615,True,0,unsafe,reduction,missing_decorator
+k_0053,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_overflow,80.02766699981294,True,0,unsafe,matmul,sram_overflow
+k_0054,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_overflow,80.02670799949556,True,0,unsafe,flash_attention,sram_overflow
+k_0055,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.02004099951591,True,0,unsafe,softmax,sram_tiling_misaligned
+k_0056,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.01954199979082,True,0,unsafe,reduction,sram_tiling_misaligned
+k_0057,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.0169580016518,True,0,unsafe,elementwise,missing_decorator
+k_0058,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.0093749986263,True,0,unsafe,softmax,memory_unmasked_store
+k_0059,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,True,,,,,no issues detected,80.00999999974738,True,0,unsafe,flash_attention,memory_unmasked_store
+k_0060,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,mixed_precision,80.02325000241399,True,0,unsafe,matmul,mixed_precision
+k_0061,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.02324999877601,True,0,unsafe,matmul,missing_decorator
+k_0062,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,mixed_precision,80.02116699761245,True,0,unsafe,reduction,mixed_precision
+k_0063,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,memory_oob,80.01566599894431,True,0,unsafe,elementwise,memory_oob
+k_0064,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,missing_jit_decorator; missing_jit_decorator,80.01908400008688,True,0,unsafe,softmax,missing_decorator
+k_0065,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,memory_oob,80.0160000017786,True,0,unsafe,reduction,memory_oob
+k_0066,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,mixed_precision,80.02354200114496,True,0,unsafe,flash_attention,mixed_precision
+k_0067,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.02224999843747,True,0,unsafe,flash_attention,sram_tiling_misaligned
+k_0068,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,mixed_precision,80.02087499888148,True,0,unsafe,softmax,mixed_precision
+k_0069,solo_gpt4o,GPT-4o (frontera),heuristic_frontier,False,,,,,sram_tiling_misaligned,80.01716599945212,True,0,unsafe,elementwise,sram_tiling_misaligned
+k_0000,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,9563.525334000587,True,0,safe,matmul,none
+k_0001,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,9811.689207999734,True,0,safe,flash_attention,none
+k_0002,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,8025.99179200115,True,0,safe,reduction,none
+k_0003,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,8411.021374002303,True,0,safe,softmax,none
+k_0004,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,4758.583541999542,True,0,safe,elementwise,none
+k_0005,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,7231.555000002118,True,0,safe,flash_attention,none
+k_0006,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,7102.582250001433,True,0,safe,reduction,none
+k_0007,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,8189.261832998454,True,0,safe,reduction,none
+k_0008,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,8103.192624996154,True,0,safe,reduction,none
+k_0009,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,5604.195249998156,True,0,safe,matmul,none
+k_0010,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,7896.702459001972,True,0,safe,reduction,none
+k_0011,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,5586.172624000028,True,0,safe,matmul,none
+k_0012,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,8680.545458999404,True,0,safe,softmax,none
+k_0013,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,4185.679958998662,True,0,safe,elementwise,none
+k_0014,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,4077.5002499976836,True,0,safe,elementwise,none
+k_0015,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,6258.995790998597,True,0,safe,flash_attention,none
+k_0016,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,5059.722251000494,True,0,safe,matmul,none
+k_0017,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,8704.684582997288,True,0,safe,reduction,none
+k_0018,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,5002.028290997259,True,0,safe,matmul,none
+k_0019,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,8723.45541699542,True,0,safe,reduction,none
+k_0020,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,9921.154542000295,True,0,safe,flash_attention,none
+k_0021,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,7918.892625002627,True,0,safe,reduction,none
+k_0022,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,5131.143834001705,True,0,safe,matmul,none
+k_0023,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,8631.748917003279,True,0,safe,softmax,none
+k_0024,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,8084.635415998491,True,0,safe,flash_attention,none
+k_0025,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,14059.929250997811,True,0,safe,flash_attention,none
+k_0026,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,"veto_frontier: The kernel uses `tl.arange` to generate indices without bounds checking, which can lead to out-of-bounds access if the dimensions are not properly aligned with the block size.",4293.931917996815,True,0,safe,matmul,none
+k_0027,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,7300.155666998762,True,0,safe,elementwise,none
+k_0028,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,9951.20950099954,True,0,safe,flash_attention,none
+k_0029,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,9364.042041001085,True,0,safe,softmax,none
+k_0030,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,5011.050541001168,True,0,safe,matmul,none
+k_0031,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,4101.159833000565,True,0,safe,elementwise,none
+k_0032,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,4141.40554199912,True,0,safe,elementwise,none
+k_0033,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,4777.985082997475,True,0,safe,elementwise,none
+k_0034,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,8527.936209000472,True,0,safe,softmax,none
+k_0035,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,9403.74433299803,True,0,safe,softmax,none
+k_0036,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,7763.375916001678,True,0,safe,softmax,none
+k_0037,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,"veto_frontier: The kernel uses `tl.load` and `tl.store` without proper bounds checking for the indices, which can lead to out-of-bounds memory access if `BLOCK_SIZE` is larger than `n`. Additionally, there's no explicit check or adjustment for boundary conditions.",4013.8255000019853,True,0,safe,reduction,none
+k_0038,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,4781.142457999522,True,0,safe,elementwise,none
+k_0039,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,out-of-bounds memory access: loading from q_ptr with offset offs+999999,6620.465123996837,True,0,unsafe,flash_attention,memory_oob
+k_0040,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,out-of-bounds memory access in load operation,5155.083959001786,True,0,unsafe,matmul,memory_unmasked_store
+k_0041,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,Mixed FP16/FP32 load without explicit cast,6326.653167001496,True,0,unsafe,elementwise,mixed_precision
+k_0042,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,excessive tile accumulation for SRAM,4572.649166999327,True,0,unsafe,reduction,sram_overflow
+k_0043,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,excessive tile accumulation for SRAM,4326.011583001673,True,0,unsafe,softmax,sram_overflow
+k_0044,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: The kernel uses an incorrect mask value (999999) which is not a valid boolean mask for TL.load and TL.store operations. This can lead to undefined behavior.,8025.618791001762,True,0,unsafe,softmax,memory_oob
+k_0045,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: The kernel does not correctly store the loaded values to `out_ptr`. The `tl.store` function is called without providing the value to be stored and using a mask that might not cover all elements if `BLOCK_SIZE` is larger than `n`. This could lead to undefined behavior.,7275.249334001273,True,0,unsafe,elementwise,memory_unmasked_store
+k_0046,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,9680.91829200057,True,0,unsafe,flash_attention,missing_decorator
+k_0047,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,excessive tile accumulation for SRAM,3803.6157919996185,True,0,unsafe,elementwise,sram_overflow
+k_0048,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,out-of-bounds memory access,5159.57141599938,True,0,unsafe,matmul,memory_oob
+k_0049,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,out-of-bounds memory access,6499.856624999666,True,0,unsafe,reduction,lex_seed_unsafe
+k_0050,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,"veto_frontier: The kernel uses `tl.load` without providing a mask and sets the value to 0.0 when out of bounds, which is not safe as it does not handle the case where n might be smaller than BLOCK_SIZE. Additionally, `tl.store` is called without specifying an index or mask.",6566.978916998778,True,0,unsafe,reduction,memory_unmasked_store
+k_0051,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,BLOCK_SIZE is not a power-of-two,5198.379624998779,True,0,unsafe,matmul,sram_tiling_misaligned
+k_0052,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,4230.378333002591,True,0,unsafe,reduction,missing_decorator
+k_0053,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,excessive tile accumulation for SRAM,4891.906208002183,True,0,unsafe,matmul,sram_overflow
+k_0054,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,excessive tile accumulation for SRAM,4957.116541998403,True,0,unsafe,flash_attention,sram_overflow
+k_0055,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,BLOCK_SIZE is not a power-of-two,6280.580499995267,True,0,unsafe,softmax,sram_tiling_misaligned
+k_0056,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,BLOCK_SIZE is not a power-of-two,6269.409917000303,True,0,unsafe,reduction,sram_tiling_misaligned
+k_0057,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,13318.115500002023,True,0,unsafe,elementwise,missing_decorator
+k_0058,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,"veto_frontier: The kernel uses `tl.load` and `tl.store` without providing a mask for out-of-bounds access. This can lead to undefined behavior if the program ID (pid) or block size (BLOCK_SIZE) is such that `offs` exceeds `n`. Additionally, there's no mechanism in Triton DSL to handle exceptions like this natively; it relies on correct usage of masks and bounds checking.",7606.92008299884,True,0,unsafe,softmax,memory_unmasked_store
+k_0059,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,True,False,True,True,veto_frontier: The kernel does not correctly store the computed scores to the out_ptr with the appropriate mask. The `tl.store` call is missing an argument for the value to be stored and the destination pointer.,8848.309040997265,True,0,unsafe,flash_attention,memory_unmasked_store
+k_0060,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,Mixed FP16/FP32 load without cast,7797.185999999783,True,0,unsafe,matmul,mixed_precision
+k_0061,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,4912.616458001139,True,0,unsafe,matmul,missing_decorator
+k_0062,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,Mixed FP16/FP32 load without explicit cast,7279.561040999397,True,0,unsafe,reduction,mixed_precision
+k_0063,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,out-of-bounds memory access: load with offset + 999999,5186.328917003266,True,0,unsafe,elementwise,memory_oob
+k_0064,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,6686.075458997948,True,0,unsafe,softmax,missing_decorator
+k_0065,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,True,True,True,False,False,,9121.819583000615,True,0,unsafe,reduction,memory_oob
+k_0066,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,Mixed FP16/FP32 load without explicit cast,8313.483251000434,True,0,unsafe,flash_attention,mixed_precision
+k_0067,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,BLOCK_SIZE is not a power-of-two,5837.3607080029615,True,0,unsafe,flash_attention,sram_tiling_misaligned
+k_0068,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,Mixed FP16/FP32 load without explicit cast,7018.1484170025215,True,0,unsafe,softmax,mixed_precision
+k_0069,triton_heal_dual,Triton Heal (dual + veto),triton_heal_dual,False,False,False,False,False,BLOCK_SIZE is not a power-of-two,3863.122167000256,True,0,unsafe,elementwise,sram_tiling_misaligned

@@ -40,6 +40,8 @@ def get_verifier(config_name: str, cfg: dict | None = None):
         return _ollama_or_heuristic("llama_local", "local")
     if config_name == "solo_deepseek":
         return _ollama_or_heuristic("deepseek_local", "local")
+    if config_name == "solo_deepseek_coder":
+        return _ollama_or_heuristic("deepseek_frontier", "frontier")
     if config_name == "solo_claude":
         if mode in ("api", "hybrid") and AnthropicVerifier.is_available():
             return AnthropicVerifier(models["claude_frontier"])
@@ -55,16 +57,25 @@ def get_verifier(config_name: str, cfg: dict | None = None):
         elif mode in ("api", "hybrid") and OpenAIVerifier.is_available():
             frontier = OpenAIVerifier(models["gpt_frontier"])
         else:
-            llama_tag = models.get("llama_local", "llama3.1:8b")
-            if mode in ("ollama", "hybrid") and ollama_ok and OllamaVerifier.has_model(llama_tag, host):
+            coder_tag = models.get("deepseek_frontier", "deepseek-coder-v2")
+            if mode in ("ollama", "hybrid") and ollama_ok and OllamaVerifier.has_model(coder_tag, host):
                 frontier = OllamaVerifier(
-                    llama_tag,
+                    coder_tag,
                     host=host,
                     timeout=cfg.get("timeout_seconds", 30),
                     prompt_file="verifier_strict_v1.txt",
                 )
             else:
-                frontier = _heuristic_frontier()
+                llama_tag = models.get("llama_local", "llama3.1:8b")
+                if mode in ("ollama", "hybrid") and ollama_ok and OllamaVerifier.has_model(llama_tag, host):
+                    frontier = OllamaVerifier(
+                        llama_tag,
+                        host=host,
+                        timeout=cfg.get("timeout_seconds", 30),
+                        prompt_file="verifier_strict_v1.txt",
+                    )
+                else:
+                    frontier = _heuristic_frontier()
         return TritonHealDual(local, frontier)
     raise ValueError(f"Unknown config: {config_name}")
 
@@ -72,6 +83,7 @@ def get_verifier(config_name: str, cfg: dict | None = None):
 CONFIGS = [
     "solo_llama",
     "solo_deepseek",
+    "solo_deepseek_coder",
     "solo_claude",
     "solo_gpt4o",
     "triton_heal_dual",
@@ -79,7 +91,8 @@ CONFIGS = [
 
 CONFIG_LABELS = {
     "solo_llama": "Llama-3.1-8B (local)",
-    "solo_deepseek": "DeepSeek-Coder-V2 (local)",
+    "solo_deepseek": "DeepSeek-R1-Distill-Qwen-14B (local)",
+    "solo_deepseek_coder": "DeepSeek-Coder-V2 (frontera)",
     "solo_claude": "Claude 3.5 Sonnet (frontera)",
     "solo_gpt4o": "GPT-4o (frontera)",
     "triton_heal_dual": "Triton Heal (dual + veto)",

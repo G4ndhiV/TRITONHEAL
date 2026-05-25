@@ -1,13 +1,14 @@
 {
   "n_kernels": 70,
-  "n_evaluations_total": 350,
+  "n_evaluations_total": 420,
   "n_safe": 39,
   "n_unsafe": 31,
   "verifier_mode": "ollama",
   "ollama_available": true,
   "configs_backend": {
     "solo_llama": "Ollama llama3.1:8b (Metal / M4)",
-    "solo_deepseek": "Ollama deepseek-coder-v2 (Metal / M4)",
+    "solo_deepseek": "Ollama deepseek-r1:14b (Metal / M4)",
+    "solo_deepseek_coder": "Ollama deepseek-coder-v2 (Metal / M4)",
     "solo_claude": "Heur\u00edstico (sin API)",
     "solo_gpt4o": "Heur\u00edstico (sin API)",
     "triton_heal_dual": "Ollama llama3.1:8b (Metal / M4) + prompt estricto (veto local)"
@@ -26,17 +27,38 @@
       "msr_ci_hi": 78.8833409061346,
       "fnr_pct": 35.483870967741936,
       "f1": 0.7843137254901961,
-      "latency_mean": 4776.715621414315,
-      "latency_std": 3020.6848671482244,
-      "latency_median": 4940.669854500356,
-      "latency_min": 1623.7028750001627,
-      "latency_max": 21869.84349999966,
+      "latency_mean": 4527.441111285642,
+      "latency_std": 2200.155964344266,
+      "latency_median": 4753.582354001992,
+      "latency_min": 1621.982874999958,
+      "latency_max": 11854.896374999951,
       "tp": 20,
       "fn": 11
     },
     {
       "config": "solo_deepseek",
-      "label": "DeepSeek-Coder-V2 (local)",
+      "label": "DeepSeek-R1-Distill-Qwen-14B (local)",
+      "n_kernels": 70,
+      "n_evaluations": 70,
+      "n_valid_json": 10,
+      "valid_json_pct": 14.285714285714286,
+      "timeout_pct": 0.0,
+      "msr_pct": 12.903225806451612,
+      "msr_ci_lo": 5.13428437462915,
+      "msr_ci_hi": 28.852406256306423,
+      "fnr_pct": 87.09677419354838,
+      "f1": 0.2222222222222222,
+      "latency_mean": 48000.536432614485,
+      "latency_std": 3076.8545565498894,
+      "latency_median": 48346.67312500096,
+      "latency_min": 32108.620750001137,
+      "latency_max": 57134.72316699699,
+      "tp": 4,
+      "fn": 27
+    },
+    {
+      "config": "solo_deepseek_coder",
+      "label": "DeepSeek-Coder-V2 (frontera)",
       "n_kernels": 70,
       "n_evaluations": 70,
       "n_valid_json": 70,
@@ -47,11 +69,11 @@
       "msr_ci_hi": 94.86571562537085,
       "fnr_pct": 12.903225806451612,
       "f1": 0.7941176470588235,
-      "latency_mean": 2278.58944884291,
-      "latency_std": 2018.5805260551208,
-      "latency_median": 2003.1181460003609,
-      "latency_min": 1473.109999999906,
-      "latency_max": 18549.613332999797,
+      "latency_mean": 2153.8808577282907,
+      "latency_std": 1181.2542272142794,
+      "latency_median": 1977.0504165007878,
+      "latency_min": 1451.9782499992289,
+      "latency_max": 11247.522583998943,
       "tp": 27,
       "fn": 4
     },
@@ -68,11 +90,11 @@
       "msr_ci_hi": 92.9073755566347,
       "fnr_pct": 16.129032258064516,
       "f1": 0.9122807017543859,
-      "latency_mean": 80.02428751430281,
-      "latency_std": 0.039671589403304106,
-      "latency_median": 80.0173334997271,
-      "latency_min": 80.00925000040297,
-      "latency_max": 80.3416660001676,
+      "latency_mean": 80.0230452714147,
+      "latency_std": 0.056443326919410605,
+      "latency_median": 80.01552049798192,
+      "latency_min": 80.00775000080466,
+      "latency_max": 80.48545800018474,
       "tp": 26,
       "fn": 5
     },
@@ -89,11 +111,11 @@
       "msr_ci_hi": 92.9073755566347,
       "fnr_pct": 16.129032258064516,
       "f1": 0.9122807017543859,
-      "latency_mean": 80.01332742857423,
-      "latency_std": 0.006720588065321878,
-      "latency_median": 80.01033299986375,
-      "latency_min": 80.00383399947168,
-      "latency_max": 80.02770900027826,
+      "latency_mean": 80.01458151418774,
+      "latency_std": 0.007110329273046259,
+      "latency_median": 80.01137499930337,
+      "latency_min": 80.00387500040233,
+      "latency_max": 80.0330410002789,
       "tp": 26,
       "fn": 5
     },
@@ -105,18 +127,18 @@
       "n_valid_json": 70,
       "valid_json_pct": 100.0,
       "timeout_pct": 0.0,
-      "msr_pct": 100.0,
-      "msr_ci_lo": 88.97446045395641,
-      "msr_ci_hi": 100.0,
-      "fnr_pct": 0.0,
-      "f1": 0.6138613861386139,
-      "latency_mean": 8037.2401124428525,
-      "latency_std": 2190.8990210764005,
-      "latency_median": 8063.552062500094,
-      "latency_min": 5126.4242510005715,
-      "latency_max": 15551.023499998337,
-      "tp": 31,
-      "fn": 0
+      "msr_pct": 80.64516129032258,
+      "msr_ci_lo": 63.719742188204535,
+      "msr_ci_hi": 90.8129916384139,
+      "fnr_pct": 19.35483870967742,
+      "f1": 0.8620689655172414,
+      "latency_mean": 6854.072061942757,
+      "latency_std": 2179.62357925558,
+      "latency_median": 6653.2702914973925,
+      "latency_min": 3803.6157919996185,
+      "latency_max": 14059.929250997811,
+      "tp": 25,
+      "fn": 6
     }
   ],
   "inference": [
@@ -136,10 +158,10 @@
         ]
       ],
       "n_discordant": 8,
-      "p_holm": 0.23129961523062537
+      "p_holm": 0.2945530804812118
     },
     {
-      "test": "C2_gpt_vs_deepseek",
+      "test": "C2_gpt_vs_deepseek_coder",
       "chi2": 0.0,
       "p": 1.0,
       "phi": 0.3333333333333333,
@@ -158,21 +180,21 @@
     },
     {
       "test": "C3_dual_vs_llama_fnr",
-      "chi2": 9.090909090909092,
-      "p": 0.0025688315270227173,
-      "phi": -3.3166247903554,
+      "chi2": 3.2,
+      "p": 0.07363827012030295,
+      "phi": -2.23606797749979,
       "table": [
         [
-          0,
+          6,
           0
         ],
         [
-          11,
+          5,
           20
         ]
       ],
-      "n_discordant": 11,
-      "p_holm": 0.012844157635113587
+      "n_discordant": 5,
+      "p_holm": 0.2945530804812118
     },
     {
       "test": "C5_latency",
@@ -180,16 +202,16 @@
       "p": 0.999999999999822,
       "p_two_sided": 3.559469460061398e-13,
       "r": 1.0,
-      "median_diff": -4860.645042000142,
-      "mean_diff": -4696.691333900011,
+      "median_diff": -4673.335166502438,
+      "mean_diff": -4447.4180660142265,
       "p_holm": 1.0
     },
     {
       "test": "C6_friedman",
-      "chi2": 10.267605633802926,
-      "p": 0.01642314094724969,
-      "w": 0.048893360160966313,
-      "p_holm": 0.06569256378899876
+      "chi2": 41.05747126436748,
+      "p": 2.6151820052113636e-08,
+      "w": 0.14663382594416957,
+      "p_holm": 1.3075910026056817e-07
     }
   ],
   "inference_display": [
@@ -197,25 +219,25 @@
       "nombre": "Claude vs Llama (MSR)",
       "prueba": "McNemar",
       "stat": "$\\chi^2=3.12$",
-      "p_holm": "0.2313",
+      "p_holm": "0.2946",
       "efecto": "$\\phi=-2.12$ (grande)",
       "interp": "No rechaza $H_0$; $\\Delta$MSR=19.4 pp (Claude heur.\\ vs.\\ Llama Ollama/M4)."
     },
     {
-      "nombre": "GPT-4o vs DeepSeek",
+      "nombre": "GPT-4o vs DeepSeek-Coder",
       "prueba": "McNemar",
       "stat": "$\\chi^2=0.00$",
       "p_holm": "1.0000",
       "efecto": "$\\phi=0.33$ (mediano)",
-      "interp": "No rechaza $H_0$; GPT heur.\\ (83.9\\%) vs.\\ DeepSeek Ollama (87.1\\%)."
+      "interp": "No rechaza $H_0$; GPT (83.9\\%) vs.\\ DeepSeek-Coder-V2 frontera (87.1\\%)."
     },
     {
       "nombre": "Dual vs Llama",
       "prueba": "McNemar",
-      "stat": "$\\chi^2=9.09$",
-      "p_holm": "0.0128",
-      "efecto": "$\\phi=-3.32$ (grande)",
-      "interp": "Rechaza $H_0$; dual reduce FNR (m\u00e1s detecciones en unsafe)."
+      "stat": "$\\chi^2=3.20$",
+      "p_holm": "0.2946",
+      "efecto": "$\\phi=-2.24$ (grande)",
+      "interp": "No rechaza $H_0$ en FNR pareado."
     },
     {
       "nombre": "Lat. Claude vs Llama",
@@ -223,22 +245,22 @@
       "stat": "$W=0$",
       "p_holm": "1.0000",
       "efecto": "$r=1.00$",
-      "interp": "No rechaza $H_4$; med. $\\Delta$=-4861 ms (Claude heur.\\ m\u00e1s r\u00e1pido)."
+      "interp": "No rechaza $H_4$; med. $\\Delta$=-4673 ms (Claude heur.\\ m\u00e1s r\u00e1pido)."
     },
     {
-      "nombre": "F1 global (4 cfg.)",
+      "nombre": "F1 global (5 cfg.)",
       "prueba": "Friedman",
-      "stat": "$\\chi^2=10.3$",
-      "p_holm": "0.0657",
-      "efecto": "$W=0.05$",
-      "interp": "No rechaza igualdad global de F1 tras Holm."
+      "stat": "$\\chi^2=41.1$",
+      "p_holm": "$<0.001$",
+      "efecto": "$W=0.15$",
+      "interp": "Diferencias globales entre configuraciones (Holm)."
     }
   ],
   "holm": {
-    "C3_dual_vs_llama_fnr": 0.012844157635113587,
-    "C6_friedman": 0.06569256378899876,
-    "C1_claude_vs_llama": 0.23129961523062537,
+    "C6_friedman": 1.3075910026056817e-07,
+    "C3_dual_vs_llama_fnr": 0.2945530804812118,
+    "C1_claude_vs_llama": 0.2945530804812118,
     "C5_latency": 1.0,
-    "C2_gpt_vs_deepseek": 1.0
+    "C2_gpt_vs_deepseek_coder": 1.0
   }
 }

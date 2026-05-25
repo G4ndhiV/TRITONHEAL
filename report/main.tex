@@ -2,6 +2,7 @@
 \input{preamble}
 
 \newcommand{\Nkernels}{70}
+\newcommand{\Neval}{420}
 
 \title{%
   \textbf{PROYECTO TRITON HEAL}\\[0.5em]
@@ -18,11 +19,10 @@
 \begin{abstract}
 \noindent
 Evaluación TC3002B de Triton Heal (verificación pre-compilación de kernels Triton DSL).
-En \Nkernels\ kernels y 350 corridas (\texttt{VERIFIER\_MODE=ollama}, Apple M4, 24\,GB),
-Llama-3.1-8B y DeepSeek-Coder-V2 usaron Ollama (MSR 64.5\% y 87.1\%);
-Claude y GPT fueron heurísticos (sin API). El modo dual: MSR 100\%, F1 0.61.
-Se reportan IC Wilson, latencia y pruebas McNemar, Wilcoxon y Friedman (Holm):
-solo C3 (dual vs.\ Llama) rechaza $H_0$ tras corrección.
+En \Nkernels\ kernels y \Neval\ evaluaciones (Apple M4, 24\,GB), se corrige la taxonomía:
+DeepSeek-Coder-V2 es frontera (MSR 87.1\%); DeepSeek-R1-Distill-Qwen-14B es SLM local
+(JSON válido 14.3\%, MSR 12.9\%). Llama-8B local: MSR 64.5\%. Dual (Llama+veto Coder-V2):
+MSR 80.6\%, F1 0.86. Ningún McNemar/Wilcoxon individual rechaza $H_0$ tras Holm.
 \end{abstract}
 
 \tableofcontents
@@ -45,11 +45,12 @@ solo C3 (dual vs.\ Llama) rechaza $H_0$ tras corrección.
 \toprule
 Configuración & Planeado & Ejecutado \\
 \midrule
-solo\_llama & Ollama Llama-3.1-8B & Ollama \texttt{llama3.1:8b} (Metal / M4) \\
-solo\_deepseek & Ollama DeepSeek-Coder-V2 & Ollama \texttt{deepseek-coder-v2} (8.9\,GB, M4) \\
-solo\_claude & API Claude 3.5 Sonnet & Heurístico (sin API key) \\
-solo\_gpt4o & API GPT-4o & Heurístico (sin API key) \\
-triton\_heal\_dual & Llama + veto Claude & Ollama Llama + \texttt{verifier\_strict} (veto local) \\
+solo\_llama & Ollama Llama-3.1-8B (local) & \texttt{llama3.1:8b} \\
+solo\_deepseek & Ollama DeepSeek-R1 14B (local) & \texttt{deepseek-r1:14b} \\
+solo\_deepseek\_coder & Ollama DeepSeek-Coder-V2 (frontera) & \texttt{deepseek-coder-v2} \\
+solo\_claude & API Claude 3.5 Sonnet & Heurístico (sin API) \\
+solo\_gpt4o & API GPT-4o & Heurístico (sin API) \\
+triton\_heal\_dual & Llama local + veto frontera & Llama + Coder-V2 \texttt{strict} \\
 \bottomrule
 \end{tabularx}}
 \end{adjustbox}

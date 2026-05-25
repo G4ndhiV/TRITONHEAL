@@ -6,7 +6,7 @@
 
 \textbf{Método propuesto.} Arquitectura \textbf{Triton Heal}: verificador local SLM (Llama-3.1-8B-Instruct) + veto jerárquico (Claude 3.5 Sonnet) + auto-reparación con backoff exponencial.
 
-\textbf{Baselines.} (1) Solo Llama; (2) Solo DeepSeek-Coder-V2; (3) Solo Claude 3.5 Sonnet; (4) Solo GPT-4o.
+\textbf{Baselines.} (1) Solo Llama-3.1-8B (SLM local); (2) Solo DeepSeek-R1-Distill-Qwen-14B (SLM local); (3) Solo DeepSeek-Coder-V2 (frontera); (4) Solo Claude 3.5 Sonnet; (5) Solo GPT-4o.
 
 \textbf{Preguntas de investigación.} PRI-1: ¿Frontera supera a local en MSR? PRI-2: ¿Dual reduce FNR vs solo Llama? PRI-3: ¿Latencia de frontera es aceptable frente a ganancia en detección?
 
@@ -15,8 +15,8 @@
 \textbf{H\textsubscript{01}:} No hay diferencia en MSR entre Claude 3.5 Sonnet y Llama-3.1-8B.\\
 \textbf{H\textsubscript{11}:} Claude tiene mayor MSR (unilateral, $\alpha=0.05$).
 
-\textbf{H\textsubscript{01b}:} No hay diferencia en MSR entre GPT-4o y DeepSeek-Coder-V2.\\
-\textbf{H\textsubscript{11b}:} GPT-4o tiene mayor MSR.
+\textbf{H\textsubscript{01b}:} No hay diferencia en MSR entre GPT-4o y DeepSeek-Coder-V2 (ambos frontera).\\
+\textbf{H\textsubscript{11b}:} GPT-4o tiene mayor MSR que DeepSeek-Coder-V2.
 
 \textbf{H\textsubscript{02}:} No hay diferencia en FNR entre Triton Heal dual y solo Llama.\\
 \textbf{H\textsubscript{12}:} Triton Heal tiene menor FNR.
@@ -36,8 +36,8 @@
 \toprule
 Tipo & Variable & Niveles / descripción \\
 \midrule
-Independiente & Configuración & 5: dual, solo Llama, solo DeepSeek, solo Claude, solo GPT \\
-Independiente & Modelo / escala & SLM $\sim$8B vs frontera comercial \\
+Independiente & Configuración & 6: dual, Llama 8B, DeepSeek-R1 14B, DeepSeek-Coder-V2, Claude, GPT \\
+Independiente & Modelo / escala & SLM local ($\sim$8--14B) vs frontera (Coder-V2, APIs) \\
 Independiente & Prompt & \texttt{verifier\_v1.txt} (estándar) y \texttt{verifier\_strict\_v1.txt} (veto) \\
 Controlada & Temperatura & $T=0$ \\
 Controlada & Formato salida & JSON: safe, reason, line\_of\_error \\
@@ -117,8 +117,8 @@ Componente & Especificación \\
 SO & macOS 15.x (Apple Silicon) \\
 GPU & Apple M4, 10 núcleos GPU, Metal 4; 24\,GB memoria unificada \\
 Ollama & servicio local (\texttt{brew services start ollama}) \\
-Modelos locales (Ollama) & \texttt{llama3.1:8b}, \texttt{deepseek-coder-v2} (16B, Q4) \\
-Modelos frontera & Claude 3.5 Sonnet, GPT-4o (API; opcional con clave) \\
+SLM local (Ollama) & \texttt{llama3.1:8b}, \texttt{deepseek-r1:14b} (Distill-Qwen-14B) \\
+Frontera (Ollama/API) & \texttt{deepseek-coder-v2}; Claude 3.5 Sonnet; GPT-4o (API opcional) \\
 Timeout inferencia & 120\,s (ajustado para aceleración Metal en M4) \\
 Python & 3.10+; deps.\ en \texttt{requirements.txt} \\
 Benchmark & Triton Kernel Safety v1.0: 70 kernels; semillas Lex + mutaciones \\
