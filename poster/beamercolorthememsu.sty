@@ -1,37 +1,37 @@
 % ==========================================================
 % beamercolorthememsu.sty
-% Paleta inspirada en Michigan State (verde profundo) para el
-% tema gemini autocontenido de este póster. Sin dependencias.
+% Paleta azul institucional del Tecnológico de Monterrey
+% (azul tomado del logo oficial, #0658A6) para el tema gemini
+% autocontenido de este póster. Sin dependencias.
 % ==========================================================
 
 \ProvidesPackage{beamercolorthememsu}
 
 \selectcolormodel{RGB}
 
-\definecolor{msugreen}{RGB}{24,69,59}    % verde profundo (headline/footer/títulos)
-\definecolor{msuaccent}{RGB}{0,123,84}   % verde medio (acentos)
-\definecolor{msulight}{RGB}{233,242,238}  % verde muy claro (fondo de bloques)
-\definecolor{msualert}{RGB}{176,42,55}    % rojo para alertblock
-\definecolor{msuexample}{RGB}{31,90,120}  % azul para exampleblock
-\definecolor{msutext}{RGB}{33,33,33}      % texto base
+\definecolor{tecblue}{RGB}{6,88,166}      % azul Tec (logo) — headline/footer/títulos
+\definecolor{tecnavy}{RGB}{3,55,104}      % azul marino (énfasis)
+\definecolor{tecaccent}{RGB}{31,111,196}  % azul medio (acentos)
+\definecolor{teclight}{RGB}{233,241,250}  % azul muy claro (fondo de bloques)
+\definecolor{tectext}{RGB}{33,33,33}      % texto base
 
-\setbeamercolor{headline}{fg=white,bg=msugreen}
-\setbeamercolor{headline title}{fg=white,bg=msugreen}
-\setbeamercolor{headline author}{fg=white,bg=msugreen}
-\setbeamercolor{headline institute}{fg=msulight,bg=msugreen}
+\setbeamercolor{headline}{fg=white,bg=tecblue}
+\setbeamercolor{headline title}{fg=white,bg=tecblue}
+\setbeamercolor{headline author}{fg=white,bg=tecblue}
+\setbeamercolor{headline institute}{fg=teclight,bg=tecblue}
 
-\setbeamercolor{block title}{fg=white,bg=msugreen}
-\setbeamercolor{block body}{fg=msutext,bg=msulight}
+\setbeamercolor{block title}{fg=white,bg=tecblue}
+\setbeamercolor{block body}{fg=tectext,bg=teclight}
 
-\setbeamercolor{block alerted title}{fg=white,bg=msualert}
-\setbeamercolor{block alerted body}{fg=msutext,bg=msualert!8}
+\setbeamercolor{block alerted title}{fg=white,bg=tecnavy}
+\setbeamercolor{block alerted body}{fg=tectext,bg=tecaccent!12}
 
-\setbeamercolor{block example title}{fg=white,bg=msuexample}
-\setbeamercolor{block example body}{fg=msutext,bg=msuexample!8}
+\setbeamercolor{block example title}{fg=white,bg=tecaccent}
+\setbeamercolor{block example body}{fg=tectext,bg=tecaccent!8}
 
-\setbeamercolor{footline}{fg=white,bg=msugreen}
+\setbeamercolor{footline}{fg=white,bg=tecblue}
 
-\setbeamercolor{itemize item}{fg=msuaccent}
-\setbeamercolor{itemize subitem}{fg=msuaccent}
-\setbeamercolor{enumerate item}{fg=msuaccent}
-\setbeamercolor{caption name}{fg=msuaccent}
+\setbeamercolor{itemize item}{fg=tecaccent}
+\setbeamercolor{itemize subitem}{fg=tecaccent}
+\setbeamercolor{enumerate item}{fg=tecaccent}
+\setbeamercolor{caption name}{fg=tecaccent}
