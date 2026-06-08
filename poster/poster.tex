@@ -295,25 +295,26 @@
 
     \begin{figure}
       \centering
-      \includegraphics[width=0.96\textwidth]{figures/fig_robustness_compile.pdf}
+      \includegraphics[width=0.82\textwidth]{figures/fig_robustness_compile.pdf}
       \caption{Mapa de compilación tarea $\times$ configuración
       (verde = éxito, rojo = fallo).}
     \end{figure}
 
   \end{block}
 
-  \begin{block}{8. Discusión y limitaciones}
+  \begin{block}{8. Conclusiones y trabajo futuro}
 
     \begin{itemize}
-      \item \textbf{Logros:} el dual sube la detección de Llama solo
-        (MSR 64.5\%$\rightarrow$80.6\%); pipeline reproducible y pre-registrado.
-      \item \textbf{Límites:} M4 sin CUDA $\Rightarrow$ compilación
-        \emph{sintáctica}; R1-14B inviable (14.3\% JSON válido); Claude/GPT
-        heurísticos inflan su 100\%.
-      \item \textbf{Honestidad:} el dual \emph{no} superó a GPT-4o en
-        compilación ($p_{\text{Holm}}\approx 0.15$).
-      \item \textbf{Siguiente paso:} APIs reales, 20 tareas $\times$ 3 réplicas
-        y GPU NVIDIA.
+      \item \textbf{Conclusión:} el mejor desempeño global fue de
+        DeepSeek-Coder-V2; el dual es prometedor como \emph{arquitectura}
+        (reparación local + veto de frontera), no como ganador absoluto.
+      \item \textbf{Evidencia:} tras Holm ningún McNemar rechaza $H_0$ (el dual
+        no supera a GPT-4o, $p\approx 0.15$); solo el Friedman global de F1 es
+        significativo ($p<0.001$).
+      \item \textbf{Limitaciones:} M4 sin CUDA (compilación \emph{sintáctica});
+        muestra reducida; R1-14B inestable; baselines Claude/GPT heurísticos.
+      \item \textbf{Trabajo futuro:} APIs reales, 20 tareas $\times$ 3 réplicas,
+        GPU NVIDIA y exportar el filtro a decodificación restringida.
     \end{itemize}
 
   \end{block}
