@@ -1,0 +1,37 @@
+% ==========================================================
+% beamercolorthememsu.sty
+% Paleta inspirada en Michigan State (verde profundo) para el
+% tema gemini autocontenido de este póster. Sin dependencias.
+% ==========================================================
+
+\ProvidesPackage{beamercolorthememsu}
+
+\selectcolormodel{RGB}
+
+\definecolor{msugreen}{RGB}{24,69,59}    % verde profundo (headline/footer/títulos)
+\definecolor{msuaccent}{RGB}{0,123,84}   % verde medio (acentos)
+\definecolor{msulight}{RGB}{233,242,238}  % verde muy claro (fondo de bloques)
+\definecolor{msualert}{RGB}{176,42,55}    % rojo para alertblock
+\definecolor{msuexample}{RGB}{31,90,120}  % azul para exampleblock
+\definecolor{msutext}{RGB}{33,33,33}      % texto base
+
+\setbeamercolor{headline}{fg=white,bg=msugreen}
+\setbeamercolor{headline title}{fg=white,bg=msugreen}
+\setbeamercolor{headline author}{fg=white,bg=msugreen}
+\setbeamercolor{headline institute}{fg=msulight,bg=msugreen}
+
+\setbeamercolor{block title}{fg=white,bg=msugreen}
+\setbeamercolor{block body}{fg=msutext,bg=msulight}
+
+\setbeamercolor{block alerted title}{fg=white,bg=msualert}
+\setbeamercolor{block alerted body}{fg=msutext,bg=msualert!8}
+
+\setbeamercolor{block example title}{fg=white,bg=msuexample}
+\setbeamercolor{block example body}{fg=msutext,bg=msuexample!8}
+
+\setbeamercolor{footline}{fg=white,bg=msugreen}
+
+\setbeamercolor{itemize item}{fg=msuaccent}
+\setbeamercolor{itemize subitem}{fg=msuaccent}
+\setbeamercolor{enumerate item}{fg=msuaccent}
+\setbeamercolor{caption name}{fg=msuaccent}

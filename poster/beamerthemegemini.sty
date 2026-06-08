@@ -1,0 +1,147 @@
+% ==========================================================
+% beamerthemegemini.sty  (variante autocontenida, lmodern)
+% Reimplementación compacta y fiel del look "gemini" para
+% beamerposter: banda de título superior, bloques con cabecera
+% redondeada y pie de página. No usa fontspec ni fuentes
+% externas, por lo que compila con lualatex/pdflatex sin
+% descargar nada. Si prefieres el tema gemini original, borra
+% este archivo y beamercolorthememsu.sty.
+% ==========================================================
+
+\ProvidesPackage{beamerthemegemini}
+\mode<presentation>
+
+\RequirePackage{ragged2e}
+\RequirePackage{calc}
+\RequirePackage{tikz}
+
+\usefonttheme{professionalfonts}
+\justifying
+
+% ====================
+% Fuentes
+% ====================
+\setbeamerfont{headline title}{size=\fontsize{44}{52}\selectfont,series=\bfseries}
+\setbeamerfont{headline author}{size=\Large}
+\setbeamerfont{headline institute}{size=\large}
+\setbeamerfont{block title}{size=\LARGE,series=\bfseries}
+\setbeamerfont{block alerted title}{size=\LARGE,series=\bfseries}
+\setbeamerfont{block example title}{size=\LARGE,series=\bfseries}
+\setbeamerfont{caption}{size=\normalsize}
+\setbeamerfont{caption name}{series=\bfseries}
+\setbeamerfont{footline}{size=\large}
+
+% ====================
+% Comandos de cabecera / pie / logos
+% ====================
+\newcommand{\insertfootercontent}{}
+\newcommand{\footercontent}[1]{\renewcommand{\insertfootercontent}{#1}}
+
+\newcommand{\insertlogoleft}{}
+\newcommand{\insertlogoright}{}
+\newcommand{\logoleft}[1]{\renewcommand{\insertlogoleft}{#1}}
+\newcommand{\logoright}[1]{\renewcommand{\insertlogoright}{#1}}
+
+% ====================
+% Alturas
+% ====================
+\newlength{\gemini@headerheight}
+\setlength{\gemini@headerheight}{0.10\paperheight}
+\newlength{\gemini@footerheight}
+\setlength{\gemini@footerheight}{0.05\paperheight}
+
+% ====================
+% Cabecera (banda de título)
+% ====================
+\setbeamertemplate{headline}{
+  \begin{beamercolorbox}[wd=\paperwidth,ht=\gemini@headerheight]{headline}
+    \begin{tikzpicture}[remember picture,overlay]
+      \node[anchor=west] at ([xshift=2cm,yshift=-0.5\gemini@headerheight]current page.north west)
+        {\insertlogoleft};
+      \node[anchor=east] at ([xshift=-2cm,yshift=-0.5\gemini@headerheight]current page.north east)
+        {\insertlogoright};
+    \end{tikzpicture}
+    \begin{minipage}[c][\gemini@headerheight][c]{\paperwidth}
+      \centering
+      {\usebeamerfont{headline title}\usebeamercolor[fg]{headline title}\inserttitle\par}
+      \vskip0.4em
+      {\usebeamerfont{headline author}\usebeamercolor[fg]{headline author}\insertauthor\par}
+      \vskip0.25em
+      {\usebeamerfont{headline institute}\usebeamercolor[fg]{headline institute}\insertinstitute\par}
+    \end{minipage}
+  \end{beamercolorbox}
+  \vskip1ex
+}
+
+% ====================
+% Pie de página
+% ====================
+\setbeamertemplate{footline}{
+  \begin{beamercolorbox}[wd=\paperwidth,ht=\gemini@footerheight,sep=0.6cm]{footline}
+    \usebeamerfont{footline}\insertfootercontent
+  \end{beamercolorbox}
+}
+
+% ====================
+% Bloques estándar
+% ====================
+\setbeamertemplate{block begin}{
+  \par\vskip0.4ex
+  \begin{beamercolorbox}[colsep*=0ex,rounded=true,sep=0.6cm,leftskip=0.6cm]{block title}
+    \usebeamerfont{block title}\insertblocktitle
+  \end{beamercolorbox}
+  \vskip-0.3ex
+  \begin{beamercolorbox}[colsep*=0ex,rounded=true,sep=0.6cm]{block body}
+    \justifying
+}
+\setbeamertemplate{block end}{
+  \end{beamercolorbox}
+  \vskip0.9ex
+}
+
+% ====================
+% Alert block
+% ====================
+\setbeamertemplate{block alerted begin}{
+  \par\vskip0.4ex
+  \begin{beamercolorbox}[colsep*=0ex,rounded=true,sep=0.6cm,leftskip=0.6cm]{block alerted title}
+    \usebeamerfont{block alerted title}\insertblocktitle
+  \end{beamercolorbox}
+  \vskip-0.3ex
+  \begin{beamercolorbox}[colsep*=0ex,rounded=true,sep=0.6cm]{block alerted body}
+    \justifying
+}
+\setbeamertemplate{block alerted end}{
+  \end{beamercolorbox}
+  \vskip0.9ex
+}
+
+% ====================
+% Example block
+% ====================
+\setbeamertemplate{block example begin}{
+  \par\vskip0.4ex
+  \begin{beamercolorbox}[colsep*=0ex,rounded=true,sep=0.6cm,leftskip=0.6cm]{block example title}
+    \usebeamerfont{block example title}\insertblocktitle
+  \end{beamercolorbox}
+  \vskip-0.3ex
+  \begin{beamercolorbox}[colsep*=0ex,rounded=true,sep=0.6cm]{block example body}
+    \justifying
+}
+\setbeamertemplate{block example end}{
+  \end{beamercolorbox}
+  \vskip0.9ex
+}
+
+% ====================
+% Listas e ítems
+% ====================
+\setbeamertemplate{itemize item}{\raise0.2ex\hbox{\small$\blacktriangleright$}}
+\setbeamertemplate{itemize subitem}{\raise0.2ex\hbox{\small$\triangleright$}}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+
+\setlength{\parskip}{0.32em}
+
+\mode<all>

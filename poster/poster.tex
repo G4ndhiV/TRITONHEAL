@@ -1,0 +1,336 @@
+% ============================================================
+% TC3002B (ACA-2026) — Proyecto Triton Heal (Equipo 11)
+% Poster: evaluación experimental de generación de kernels
+% Triton con SLM + verificación pre-GPU y método dual.
+% Contenido tomado de report/main.pdf (rúbrica 1.1–2.7).
+% Convención: español para comunicar, inglés para código.
+% ============================================================
+
+\documentclass[final]{beamer}
+
+% ====================
+% Packages
+% ====================
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{luainputenc}
+\usepackage{lmodern}
+\usepackage[size=custom, width=122,height=91, scale=1.2]{beamerposter}
+\usetheme{gemini}
+\usecolortheme{msu}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.14}
+\usepackage{anyfontsize}
+
+% ====================
+% Lengths
+% ====================
+\newlength{\sepwidth}
+\newlength{\colwidth}
+\setlength{\sepwidth}{0.025\paperwidth}
+\setlength{\colwidth}{0.3\paperwidth}
+
+\newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
+
+% ====================
+% Title
+% ====================
+\title{Triton Heal: generación de kernels Triton con SLM locales y verificación pre-GPU como filtro de seguridad}
+
+\author{Cristóbal Camarena Hernández \and Josué Galindo Gutiérrez \and Gandhi Emmanuel Valdez Huerta \and Diego Alberto Estrada López}
+
+\institute[shortinst]{Tecnológico de Monterrey --- TC3002B (ACA-2026) --- Equipo 11}
+
+% ====================
+% Footer
+% ====================
+\footercontent{
+  \href{https://github.com/G4ndhiV/TRITONHEAL}{Repo: github.com/G4ndhiV/TRITONHEAL} \hfill
+  ACA-2026 --- Sesión con socio formador \hfill
+  \href{mailto:a01642653@tec.mx}{a01642653@tec.mx}}
+
+% ====================
+% Body
+% ====================
+\begin{document}
+
+\begin{frame}[t]
+\begin{columns}[t]
+\separatorcolumn
+
+% ============================================================
+% COLUMNA 1 — Motivación, problema, antecedentes, diferenciador
+% ============================================================
+\begin{column}{\colwidth}
+
+  \begin{block}{Resumen}
+
+    Los modelos de lenguaje pequeños (SLM) producen kernels en Triton DSL con
+    errores que solo se descubren al compilar en GPU, un recurso caro.
+    \textbf{Triton Heal} propone un pipeline que \emph{genera y luego verifica
+    antes de tocar la GPU}: un SLM local (Llama-3.1-8B) escribe el kernel y, si
+    no pasa las validaciones, un modelo de código (DeepSeek-Coder-V2) lo repara.
+    Evaluamos seis configuraciones sobre \textbf{10 tareas de generación}
+    (50 inferencias) y un banco de \textbf{70 kernels} de verificación
+    (420 evaluaciones) en un \textbf{Mac M4} con Ollama, con diseño
+    \emph{within-subjects} y pruebas pareadas (McNemar / Wilcoxon / Friedman,
+    Holm). DeepSeek-Coder-V2 logró el mejor balance (\textbf{100\% compilación,
+    MSR 87.1\%, FNR 12.9\%}); el dual alcanzó \textbf{MSR 80.6\% / F1 0.86},
+    mejorando la detección de Llama solo sin superar al mejor frontera.
+    Reportamos con honestidad estadística: la mayoría de contrastes \emph{no}
+    rechaza $H_0$ tras Holm.
+
+  \end{block}
+
+  \begin{block}{1. Planteamiento del problema}
+
+    \begin{itemize}
+      \item \textbf{Dolor:} compilar y ejecutar kernels Triton en GPU es lento
+        y costoso; un SLM puede generar muchos kernels inválidos que
+        desperdician ese tiempo de cómputo.
+      \item \textbf{Línea base:} usar un único modelo grande de frontera por
+        API es caro y depende de conectividad; un SLM local solo es más barato
+        pero falla más y no avisa cuándo se equivoca.
+      \item \textbf{Pregunta de investigación:} ¿un esquema \emph{dual}
+        (SLM local + reparación con modelo de código) más un filtro de
+        verificación previo a la GPU mejora la tasa de compilación frente a
+        GPT-4o, y reduce los fallos no detectados (FNR) frente a usar un solo
+        SLM?
+    \end{itemize}
+
+  \end{block}
+
+  \begin{block}{2. Antecedentes}
+
+    \begin{itemize}
+      \item \textbf{Triton DSL:} lenguaje de GPU embebido en Python; permite
+        escribir kernels con \texttt{@triton.jit} y operaciones
+        \texttt{tl.load}/\texttt{tl.store}, más tratable que CUDA crudo.
+      \item \textbf{SLM vs.\ frontera:} los modelos pequeños (8B–14B) corren en
+        local (Ollama, Apple Silicon) pero tienen menor tasa de acierto que
+        modelos de frontera; el reto es cerrar esa brecha sin pagar API.
+      \item \textbf{Verificación pre-compilación:} en vez de compilar a ciegas,
+        un \emph{checker} valida sintaxis (AST de Python), reglas léxicas y
+        estructura Triton, y clasifica el kernel \texttt{safe}/\texttt{unsafe}
+        (métricas MSR, FNR, F1) antes de gastar la GPU.
+    \end{itemize}
+
+  \end{block}
+
+  \begin{alertblock}{3. Nuestro diferenciador}
+
+    \textbf{En una línea:} mientras otros enfoques apuestan a un solo modelo
+    grande, nosotros combinamos un \emph{SLM local que genera} con un
+    \emph{modelo de código que repara} y un \emph{filtro de verificación
+    pre-GPU}, evaluado con un diseño experimental pre-registrado.
+
+    \begin{itemize}
+      \item \textbf{Método dual (propio).} Llama-3.1-8B genera; si el checker
+        rechaza, DeepSeek-Coder-V2 repara (hasta 2 reintentos) y un veto final
+        decide \texttt{safe}/\texttt{unsafe}.
+      \item \textbf{Rigor experimental.} 6 configuraciones, $T=0$, semilla 42,
+        diseño \emph{within-subjects}, hipótesis pre-registradas (1.1–1.10) y
+        corrección Holm-Bonferroni sobre la familia de contrastes.
+      \item \textbf{Honestidad de resultados.} Declaramos límites: M4 sin CUDA,
+        compilación \emph{sintáctica} (no ejecución GPU), y baselines
+        Claude/GPT en modo heurístico por falta de clave API.
+    \end{itemize}
+
+  \end{alertblock}
+
+\end{column}
+
+\separatorcolumn
+
+% ============================================================
+% COLUMNA 2 — Arquitectura, diseño experimental, métricas
+% ============================================================
+\begin{column}{\colwidth}
+
+  \begin{block}{4. Arquitectura del pipeline}
+
+    \begin{figure}
+      \centering
+      \begin{tikzpicture}[
+          node distance=1.1cm and 0.9cm,
+          pbox/.style={draw, rounded corners, minimum height=2.0cm,
+                       text width=6.0cm, align=center, font=\small, thick},
+          pbio/.style={pbox, fill=blue!8},
+          pbproc/.style={pbox, fill=green!12},
+          pbrep/.style={pbox, fill=red!8},
+          pbout/.style={pbox, fill=orange!14},
+          arr/.style={-{Stealth[length=4mm]}, very thick}]
+        \node[pbio]   (task)  {\textbf{Tarea}\\\texttt{tasks.jsonl}};
+        \node[pbproc] (gen)   [right=of task] {\textbf{Generación SLM}\\Llama-3.1-8B (Ollama)};
+        \node[pbproc] (chk)   [right=of gen]  {\textbf{Checker L1--L3}\\AST + léxico + \texttt{@triton.jit}};
+        \node[pbrep]  (rep)   [below=of chk]  {\textbf{Reparación}\\DeepSeek-Coder-V2 ($\leq 2$)};
+        \node[pbproc] (ver)   [left=of rep]   {\textbf{Verificación pre-GPU}\\MSR / FNR / F1};
+        \node[pbout]  (out)   [left=of ver]   {\textbf{Veredicto}\\\texttt{safe} / \texttt{unsafe}};
+        \draw[arr] (task) -- (gen);
+        \draw[arr] (gen)  -- (chk);
+        \draw[arr] (chk)  -- node[right,font=\footnotesize]{falla} (rep);
+        \draw[arr] (rep)  -- (ver);
+        \draw[arr] (ver)  -- (out);
+        \draw[arr] (chk.south west) .. controls +(-1,-1) .. node[above,font=\footnotesize]{compila} (ver.north);
+      \end{tikzpicture}
+      \caption{De una tarea a un veredicto: el SLM genera, el checker valida
+      en tres niveles, Coder-V2 repara los fallos y la verificación pre-GPU
+      etiqueta el kernel sin compilar en CUDA.}
+    \end{figure}
+
+    El checker exige tres niveles en M4: \textbf{L1} sintaxis Python (AST),
+    \textbf{L2} reglas léxicas del equipo, \textbf{L3} presencia de
+    \texttt{@triton.jit} con \texttt{tl.load}/\texttt{tl.store}. Compilar aquí
+    significa pasar L1--L3, \emph{no} ejecutar en GPU NVIDIA.
+
+  \end{block}
+
+  \begin{block}{5. Diseño experimental}
+
+    Seis configuraciones comparadas con el mismo benchmark y tareas
+    (\emph{within-subjects}, $T=0$, semilla 42, \texttt{timeout} 120\,s):
+
+    \begin{itemize}
+      \item \textbf{SLM locales:} Llama-3.1-8B, DeepSeek-R1-Distill-Qwen-14B.
+      \item \textbf{Frontera:} DeepSeek-Coder-V2, Claude 3.5 Sonnet, GPT-4o
+        (los dos últimos en modo heurístico sin API).
+      \item \textbf{Propuesto:} Triton Heal dual (Llama + reparación Coder-V2).
+    \end{itemize}
+
+    \vspace{0.4em}
+    \noindent\textbf{Contrastes pre-registrados (Holm-Bonferroni):}
+    {\small
+    \begin{table}
+      \centering
+      \begin{tabular}{l l l}
+        \toprule
+        \textbf{ID} & \textbf{Prueba} & \textbf{Comparación} \\
+        \midrule
+        C4 & McNemar  & Compilación: dual vs GPT-4o \\
+        C7 & McNemar  & Compilación: dual vs Llama \\
+        C1--C3 & McNemar & Detección (MSR/FNR) \\
+        C5 & Wilcoxon & Latencia frontera vs SLM \\
+        C6 & Friedman & F1 entre configuraciones \\
+        \bottomrule
+      \end{tabular}
+    \end{table}}
+
+  \end{block}
+
+  \begin{block}{6. Métricas de evaluación}
+
+    \begin{itemize}
+      \item \textbf{Tasa de compilación:} \% de salidas que pasan L1--L3.
+      \item \textbf{Speedup proxy:} $s = t_{\text{baseline}}/t_{\text{pipeline}}$,
+        indicador operativo en M4 (no es speedup medido en GPU).
+      \item \textbf{MSR} (Mutant-Spotting Rate): fracción de kernels
+        \texttt{unsafe} correctamente marcados; \textbf{FNR}: \texttt{unsafe}
+        pasados por alto.
+      \item \textbf{F1} y \textbf{\% JSON válido}: calidad y parseabilidad de la
+        respuesta del verificador.
+    \end{itemize}
+
+    Relevancia práctica exigida: $\geq 5$ pp en compilación/MSR y $\sim 8$ pp de
+    reducción de FNR, además de $p_{\text{Holm}} < 0.05$.
+
+  \end{block}
+
+\end{column}
+
+\separatorcolumn
+
+% ============================================================
+% COLUMNA 3 — Setup, resultados, discusión, referencias
+% ============================================================
+\begin{column}{\colwidth}
+
+  \begin{exampleblock}{7. Setup experimental}
+
+    \begin{itemize}
+      \item \textbf{Datos:} 10 tareas de gen.\ (50 inf.) + banco de 70 kernels
+        (39 \texttt{safe}, 31 \texttt{unsafe}; 420 eval.).
+      \item \textbf{Entorno:} Apple M4, 24\,GB, sin CUDA; Ollama
+        (\texttt{llama3.1:8b}, \texttt{deepseek-r1:14b},
+        \texttt{deepseek-coder-v2}); Python 3.10+.
+      \item \textbf{Reproducible:} \texttt{make benchmark generation
+        experiments} \texttt{stats-all figures pdf}; semilla 42, $T=0$,
+        IC Wilson 95\%.
+    \end{itemize}
+
+  \end{exampleblock}
+
+  \begin{block}{8. Resultados}
+
+    \textbf{Titular:} DeepSeek-Coder-V2 fue el más confiable
+    (\textbf{100\% compilación, MSR 87.1\%, FNR 12.9\%}); el dual logró
+    \textbf{MSR 80.6\% / F1 0.86}, por encima de Llama solo (64.5\%) en
+    detección, sin superar al mejor frontera. Tras Holm, solo el Friedman
+    global de F1 es significativo ($p < 0.001$).
+
+    \begin{table}
+      \centering
+      {\footnotesize\setlength{\tabcolsep}{4pt}
+      \begin{tabular}{l r r r r}
+        \toprule
+        \textbf{Configuración} & \textbf{Comp.\%} & \textbf{MSR\%} & \textbf{F1} & \textbf{FNR\%} \\
+        \midrule
+        Llama-3.1-8B (local)      & 50  & 64.5 & 0.81 & 35.5 \\
+        R1-Distill-14B (local)    & 0   & 12.9 & 0.22 & 87.1 \\
+        \textbf{Coder-V2} (front.) & \textbf{100} & \textbf{87.1} & 0.81 & \textbf{12.9} \\
+        Claude 3.5 (heur.)        & 100 & 83.9 & 0.91 & 16.1 \\
+        GPT-4o (heur.)            & 100 & 83.9 & 0.91 & 16.1 \\
+        \textbf{Triton Heal (dual)} & 50 & 80.6 & 0.86 & 19.4 \\
+        \bottomrule
+      \end{tabular}}
+      \caption{Descriptivos por configuración (gen.\ $N=10$, verif.\ $N=70$).
+      Claude/GPT en modo heurístico sin API.}
+    \end{table}
+
+    \begin{figure}
+      \centering
+      \includegraphics[width=0.56\textwidth]{figures/fig_msr_f1.pdf}
+      \caption{MSR (\%) y F1$\times$100 por configuración en verificación.}
+    \end{figure}
+
+  \end{block}
+
+  \begin{block}{9. Discusión y limitaciones}
+
+    \begin{itemize}
+      \item \textbf{Logros:} el dual sube la detección de Llama solo
+        (MSR 64.5\%$\rightarrow$80.6\%); pipeline reproducible y pre-registrado.
+      \item \textbf{Límites:} M4 sin CUDA $\Rightarrow$ compilación
+        \emph{sintáctica}; R1-14B inviable (14.3\% JSON válido); Claude/GPT
+        heurísticos inflan su 100\%.
+      \item \textbf{Honestidad:} el dual \emph{no} superó a GPT-4o en
+        compilación ($p_{\text{Holm}}\approx 0.15$).
+      \item \textbf{Siguiente paso:} APIs reales, 20 tareas $\times$ 3 réplicas
+        y GPU NVIDIA.
+    \end{itemize}
+
+  \end{block}
+
+  \begin{block}{Referencias}
+
+    {\scriptsize\raggedright
+    [1] P.~Tillet et al. \emph{Triton: An IL and Compiler for Tiled Neural
+    Network Computations.} MAPL, 2019.\\[0.2em]
+    [2] Q.~McNemar. \emph{Note on the sampling error of correlated proportions.}
+    Psychometrika, 1947.\\[0.2em]
+    [3] S.~Holm. \emph{A simple sequentially rejective multiple test procedure.}
+    Scand.\ J.\ Stat., 1979.\\[0.2em]
+    [4] M.~Friedman. \emph{The use of ranks to avoid the normality assumption in
+    ANOVA.} JASA, 1937.\par}
+
+  \end{block}
+
+\end{column}
+
+\separatorcolumn
+\end{columns}
+\end{frame}
+
+\end{document}
