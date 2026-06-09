@@ -78,7 +78,7 @@
     errores que solo se descubren al compilar en GPU, un recurso caro.
     \textbf{} propone un pipeline que \emph{genera y luego verifica
     antes de tocar la GPU}: un SLM local (Llama-3.1-8B) escribe el kernel y, si
-    no pasa las validaciones, un modelo de código (DeepSeek-Coder-V2) lo repara.
+    no pasa las validaciones, un modelo de código (DeepSeek-R1-Distill) lo repara.
     Evaluamos seis configuraciones sobre \textbf{10 tareas de generación}
     (50 inferencias) y un banco de \textbf{70 kernels} de verificación
     (420 evaluaciones) en un \textbf{Mac M4} con Ollama, con diseño
@@ -172,7 +172,7 @@
         \node[pbio]   (task)  {\textbf{Tarea}\\\texttt{tasks.jsonl}};
         \node[pbproc] (gen)   [right=of task] {\textbf{Generación SLM}\\Llama-3.1-8B (Ollama)};
         \node[pbproc] (chk)   [right=of gen]  {\textbf{Checker L1--L3}\\AST + léxico + \texttt{@triton.jit}};
-        \node[pbrep]  (rep)   [below=of chk]  {\textbf{Reparación}\\DeepSeek-Coder-V2 ($\leq 2$)};
+        \node[pbrep]  (rep)   [below=of chk]  {\textbf{Reparación}\\DeepSeek-R1-Distill ($\leq 2$)};
         \node[pbproc] (ver)   [left=of rep]   {\textbf{Verificación pre-GPU}\\MSR / FNR / F1};
         \node[pbout]  (out)   [left=of ver]   {\textbf{Veredicto}\\\texttt{safe} / \texttt{unsafe}};
         \draw[arr] (task) -- (gen);
@@ -183,7 +183,7 @@
         \draw[arr] (chk.south west) .. controls +(-1,-1) .. node[above,font=\footnotesize]{compila} (ver.north);
       \end{tikzpicture}
       \caption{De una tarea a un veredicto: el SLM genera, el checker valida
-      en tres niveles, Coder-V2 repara los fallos y la verificación pre-GPU
+      en tres niveles, R1-Distill repara los fallos y la verificación pre-GPU
       etiqueta el kernel sin compilar en CUDA.}
     \end{figure}
 
