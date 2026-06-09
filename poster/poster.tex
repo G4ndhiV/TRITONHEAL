@@ -38,7 +38,7 @@
 % ====================
 % Title
 % ====================
-\title{: generación de kernels Triton con SLM locales y verificación pre-GPU como filtro de seguridad}
+\title{Triton Heal: generación de kernels Triton con SLM locales y verificación pre-GPU como filtro de seguridad}
 
 \author{Cristóbal Camarena Hernández \and Josué Galindo Gutiérrez \and Gandhi Emmanuel Valdez Huerta \and Diego Alberto Estrada López}
 
@@ -76,7 +76,7 @@
 
     Los modelos de lenguaje pequeños (SLM) producen kernels en Triton DSL con
     errores que solo se descubren al compilar en GPU, un recurso caro.
-    \textbf{} propone un pipeline que \emph{genera y luego verifica
+    \textbf{Triton Heal} propone un pipeline que \emph{genera y luego verifica
     antes de tocar la GPU}: un SLM local (Llama-3.1-8B) escribe el kernel y, si
     no pasa las validaciones, un modelo de código (DeepSeek-R1-Distill) lo repara.
     Evaluamos seis configuraciones sobre \textbf{10 tareas de generación}
@@ -135,8 +135,8 @@
 
     \begin{itemize}
       \item \textbf{Método dual (propio).} Llama-3.1-8B genera; si el checker
-        rechaza, DeepSeek-R1-Distill (hasta 2 reintentos) y un veto final
-        decide \texttt{safe}/\texttt{unsafe}.
+        rechaza, DeepSeek-R1-Distill lo repara (hasta 2 reintentos) y un veto
+        final decide \texttt{safe}/\texttt{unsafe}.
       \item \textbf{Rigor experimental.} 6 configuraciones, $T=0$, semilla 42,
         diseño \emph{within-subjects}, hipótesis pre-registradas (1.1–1.10) y
         corrección Holm-Bonferroni sobre la familia de contrastes.
