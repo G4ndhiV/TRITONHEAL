@@ -19,7 +19,7 @@
 
 \begin{abstract}
 \noindent
-Este reporte documenta la evaluación experimental de Triton Heal y varios baselines para generar y verificar kernels en Triton DSL. Se corrieron \Ntasks\ tareas de generación con cinco configuraciones (\Ngen\ inferencias) y \Nkernels\ kernels con seis configuraciones de verificación (\Neval\ evaluaciones) en un Mac M4 con Ollama. Se reportan tasa de compilación bajo criterios sintácticos, un speedup proxy del pipeline y métricas MSR/FNR. DeepSeek-Coder-V2 obtuvo el mejor balance en compilación y detección; el modo dual de Llama con reparación Coder-V2 quedó intermedio. Las pruebas pareadas no rechazan la mayoría de hipótesis tras corrección Holm; se discuten limitaciones del entorno sin CUDA y del uso de baselines heurísticos sin API.
+Este reporte documenta la evaluación experimental de Triton Heal y varios baselines para generar y verificar kernels en Triton DSL. Se corrieron \Ntasks\ tareas de generación con cinco configuraciones (\Ngen\ inferencias) y \Nkernels\ kernels con seis configuraciones de verificación (\Neval\ evaluaciones) en un Mac M4 con Ollama. Se reportan tasa de compilación bajo criterios sintácticos, un speedup proxy del pipeline y métricas MSR/FNR. DeepSeek-Coder-V2 obtuvo el mejor balance en compilación y detección; el modo dual de Llama con reparación Coder-V2 quedó intermedio. Las pruebas pareadas no rechazan la mayoría de hipótesis tras corrección Holm; se discuten limitaciones del entorno sin CUDA.
 \end{abstract}
 
 \tableofcontents
@@ -47,7 +47,7 @@ Configuración & Planeado & Ejecutado \\
 solo\_llama & Ollama Llama-3.1-8B & \texttt{llama3.1:8b} \\
 solo\_deepseek & Ollama R1-Distill-14B & \texttt{deepseek-r1:14b} (gen.\ omitida) \\
 solo\_deepseek\_coder & Ollama Coder-V2 & \texttt{deepseek-coder-v2} \\
-solo\_claude / solo\_gpt4o & API & Heurístico sin clave API \\
+solo\_claude / solo\_gpt4o & API & ístico sin clave API \\
 triton\_heal\_dual & Llama + reparación Coder-V2 & \texttt{run\_generation} dual \\
 \bottomrule
 \end{tabularx}}
