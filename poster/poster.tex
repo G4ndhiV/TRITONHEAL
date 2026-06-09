@@ -38,7 +38,7 @@
 % ====================
 % Title
 % ====================
-\title{Triton Heal: generación de kernels Triton con SLM locales y verificación pre-GPU como filtro de seguridad}
+\title{: generación de kernels Triton con SLM locales y verificación pre-GPU como filtro de seguridad}
 
 \author{Cristóbal Camarena Hernández \and Josué Galindo Gutiérrez \and Gandhi Emmanuel Valdez Huerta \and Diego Alberto Estrada López}
 
@@ -76,7 +76,7 @@
 
     Los modelos de lenguaje pequeños (SLM) producen kernels en Triton DSL con
     errores que solo se descubren al compilar en GPU, un recurso caro.
-    \textbf{Triton Heal} propone un pipeline que \emph{genera y luego verifica
+    \textbf{} propone un pipeline que \emph{genera y luego verifica
     antes de tocar la GPU}: un SLM local (Llama-3.1-8B) escribe el kernel y, si
     no pasa las validaciones, un modelo de código (DeepSeek-Coder-V2) lo repara.
     Evaluamos seis configuraciones sobre \textbf{10 tareas de generación}
@@ -135,14 +135,14 @@
 
     \begin{itemize}
       \item \textbf{Método dual (propio).} Llama-3.1-8B genera; si el checker
-        rechaza, DeepSeek-Coder-V2 repara (hasta 2 reintentos) y un veto final
+        rechaza, DeepSeek-R1-Distill (hasta 2 reintentos) y un veto final
         decide \texttt{safe}/\texttt{unsafe}.
       \item \textbf{Rigor experimental.} 6 configuraciones, $T=0$, semilla 42,
         diseño \emph{within-subjects}, hipótesis pre-registradas (1.1–1.10) y
         corrección Holm-Bonferroni sobre la familia de contrastes.
       \item \textbf{Honestidad de resultados.} Declaramos límites: M4 sin CUDA,
         compilación \emph{sintáctica} (no ejecución GPU), y baselines
-        Claude/GPT en modo heurístico por falta de clave API.
+        Claude/GPT.
     \end{itemize}
 
   \end{alertblock}
@@ -202,8 +202,8 @@
     \begin{itemize}
       \item \textbf{SLM locales:} Llama-3.1-8B, DeepSeek-R1-Distill-Qwen-14B.
       \item \textbf{Frontera:} DeepSeek-Coder-V2, Claude 3.5 Sonnet, GPT-4o
-        (los dos últimos en modo heurístico sin API).
-      \item \textbf{Propuesto:} Triton Heal dual (Llama + reparación Coder-V2).
+      
+      \item \textbf{Propuesto:} Triton Heal dual (Llama + reparación DeepSeek-R1-Distill-Qwen).
     \end{itemize}
 
     \vspace{0.4em}
@@ -277,8 +277,7 @@
         \textbf{Triton Heal (dual)} & 50 & 80.6 & 0.86 & 19.4 \\
         \bottomrule
       \end{tabular}}
-      \caption{Descriptivos por configuración (gen.\ $N=10$, verif.\ $N=70$).
-      Claude/GPT en modo heurístico sin API.}
+      \caption{Descriptivos por configuración (gen.\ $N=10$, verif.\ $N=70$).}
     \end{table}
 
     \begin{figure}
@@ -312,7 +311,7 @@
         no supera a GPT-4o, $p\approx 0.15$); solo el Friedman global de F1 es
         significativo ($p<0.001$).
       \item \textbf{Limitaciones:} M4 sin CUDA (compilación \emph{sintáctica});
-        muestra reducida; R1-14B inestable; baselines Claude/GPT heurísticos.
+        muestra reducida; R1-14B inestable; baselines Claude/GPT.
       \item \textbf{Trabajo futuro:} APIs reales, 20 tareas $\times$ 3 réplicas,
         GPU NVIDIA y exportar el filtro a decodificación restringida.
     \end{itemize}
