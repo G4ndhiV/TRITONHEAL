@@ -49,8 +49,7 @@
 % ====================
 \footercontent{
   \href{https://github.com/G4ndhiV/TRITONHEAL}{Repo: github.com/G4ndhiV/TRITONHEAL} \hfill
-  ACA-2026 --- Sesión con socio formador \hfill
-  \href{mailto:a01642653@tec.mx}{a01642653@tec.mx}}
+  ACA-2026 --- Sesión con socio formador}
 
 % ====================
 % Logo (cabecera)
@@ -161,26 +160,28 @@
     \begin{figure}
       \centering
       \begin{tikzpicture}[
-          node distance=1.1cm and 0.9cm,
-          pbox/.style={draw, rounded corners, minimum height=2.0cm,
-                       text width=6.0cm, align=center, font=\small, thick},
+          node distance=2.6cm and 2.0cm,
+          pbox/.style={draw, rounded corners, minimum height=2.8cm,
+                       minimum width=6.4cm, text width=5.8cm, align=center,
+                       font=\small, thick},
           pbio/.style={pbox, fill=blue!8},
           pbproc/.style={pbox, fill=green!12},
           pbrep/.style={pbox, fill=red!8},
           pbout/.style={pbox, fill=orange!14},
-          arr/.style={-{Stealth[length=4mm]}, very thick}]
-        \node[pbio]   (task)  {\textbf{Tarea}\\\texttt{tasks.jsonl}};
-        \node[pbproc] (gen)   [right=of task] {\textbf{Generación SLM}\\Llama-3.1-8B (Ollama)};
-        \node[pbproc] (chk)   [right=of gen]  {\textbf{Checker L1--L3}\\AST + léxico + \texttt{@triton.jit}};
-        \node[pbrep]  (rep)   [below=of chk]  {\textbf{Reparación}\\DeepSeek-R1-Distill ($\leq 2$)};
-        \node[pbproc] (ver)   [left=of rep]   {\textbf{Verificación pre-GPU}\\MSR / FNR / F1};
-        \node[pbout]  (out)   [left=of ver]   {\textbf{Veredicto}\\\texttt{safe} / \texttt{unsafe}};
+          arr/.style={-{Stealth[length=4mm]}, very thick},
+          lbl/.style={font=\footnotesize\bfseries, inner sep=2pt}]
+        \node[pbio]   (task)  {\textbf{Tarea}\\[2pt]\texttt{tasks.jsonl}};
+        \node[pbproc] (gen)   [right=of task] {\textbf{Generación SLM}\\[2pt]Llama-3.1-8B\\(Ollama)};
+        \node[pbproc] (chk)   [right=of gen]  {\textbf{Checker L1--L3}\\[2pt]AST + léxico\\+ \texttt{@triton.jit}};
+        \node[pbrep]  (rep)   [below=of chk]  {\textbf{Reparación}\\[2pt]DeepSeek-R1-Distill\\($\leq 2$ reintentos)};
+        \node[pbproc] (ver)   [below=of gen]  {\textbf{Verificación pre-GPU}\\[2pt]MSR / FNR / F1};
+        \node[pbout]  (out)   [below=of task] {\textbf{Veredicto}\\[2pt]\texttt{safe} / \texttt{unsafe}};
         \draw[arr] (task) -- (gen);
         \draw[arr] (gen)  -- (chk);
-        \draw[arr] (chk)  -- node[right,font=\footnotesize]{falla} (rep);
+        \draw[arr] (chk)  -- node[lbl, right]{falla} (rep);
         \draw[arr] (rep)  -- (ver);
         \draw[arr] (ver)  -- (out);
-        \draw[arr] (chk.south west) .. controls +(-1,-1) .. node[above,font=\footnotesize]{compila} (ver.north);
+        \draw[arr] (chk.south west) -- node[lbl, sloped, above, pos=0.55]{compila} (ver.north east);
       \end{tikzpicture}
       \caption{De una tarea a un veredicto: el SLM genera, el checker valida
       en tres niveles, R1-Distill repara los fallos y la verificación pre-GPU
